@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP DGD0506A
+D Gate Drivers HV Gate Driver MSOP-10 T&R 2.5K
+$ENDCMP
+#
+$CMP Q_NMOS_SSSGDDDD
+D Transistor N-MOSFET with substrate diode (general)
+K NMOS n-mos n-mosfet transistor
+F ~
+$ENDCMP
+#
+#End Doc Library
