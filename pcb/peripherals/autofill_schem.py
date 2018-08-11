@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # TODO: make sure it also works in python2
 
+# version 0.0.2
+
+# updates:
+# - allow multiple input files, using the later ones only for component footprint
+# and distributor
+# - fix code so it works with Kicad 5
+
 import argparse
 
 DISTRIBUTOR_VALUES = ["\"Mouser\""]
@@ -134,6 +141,7 @@ def infer_components(components):
 
 def main():
   parser = argparse.ArgumentParser(description="Autofills components in an Eeschema schematic")
+  parser.add_argument("-i", "--include", action="append", help="additional files to read in, for component inference")
   parser.add_argument("input", help="file to autofill")
   parser.add_argument("output", help="file to write autofilled schematic to")
 
@@ -150,7 +158,22 @@ def main():
   without_footprints = len([None for c in components if c.footprint is None])
   print("found {} components without footprints".format(without_footprints))
 
-  filled_values = infer_components(components)
+  all_components = []
+  all_components.extend(components)
+
+  if args.include is not None:
+    print("searching additional files: {}".format(" ".join(args.include)))
+
+    for filename in args.include:
+      with open(filename, 'r') as f:
+        (more_lines, more_components) = parse_lines(f)
+      print("{} more lines".format(len(more_lines)))
+      print("found {} more components".format(len(more_components)))
+      more_without_footprints = len([None for c in more_components if c.footprint is None])
+      print("found {} more components without footprints".format(more_without_footprints))
+      all_components.extend(more_components)
+
+  filled_values = infer_components(all_components)
 
   entry_count = 0
   conflicts = []
