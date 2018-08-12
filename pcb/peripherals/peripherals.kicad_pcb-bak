@@ -3,7 +3,7 @@
   (general
     (thickness 1.6)
     (drawings 1)
-    (tracks 5)
+    (tracks 0)
     (zones 0)
     (modules 130)
     (nets 91)
@@ -32,7 +32,7 @@
   )
 
   (setup
-    (last_trace_width 0.1524)
+    (last_trace_width 0.254)
     (user_trace_width 0.1524)
     (user_trace_width 0.254)
     (user_trace_width 0.3302)
@@ -9631,11 +9631,5 @@
   (gr_text "FABRICATION NOTES\n\n1. THIS IS A 2 LAYER BOARD. \n2. EXTERNAL LAYERS SHALL HAVE 1 OZ COPPER.\n3. MATERIAL: FR4 AND 0.062 INCH +/- 10% THICK.\n4. BOARDS SHALL BE ROHS COMPLIANT. \n5. MANUFACTURE IN ACCORDANCE WITH IPC-6012 CLASS 2\n6. MASK: BOTH SIDES OF THE BOARD SHALL HAVE \n   SOLDER MASK (ANY COLOR) OVER BARE COPPER. \n7. SILK: BOTH SIDES OF THE BOARD SHALL HAVE \n   WHITE SILKSCREEN. DO NOT PLACE SILK OVER BARE COPPER.\n8. FINISH: ENIG.\n9. MINIMUM TRACE WIDTH - 0.006 INCH.\n   MINIMUM SPACE - 0.006 INCH.\n   MINIMUM HOLE DIA - 0.013 INCH. \n10. MAX HOLE PLACEMENT TOLERANCE OF +/- 0.003 INCH.\n11. MAX HOLE DIAMETER TOLERANCE OF +/- 0.003 INCH AFTER PLATING." (at 25 200) (layer Dwgs.User) (tstamp 5B6F7ADE)
     (effects (font (size 2.54 2.54) (thickness 0.254)) (justify left))
   )
-
-  (segment (start 59.65 53.1) (end 59.5 53.1) (width 0.1524) (layer F.Cu) (net 29))
-  (segment (start 61.480201 54.930201) (end 59.65 53.1) (width 0.1524) (layer F.Cu) (net 29))
-  (segment (start 61.480201 56.482601) (end 61.480201 54.930201) (width 0.1524) (layer F.Cu) (net 29))
-  (segment (start 62.8976 57.9) (end 61.480201 56.482601) (width 0.1524) (layer F.Cu) (net 29))
-  (segment (start 63.725 57.9) (end 62.8976 57.9) (width 0.1524) (layer F.Cu) (net 29))
 
 )

@@ -322,8 +322,9 @@ U 1 1 5B6FB25C
 P 950 2850
 F 0 "TP101" V 1145 2924 50  0000 C CNN
 F 1 "TestPoint_Alt" V 1054 2924 50  0000 C CNN
-F 2 "" H 1150 2850 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1150 2850 50  0001 C CNN
 F 3 "~" H 1150 2850 50  0001 C CNN
+F 4 "NoPart" H 1150 2850 50  0001 C CNN "Mouser"
 	1    950  2850
 	0    -1   -1   0   
 $EndComp

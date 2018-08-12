@@ -322,8 +322,9 @@ U 1 1 5B6FB25C
 P 950 2850
 F 0 "TP101" V 1145 2924 50  0000 C CNN
 F 1 "TestPoint_Alt" V 1054 2924 50  0000 C CNN
-F 2 "" H 1150 2850 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1150 2850 50  0001 C CNN
 F 3 "~" H 1150 2850 50  0001 C CNN
+F 4 "NoPart" H 1150 2850 50  0001 C CNN "Mouser"
 	1    950  2850
 	0    -1   -1   0   
 $EndComp
@@ -335,7 +336,7 @@ U 1 1 5B6FBC4E
 P 3200 2400
 F 0 "J101" H 3120 1975 50  0000 C CNN
 F 1 "Conn_01x04" H 3120 2066 50  0000 C CNN
-F 2 "peripherals:Conn-4-8mmx6mm" H 3200 2400 50  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3200 2400 50  0001 C CNN
 F 3 "~" H 3200 2400 50  0001 C CNN
 F 4 "NoPart" H 3200 2400 50  0001 C CNN "Mouser"
 	1    3200 2400
@@ -347,7 +348,7 @@ U 1 1 5B6FBCEC
 P 3200 3850
 F 0 "J107" H 3120 3425 50  0000 C CNN
 F 1 "Conn_01x04" H 3120 3516 50  0000 C CNN
-F 2 "peripherals:Conn-4-8mmx6mm" H 3200 3850 50  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3200 3850 50  0001 C CNN
 F 3 "~" H 3200 3850 50  0001 C CNN
 F 4 "NoPart" H 3200 3850 50  0001 C CNN "Mouser"
 	1    3200 3850
@@ -407,7 +408,7 @@ U 1 1 5B70643C
 P 6550 2400
 F 0 "J102" H 6470 1975 50  0000 C CNN
 F 1 "Conn_01x04" H 6470 2066 50  0000 C CNN
-F 2 "peripherals:Conn-4-8mmx6mm" H 6550 2400 50  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 6550 2400 50  0001 C CNN
 F 3 "~" H 6550 2400 50  0001 C CNN
 F 4 "NoPart" H 6550 2400 50  0001 C CNN "Mouser"
 	1    6550 2400
@@ -419,7 +420,7 @@ U 1 1 5B706443
 P 6550 3850
 F 0 "J108" H 6470 3425 50  0000 C CNN
 F 1 "Conn_01x04" H 6470 3516 50  0000 C CNN
-F 2 "peripherals:Conn-4-8mmx6mm" H 6550 3850 50  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 6550 3850 50  0001 C CNN
 F 3 "~" H 6550 3850 50  0001 C CNN
 F 4 "NoPart" H 6550 3850 50  0001 C CNN "Mouser"
 	1    6550 3850
