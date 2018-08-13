@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/kelvin/repos/auto-orchestra/pcb/peripherals/peripherals.sch)
-    (date "Sat 11 Aug 2018 10:02:49 AM EDT")
+    (date "Sun 12 Aug 2018 11:16:12 PM EDT")
     (tool "Eeschema 5.0.0")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -159,7 +159,7 @@
       (tstamp 5B6FB25C))
     (comp (ref J101)
       (value Conn_01x04)
-      (footprint peripherals:Conn-4-8mmx6mm)
+      (footprint Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm)
       (datasheet ~)
       (fields
         (field (name Mouser) NoPart))
@@ -168,7 +168,7 @@
       (tstamp 5B6FBC4E))
     (comp (ref J107)
       (value Conn_01x04)
-      (footprint peripherals:Conn-4-8mmx6mm)
+      (footprint Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm)
       (datasheet ~)
       (fields
         (field (name Mouser) NoPart))
@@ -177,7 +177,7 @@
       (tstamp 5B6FBCEC))
     (comp (ref J102)
       (value Conn_01x04)
-      (footprint peripherals:Conn-4-8mmx6mm)
+      (footprint Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm)
       (datasheet ~)
       (fields
         (field (name Mouser) NoPart))
@@ -186,7 +186,7 @@
       (tstamp 5B70643C))
     (comp (ref J108)
       (value Conn_01x04)
-      (footprint peripherals:Conn-4-8mmx6mm)
+      (footprint Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm)
       (datasheet ~)
       (fields
         (field (name Mouser) NoPart))
