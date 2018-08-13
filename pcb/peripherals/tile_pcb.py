@@ -266,7 +266,7 @@ def main():
           ref_idx = j + 1
       ref_parts[ref_idx] = module.reference
       lines[module.ref_line] = " ".join(ref_parts)
-      print("ref line", lines[module.ref_line])
+      #print("ref line", lines[module.ref_line])
 
       # For the at line, generate a new at line using the offset
       src_at_line = lines[src_module.at_line]
@@ -288,8 +288,8 @@ def main():
       if (at_idx + 2) == (len(src_parts) - 1):
         src_parts[at_idx + 2] += ")\n"
       lines[module.at_line] = " ".join(src_parts)
-      print("at line", src_parts)
-      print("at line joined", lines[module.at_line])
+      #print("at line", src_parts)
+      #print("at line joined", lines[module.at_line])
 
       # For the nets, we need to match up pad numbers from the module to the src_module
       # so we can replace them in the new module correctly
