@@ -68,6 +68,7 @@ def getsheetnet(net_name):
     net_part = net_name[len("\"Net-("):].split("-")[0]
     return getsheetref(net_part)
   else:
+    # TODO: sort out sheet ref stuff
     return -1
 
 
