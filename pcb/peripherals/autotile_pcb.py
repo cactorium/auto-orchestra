@@ -132,7 +132,7 @@ def istrackinbounds(unstripped, left, right, upper, lower):
           boundscheck(endx, endy, left, right, upper, lower))
 
 
-def istrackinbounds(unstripped, left, right, upper, lower):
+def isviainbounds(unstripped, left, right, upper, lower):
   via_parts = unstripped.split(" ")
   # NOTE: hardcoded offsets within (segment ...)
   x = float(via_parts[4])
