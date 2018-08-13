@@ -172,6 +172,7 @@ def main():
   tracks = []
 
   last_trace = None
+  removed_traces = list()
 
 
   with open(args.input, 'r') as f:
@@ -238,12 +239,16 @@ def main():
         sheet_idx = netmap[net_idx].sheet_idx
         if sheet_idx == src_idx:
           tracks.append(line_num)
+        elif sheet_idx in dst_idxs:
+          removed_traces.append(line_num)
       paren_count += stripped.count("(") - stripped.count(")")
   
   print("found {} tileable modules".format(len(modules[src_idx])))
   print("found {} tileable traces".format(len(tracks)))
+  print("removing {} traces".format(len(removed_traces)))
 
   new_traces = list()
+
   for i, dst_idx in enumerate(dst_idxs):
     xoff = xoffset * (i + 1)
     yoff = yoffset * (i + 1)
@@ -319,6 +324,7 @@ def main():
       for n in module.net_lines:
         pad_parts = lines[n - 1].split(" ")
         pad_id = pad_parts[1]
+        print("{} -> {}".format(lines[n][:-1], module_nets[pad_id][:-1]))
         lines[n] = module_nets[pad_id]
 
 
@@ -346,6 +352,7 @@ def main():
       track_parts[8] = str(endy) + ")"
       
       net_name = remapnet(netmap[net_id].name, dst_idx)
+      print("{} -> {}".format(netmap[net_id].name, net_name))
       net_id = None
       for i, maybe_net in netmap.items():
         if maybe_net.name == net_name:
@@ -368,8 +375,9 @@ def main():
       last_trace = 0
 
     # TODO: write out all the lines
-    for line in lines[:last_trace + 1]:
-      f.write(line)
+    for i, line in enumerate(lines[:last_trace + 1]):
+      if i not in removed_traces:
+        f.write(line)
     for line in new_traces:
       f.write(line)
     for line in lines[last_trace + 1:]:
