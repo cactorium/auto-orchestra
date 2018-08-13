@@ -303,10 +303,12 @@ def main():
         # NOTE: assumes each net line within a module is preceded by the pad line
         # NOTE: assumes the pad id is the second part of the line
         pad_parts = lines[n - 1].split(" ")
-        pad_id = pad_parts[1]
+        #print(pad_parts)
+        pad_id = pad_parts[5]
         net_line = lines[n]
 
         module_nets[pad_id] = net_line
+      #print(module_nets)
 
       # copy all the lines that aren't ref, at, or pad
       # +1 to skip the (module header line that we shouldn't modify ever
@@ -323,8 +325,8 @@ def main():
       # the pads are reordered in the new version
       for n in module.net_lines:
         pad_parts = lines[n - 1].split(" ")
-        pad_id = pad_parts[1]
-        print("{} -> {}".format(lines[n][:-1], module_nets[pad_id][:-1]))
+        pad_id = pad_parts[5]
+        #print("{} -> {}".format(lines[n][:-1], module_nets[pad_id][:-1]))
         lines[n] = module_nets[pad_id]
 
 
@@ -352,7 +354,7 @@ def main():
       track_parts[8] = str(endy) + ")"
       
       net_name = remapnet(netmap[net_id].name, dst_idx)
-      print("{} -> {}".format(netmap[net_id].name, net_name))
+      #print("{} -> {}".format(netmap[net_id].name, net_name))
       net_id = None
       for i, maybe_net in netmap.items():
         if maybe_net.name == net_name:
