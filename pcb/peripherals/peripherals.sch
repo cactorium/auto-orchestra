@@ -330,30 +330,6 @@ F 4 "NoPart" H 1150 2850 50  0001 C CNN "Mouser"
 $EndComp
 Wire Wire Line
 	950  2850 1100 2850
-$Comp
-L Connector_Generic:Conn_01x04 J101
-U 1 1 5B6FBC4E
-P 3200 2400
-F 0 "J101" H 3120 1975 50  0000 C CNN
-F 1 "Conn_01x04" H 3120 2066 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3200 2400 50  0001 C CNN
-F 3 "~" H 3200 2400 50  0001 C CNN
-F 4 "NoPart" H 3200 2400 50  0001 C CNN "Mouser"
-	1    3200 2400
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x04 J107
-U 1 1 5B6FBCEC
-P 3200 3850
-F 0 "J107" H 3120 3425 50  0000 C CNN
-F 1 "Conn_01x04" H 3120 3516 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3200 3850 50  0001 C CNN
-F 3 "~" H 3200 3850 50  0001 C CNN
-F 4 "NoPart" H 3200 3850 50  0001 C CNN "Mouser"
-	1    3200 3850
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	3400 3950 3900 3950
 Wire Wire Line
@@ -402,30 +378,6 @@ Wire Wire Line
 	3600 2200 3600 1900
 Wire Wire Line
 	3600 1900 4050 1900
-$Comp
-L Connector_Generic:Conn_01x04 J102
-U 1 1 5B70643C
-P 6550 2400
-F 0 "J102" H 6470 1975 50  0000 C CNN
-F 1 "Conn_01x04" H 6470 2066 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 6550 2400 50  0001 C CNN
-F 3 "~" H 6550 2400 50  0001 C CNN
-F 4 "NoPart" H 6550 2400 50  0001 C CNN "Mouser"
-	1    6550 2400
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector_Generic:Conn_01x04 J108
-U 1 1 5B706443
-P 6550 3850
-F 0 "J108" H 6470 3425 50  0000 C CNN
-F 1 "Conn_01x04" H 6470 3516 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 6550 3850 50  0001 C CNN
-F 3 "~" H 6550 3850 50  0001 C CNN
-F 4 "NoPart" H 6550 3850 50  0001 C CNN "Mouser"
-	1    6550 3850
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	6750 3950 7250 3950
 Wire Wire Line
@@ -474,4 +426,160 @@ Wire Wire Line
 	6950 2200 6950 1900
 Wire Wire Line
 	6950 1900 7400 1900
+$Comp
+L Connector_Generic:Conn_01x05 J101
+U 1 1 5B71A22D
+P 3200 2400
+F 0 "J101" H 3120 1975 50  0000 C CNN
+F 1 "Conn_01x05" H 3120 2066 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 3200 2400 50  0001 C CNN
+F 3 "~" H 3200 2400 50  0001 C CNN
+F 4 "NoPart" H 3200 2400 50  0001 C CNN "Mouser"
+	1    3200 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 5B71A5D7
+P 3450 2700
+F 0 "#PWR0105" H 3450 2450 50  0001 C CNN
+F 1 "GND" H 3455 2527 50  0000 C CNN
+F 2 "" H 3450 2700 50  0001 C CNN
+F 3 "" H 3450 2700 50  0001 C CNN
+	1    3450 2700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 2700 3450 2600
+Wire Wire Line
+	3450 2600 3400 2600
+$Comp
+L Connector_Generic:Conn_01x05 J107
+U 1 1 5B71D263
+P 3200 3850
+F 0 "J107" H 3120 3425 50  0000 C CNN
+F 1 "Conn_01x05" H 3120 3516 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 3200 3850 50  0001 C CNN
+F 3 "~" H 3200 3850 50  0001 C CNN
+F 4 "NoPart" H 3200 3850 50  0001 C CNN "Mouser"
+	1    3200 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 J102
+U 1 1 5B71D2AF
+P 6550 2400
+F 0 "J102" H 6470 1975 50  0000 C CNN
+F 1 "Conn_01x05" H 6470 2066 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 6550 2400 50  0001 C CNN
+F 3 "~" H 6550 2400 50  0001 C CNN
+F 4 "NoPart" H 6550 2400 50  0001 C CNN "Mouser"
+	1    6550 2400
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x05 J108
+U 1 1 5B71D307
+P 6550 3850
+F 0 "J108" H 6470 3425 50  0000 C CNN
+F 1 "Conn_01x05" H 6470 3516 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 6550 3850 50  0001 C CNN
+F 3 "~" H 6550 3850 50  0001 C CNN
+F 4 "NoPart" H 6550 3850 50  0001 C CNN "Mouser"
+	1    6550 3850
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5B71D394
+P 3450 4200
+F 0 "#PWR0107" H 3450 3950 50  0001 C CNN
+F 1 "GND" H 3455 4027 50  0000 C CNN
+F 2 "" H 3450 4200 50  0001 C CNN
+F 3 "" H 3450 4200 50  0001 C CNN
+	1    3450 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3450 4200 3450 4050
+Wire Wire Line
+	3450 4050 3400 4050
+$Comp
+L power:GND #PWR0108
+U 1 1 5B720152
+P 6800 4200
+F 0 "#PWR0108" H 6800 3950 50  0001 C CNN
+F 1 "GND" H 6805 4027 50  0000 C CNN
+F 2 "" H 6800 4200 50  0001 C CNN
+F 3 "" H 6800 4200 50  0001 C CNN
+	1    6800 4200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 4200 6800 4050
+Wire Wire Line
+	6800 4050 6750 4050
+$Comp
+L power:GND #PWR0106
+U 1 1 5B723175
+P 6800 2750
+F 0 "#PWR0106" H 6800 2500 50  0001 C CNN
+F 1 "GND" H 6805 2577 50  0000 C CNN
+F 2 "" H 6800 2750 50  0001 C CNN
+F 3 "" H 6800 2750 50  0001 C CNN
+	1    6800 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6800 2750 6800 2600
+Wire Wire Line
+	6800 2600 6750 2600
+$Comp
+L Mechanical:MountingHole MH101
+U 1 1 5B72BC06
+P 2300 6000
+F 0 "MH101" H 2400 6046 50  0000 L CNN
+F 1 "MountingHole" H 2400 5955 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_5.3mm_M5_Pad" H 2300 6000 50  0001 C CNN
+F 3 "~" H 2300 6000 50  0001 C CNN
+F 4 "NoPart" H 2300 6000 50  0001 C CNN "Mouser"
+	1    2300 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH102
+U 1 1 5B731ED4
+P 2300 6250
+F 0 "MH102" H 2400 6296 50  0000 L CNN
+F 1 "MountingHole" H 2400 6205 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_5.3mm_M5_Pad" H 2300 6250 50  0001 C CNN
+F 3 "~" H 2300 6250 50  0001 C CNN
+F 4 "NoPart" H 2300 6250 50  0001 C CNN "Mouser"
+	1    2300 6250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH103
+U 1 1 5B734FC8
+P 2300 6550
+F 0 "MH103" H 2400 6596 50  0000 L CNN
+F 1 "MountingHole" H 2400 6505 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_5.3mm_M5_Pad" H 2300 6550 50  0001 C CNN
+F 3 "~" H 2300 6550 50  0001 C CNN
+F 4 "NoPart" H 2300 6550 50  0001 C CNN "Mouser"
+	1    2300 6550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole MH104
+U 1 1 5B734FCF
+P 2300 6800
+F 0 "MH104" H 2400 6846 50  0000 L CNN
+F 1 "MountingHole" H 2400 6755 50  0000 L CNN
+F 2 "Mounting_Holes:MountingHole_5.3mm_M5_Pad" H 2300 6800 50  0001 C CNN
+F 3 "~" H 2300 6800 50  0001 C CNN
+F 4 "NoPart" H 2300 6800 50  0001 C CNN "Mouser"
+	1    2300 6800
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

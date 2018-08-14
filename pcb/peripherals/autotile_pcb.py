@@ -310,7 +310,7 @@ def main():
         elif isviainbounds(l, left, right, upper, lower):
           vias.append(line_num)
         else:
-          for i in range(1, dst_idx + 1):
+          for i in range(1, len(dst_idxs) + 1):
             xoff = xoffset * (i + 1)
             yoff = yoffset * (i + 1)
             if isviainbounds(l, left + xoff, right + xoff, upper + yoff, lower + yoff):
