@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ACT4065A
+D Switching Voltage Regulators 28V, 2A, 200kHz Step-Down Converter
+$ENDCMP
+#
+$CMP SP485CN-L_TR
+D RS-485 Interface IC RS485 5000 kbps temp 0C to 70C
+$ENDCMP
+#
+#End Doc Library

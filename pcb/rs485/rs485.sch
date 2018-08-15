@@ -1,0 +1,522 @@
+EESchema Schematic File Version 4
+EELAYER 26 0
+EELAYER END
+$Descr USLetter 11000 8500
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L rs485:ACT4065A U?
+U 1 1 5B73B9E3
+P 3600 3650
+F 0 "U?" H 3600 3815 50  0000 C CNN
+F 1 "ACT4065A" H 3600 3724 50  0000 C CNN
+F 2 "rs485:ActiveSemi-SOP8" H 3600 3650 50  0001 C CNN
+F 3 "" H 3600 3650 50  0001 C CNN
+F 4 "107-ACT4065ASH-T" H 3600 3650 50  0001 C CNN "Mouser"
+	1    3600 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C?
+U 1 1 5B73BB45
+P 2650 3850
+F 0 "C?" H 2742 3896 50  0000 L CNN
+F 1 "10nF" H 2742 3805 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 2650 3850 50  0001 C CNN
+F 3 "~" H 2650 3850 50  0001 C CNN
+F 4 "77-VJ0603Y103KXAAC" H 2650 3850 50  0001 C CNN "Mouser"
+	1    2650 3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 3750 3250 3750
+Wire Wire Line
+	2650 3950 3150 3950
+$Comp
+L power:GND #PWR?
+U 1 1 5B73BC11
+P 3150 4150
+F 0 "#PWR?" H 3150 3900 50  0001 C CNN
+F 1 "GND" H 3155 3977 50  0000 C CNN
+F 2 "" H 3150 4150 50  0001 C CNN
+F 3 "" H 3150 4150 50  0001 C CNN
+	1    3150 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 4150 3150 4050
+Wire Wire Line
+	3150 4050 3250 4050
+$Comp
+L Device:C_Small C?
+U 1 1 5B73BCCE
+P 4150 4150
+F 0 "C?" H 4242 4196 50  0000 L CNN
+F 1 "1.5nF" H 4242 4105 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 4150 4150 50  0001 C CNN
+F 3 "~" H 4150 4150 50  0001 C CNN
+F 4 "77-VJ0402Y152KXAPBC" H 4150 4150 50  0001 C CNN "Mouser"
+	1    4150 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5B73BD84
+P 4150 4450
+F 0 "R?" H 4209 4496 50  0000 L CNN
+F 1 "12k" H 4209 4405 50  0000 L CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" H 4150 4450 50  0001 C CNN
+F 3 "~" H 4150 4450 50  0001 C CNN
+F 4 "603-AC0603JR-0712KL" H 4150 4450 50  0001 C CNN "Mouser"
+	1    4150 4450
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B73BDFD
+P 4150 4650
+F 0 "#PWR?" H 4150 4400 50  0001 C CNN
+F 1 "GND" H 4155 4477 50  0000 C CNN
+F 2 "" H 4150 4650 50  0001 C CNN
+F 3 "" H 4150 4650 50  0001 C CNN
+	1    4150 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4150 4250 4150 4350
+Wire Wire Line
+	4150 4550 4150 4650
+Wire Wire Line
+	3950 3950 4150 3950
+Wire Wire Line
+	4150 3950 4150 4050
+$Comp
+L Device:L_Small L?
+U 1 1 5B73BED9
+P 3600 3400
+F 0 "L?" V 3785 3400 50  0000 C CNN
+F 1 "33uH" V 3694 3400 50  0000 C CNN
+F 2 "" H 3600 3400 50  0001 C CNN
+F 3 "~" H 3600 3400 50  0001 C CNN
+	1    3600 3400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3500 3400 3150 3400
+Wire Wire Line
+	3150 3400 3150 3950
+Connection ~ 3150 3950
+Wire Wire Line
+	3150 3950 3250 3950
+Wire Wire Line
+	3050 3850 3250 3850
+$Comp
+L Device:R_Small R?
+U 1 1 5B73C150
+P 4600 3700
+F 0 "R?" H 4659 3746 50  0000 L CNN
+F 1 "52k" H 4659 3655 50  0000 L CNN
+F 2 "Resistors_SMD:R_0805_HandSoldering" H 4600 3700 50  0001 C CNN
+F 3 "~" H 4600 3700 50  0001 C CNN
+F 4 "667-ERJ-6ENF5102V" H 4600 3700 50  0001 C CNN "Mouser"
+	1    4600 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5B73C1F4
+P 4600 4000
+F 0 "R?" H 4659 4046 50  0000 L CNN
+F 1 "10k" H 4659 3955 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 4600 4000 50  0001 C CNN
+F 3 "~" H 4600 4000 50  0001 C CNN
+F 4 "603-RC0402JR-0710KL" H 4600 4000 50  0001 C CNN "Mouser"
+	1    4600 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 3800 4600 3850
+Connection ~ 4600 3850
+Wire Wire Line
+	4600 3850 4600 3900
+Wire Wire Line
+	3700 3400 4600 3400
+Wire Wire Line
+	4600 3400 4600 3600
+$Comp
+L power:GND #PWR?
+U 1 1 5B73C489
+P 4600 4250
+F 0 "#PWR?" H 4600 4000 50  0001 C CNN
+F 1 "GND" H 4605 4077 50  0000 C CNN
+F 2 "" H 4600 4250 50  0001 C CNN
+F 3 "" H 4600 4250 50  0001 C CNN
+	1    4600 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 4100 4600 4250
+$Comp
+L Device:C_Small C?
+U 1 1 5B73CB2B
+P 5100 3750
+F 0 "C?" H 5192 3796 50  0000 L CNN
+F 1 "100uF" H 5192 3705 50  0000 L CNN
+F 2 "Capacitors_SMD:CP_Elec_6.3x5.3" H 5100 3750 50  0001 C CNN
+F 3 "~" H 5100 3750 50  0001 C CNN
+F 4 "140-VE101M1CTR0605" H 5100 3750 50  0001 C CNN "Mouser"
+	1    5100 3750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3650 5100 3400
+Wire Wire Line
+	5100 3400 4600 3400
+Connection ~ 4600 3400
+$Comp
+L power:GND #PWR?
+U 1 1 5B73CD05
+P 5100 3950
+F 0 "#PWR?" H 5100 3700 50  0001 C CNN
+F 1 "GND" H 5105 3777 50  0000 C CNN
+F 2 "" H 5100 3950 50  0001 C CNN
+F 3 "" H 5100 3950 50  0001 C CNN
+	1    5100 3950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5100 3850 5100 3950
+$Comp
+L Device:D_Small D?
+U 1 1 5B73CF4B
+P 2650 4150
+F 0 "D?" V 2604 4218 50  0000 L CNN
+F 1 "VS-MBRS340-M39AT" V 2695 4218 50  0000 L CNN
+F 2 "" V 2650 4150 50  0001 C CNN
+F 3 "~" V 2650 4150 50  0001 C CNN
+F 4 "78-VS-MBRS340-M39AT" V 2650 4150 50  0001 C CNN "Mouser"
+	1    2650 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5B73CFF7
+P 2650 4350
+F 0 "#PWR?" H 2650 4100 50  0001 C CNN
+F 1 "GND" H 2655 4177 50  0000 C CNN
+F 2 "" H 2650 4350 50  0001 C CNN
+F 3 "" H 2650 4350 50  0001 C CNN
+	1    2650 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 3950 2650 4050
+Connection ~ 2650 3950
+Wire Wire Line
+	2650 4250 2650 4300
+Wire Wire Line
+	5400 3400 5300 3400
+Connection ~ 5100 3400
+Text Label 5400 3400 0    50   ~ 0
++5V
+Wire Wire Line
+	3050 3850 3050 3650
+Wire Wire Line
+	3950 4050 4100 4050
+Wire Wire Line
+	4100 4050 4100 3850
+Wire Wire Line
+	4100 3850 4600 3850
+NoConn ~ 3950 3850
+$Comp
+L rs485:SP485CN-L_TR U?
+U 1 1 5B73E4AB
+P 7350 3400
+F 0 "U?" H 7375 3465 50  0000 C CNN
+F 1 "SP485CN-L_TR" H 7375 3374 50  0000 C CNN
+F 2 "" H 7350 3400 50  0001 C CNN
+F 3 "" H 7350 3400 50  0001 C CNN
+F 4 "701-SP485CN-L/TR" H 7350 3400 50  0001 C CNN "Mouser"
+	1    7350 3400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 3050 7800 3150
+Wire Wire Line
+	7800 3600 7750 3600
+$Comp
+L power:GND #PWR?
+U 1 1 5B73E965
+P 7800 4000
+F 0 "#PWR?" H 7800 3750 50  0001 C CNN
+F 1 "GND" H 7805 3827 50  0000 C CNN
+F 2 "" H 7800 4000 50  0001 C CNN
+F 3 "" H 7800 4000 50  0001 C CNN
+	1    7800 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 4000 7800 3900
+Wire Wire Line
+	7800 3900 7750 3900
+$Comp
+L Connector_Generic:Conn_01x04 J?
+U 1 1 5B73EFD0
+P 6000 3700
+F 0 "J?" H 5920 4017 50  0000 C CNN
+F 1 "Conn_01x04" H 5920 3926 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04_Pitch2.54mm" H 6000 3700 50  0001 C CNN
+F 3 "~" H 6000 3700 50  0001 C CNN
+F 4 "NoPart" H 6000 3700 50  0001 C CNN "Mouser"
+	1    6000 3700
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 3600 7000 3600
+Wire Wire Line
+	6200 3700 6300 3700
+Wire Wire Line
+	6200 3800 6850 3800
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5B740DB0
+P 5900 4350
+F 0 "J?" H 5980 4342 50  0000 L CNN
+F 1 "Conn_01x02" H 5980 4251 50  0000 L CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x02_Pitch2.54mm" H 5900 4350 50  0001 C CNN
+F 3 "~" H 5900 4350 50  0001 C CNN
+F 4 "NoPart" H 5900 4350 50  0001 C CNN "Mouser"
+	1    5900 4350
+	1    0    0    -1  
+$EndComp
+Text Label 7800 3050 0    50   ~ 0
++5V
+$Comp
+L Device:C_Small C?
+U 1 1 5B740EBE
+P 7950 3300
+F 0 "C?" H 8042 3346 50  0000 L CNN
+F 1 "100nF" H 8042 3255 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0402" H 7950 3300 50  0001 C CNN
+F 3 "~" H 7950 3300 50  0001 C CNN
+F 4 "710-885012105018" H 7950 3300 50  0001 C CNN "Mouser"
+	1    7950 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 3200 7950 3150
+Wire Wire Line
+	7950 3150 7800 3150
+Connection ~ 7800 3150
+Wire Wire Line
+	7800 3150 7800 3600
+$Comp
+L power:GND #PWR?
+U 1 1 5B742806
+P 7950 3450
+F 0 "#PWR?" H 7950 3200 50  0001 C CNN
+F 1 "GND" H 7955 3277 50  0000 C CNN
+F 2 "" H 7950 3450 50  0001 C CNN
+F 3 "" H 7950 3450 50  0001 C CNN
+	1    7950 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7950 3400 7950 3450
+Wire Wire Line
+	8200 3800 8000 3800
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5B744CCA
+P 8400 3700
+F 0 "J?" H 8480 3692 50  0000 L CNN
+F 1 "Conn_01x02" H 8480 3601 50  0000 L CNN
+F 2 "" H 8400 3700 50  0001 C CNN
+F 3 "~" H 8400 3700 50  0001 C CNN
+	1    8400 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5B744D20
+P 8400 4000
+F 0 "J?" H 8480 3992 50  0000 L CNN
+F 1 "Conn_01x02" H 8480 3901 50  0000 L CNN
+F 2 "" H 8400 4000 50  0001 C CNN
+F 3 "~" H 8400 4000 50  0001 C CNN
+	1    8400 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 3700 8100 4000
+Wire Wire Line
+	8100 4000 8200 4000
+Connection ~ 8100 3700
+Wire Wire Line
+	8100 3700 7750 3700
+Wire Wire Line
+	8000 3800 8000 4100
+Wire Wire Line
+	8000 4100 8200 4100
+Connection ~ 8000 3800
+Wire Wire Line
+	8000 3800 7750 3800
+Text Notes 8050 4300 0    50   ~ 0
+Second one's for daisy chaining them
+Text Label 5600 4250 0    50   ~ 0
++5V
+Wire Wire Line
+	5600 4250 5600 4350
+Wire Wire Line
+	5600 4350 5700 4350
+$Comp
+L power:GND #PWR?
+U 1 1 5B74662A
+P 5600 4550
+F 0 "#PWR?" H 5600 4300 50  0001 C CNN
+F 1 "GND" H 5605 4377 50  0000 C CNN
+F 2 "" H 5600 4550 50  0001 C CNN
+F 3 "" H 5600 4550 50  0001 C CNN
+	1    5600 4550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5600 4550 5600 4450
+Wire Wire Line
+	5600 4450 5700 4450
+$Comp
+L Connector_Generic:Conn_01x02 J?
+U 1 1 5B74708F
+P 2150 3650
+F 0 "J?" H 2070 3867 50  0000 C CNN
+F 1 "Power" H 2070 3776 50  0000 C CNN
+F 2 "" H 2150 3650 50  0001 C CNN
+F 3 "~" H 2150 3650 50  0001 C CNN
+	1    2150 3650
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 3650 3050 3650
+Wire Wire Line
+	2350 3750 2500 3750
+Wire Wire Line
+	2500 3750 2500 4300
+Wire Wire Line
+	2500 4300 2650 4300
+Connection ~ 2650 4300
+Wire Wire Line
+	2650 4300 2650 4350
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5B748833
+P 5300 3250
+F 0 "TP?" H 5358 3370 50  0000 L CNN
+F 1 "TestPoint" H 5358 3279 50  0000 L CNN
+F 2 "" H 5500 3250 50  0001 C CNN
+F 3 "~" H 5500 3250 50  0001 C CNN
+	1    5300 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 3250 5300 3400
+Connection ~ 5300 3400
+Wire Wire Line
+	5300 3400 5100 3400
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5B7495CF
+P 8200 3600
+F 0 "TP?" H 8258 3720 50  0000 L CNN
+F 1 "TestPoint" H 8258 3629 50  0000 L CNN
+F 2 "" H 8400 3600 50  0001 C CNN
+F 3 "~" H 8400 3600 50  0001 C CNN
+	1    8200 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP?
+U 1 1 5B749627
+P 8000 4300
+F 0 "TP?" H 7942 4327 50  0000 R CNN
+F 1 "TestPoint" H 7942 4418 50  0000 R CNN
+F 2 "" H 8200 4300 50  0001 C CNN
+F 3 "~" H 8200 4300 50  0001 C CNN
+	1    8000 4300
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8000 4300 8000 4100
+Connection ~ 8000 4100
+Wire Wire Line
+	8200 3600 8200 3700
+Connection ~ 8200 3700
+Wire Wire Line
+	8200 3700 8100 3700
+$Comp
+L Device:R_Small R?
+U 1 1 5B74E1AB
+P 6600 4000
+F 0 "R?" V 6404 4000 50  0000 C CNN
+F 1 "0" V 6495 4000 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" H 6600 4000 50  0001 C CNN
+F 3 "~" H 6600 4000 50  0001 C CNN
+F 4 "755-SFR03EZPJ000" V 6600 4000 50  0001 C CNN "Mouser"
+	1    6600 4000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6300 3700 6300 4000
+Wire Wire Line
+	6300 4000 6500 4000
+Connection ~ 6300 3700
+Wire Wire Line
+	6300 3700 7000 3700
+Wire Wire Line
+	6700 4000 6850 4000
+Wire Wire Line
+	6850 4000 6850 3800
+Connection ~ 6850 3800
+Wire Wire Line
+	6850 3800 6950 3800
+Wire Wire Line
+	6200 3900 7000 3900
+$Comp
+L power:GND #PWR?
+U 1 1 5B758EBC
+P 6950 4350
+F 0 "#PWR?" H 6950 4100 50  0001 C CNN
+F 1 "GND" H 6955 4177 50  0000 C CNN
+F 2 "" H 6950 4350 50  0001 C CNN
+F 3 "" H 6950 4350 50  0001 C CNN
+	1    6950 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6950 4250 6950 4350
+Wire Wire Line
+	6950 4050 6950 3800
+Connection ~ 6950 3800
+Wire Wire Line
+	6950 3800 7000 3800
+$Comp
+L Device:R_Small R?
+U 1 1 5B75BDDA
+P 6950 4150
+F 0 "R?" H 7009 4196 50  0000 L CNN
+F 1 "10k" H 7009 4105 50  0000 L CNN
+F 2 "Resistors_SMD:R_0402" H 6950 4150 50  0001 C CNN
+F 3 "~" H 6950 4150 50  0001 C CNN
+F 4 "603-RC0402JR-0710KL" H 6950 4150 50  0001 C CNN "Mouser"
+	1    6950 4150
+	1    0    0    -1  
+$EndComp
+$EndSCHEMATC

@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name rs485)(type Legacy)(uri /home/kelvin/repos/auto-orchestra/pcb/rs485/rs485.lib)(options "")(descr ""))
+)
