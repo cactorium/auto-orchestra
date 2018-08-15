@@ -32,7 +32,7 @@
   )
 
   (setup
-    (last_trace_width 0.3302)
+    (last_trace_width 0.254)
     (user_trace_width 0.1524)
     (user_trace_width 0.254)
     (user_trace_width 0.3302)
@@ -70,7 +70,7 @@
     (aux_axis_origin 0 0)
     (visible_elements FFFEDF7D)
     (pcbplotparams
-      (layerselection 0x310fc_80000001)
+      (layerselection 0x310fc_ffffffff)
       (usegerberextensions true)
       (usegerberattributes false)
       (usegerberadvancedattributes false)
@@ -95,7 +95,7 @@
       (mirror false)
       (drillshape 0)
       (scaleselection 1)
-      (outputdirectory "gerbers"))
+      (outputdirectory "rs485-gerbers"))
   )
 
   (net 0 "")
@@ -1358,7 +1358,7 @@
   (segment (start 70.3 86.45) (end 70.75 86.9) (width 0.254) (layer F.Cu) (net 16))
   (segment (start 69.25 86.45) (end 70.3 86.45) (width 0.254) (layer F.Cu) (net 16))
 
-  (zone (net 1) (net_name GND) (layer F.Cu) (tstamp 5B743AB4) (hatch edge 0.508)
+  (zone (net 1) (net_name GND) (layer F.Cu) (tstamp 5B743B99) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
@@ -1603,7 +1603,7 @@
       )
     )
   )
-  (zone (net 1) (net_name GND) (layer B.Cu) (tstamp 5B743AB1) (hatch edge 0.508)
+  (zone (net 1) (net_name GND) (layer B.Cu) (tstamp 5B743B96) (hatch edge 0.508)
     (connect_pads (clearance 0.508))
     (min_thickness 0.254)
     (fill yes (arc_segments 16) (thermal_gap 0.508) (thermal_bridge_width 0.508))
