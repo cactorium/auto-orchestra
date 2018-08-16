@@ -361,7 +361,7 @@ Wire Wire Line
 Connection ~ 8650 3800
 Wire Wire Line
 	8650 3800 8400 3800
-Text Notes 8700 4300 0    50   ~ 0
+Text Notes 8950 3350 0    50   ~ 0
 Second one's for daisy chaining them
 Text Label 5600 5100 0    50   ~ 0
 +5V
@@ -711,4 +711,6 @@ Wire Wire Line
 	6700 4000 6800 4000
 Wire Wire Line
 	6800 4000 6800 4100
+Text Notes 7700 4350 0    50   ~ 0
+DNP; there's already an inherent pulldown in the IC
 $EndSCHEMATC

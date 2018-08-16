@@ -685,10 +685,10 @@ Wire Wire Line
 Wire Wire Line
 	5500 3800 5500 3950
 $Comp
-L Connector_Generic:Conn_01x05 J?
+L Connector_Generic:Conn_01x05 J2
 U 1 1 5B78A6FE
 P 6500 3800
-F 0 "J?" H 6420 4217 50  0000 C CNN
+F 0 "J2" H 6420 4217 50  0000 C CNN
 F 1 "Conn_01x05" H 6420 4126 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 6500 3800 50  0001 C CNN
 F 3 "~" H 6500 3800 50  0001 C CNN
@@ -697,10 +697,10 @@ F 4 "NoPart" H 6500 3800 50  0001 C CNN "Mouser"
 	-1   0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0101
 U 1 1 5B796A04
 P 6800 4100
-F 0 "#PWR?" H 6800 3850 50  0001 C CNN
+F 0 "#PWR0101" H 6800 3850 50  0001 C CNN
 F 1 "GND" H 6805 3927 50  0000 C CNN
 F 2 "" H 6800 4100 50  0001 C CNN
 F 3 "" H 6800 4100 50  0001 C CNN
