@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name controllerparts)(type Legacy)(uri /home/kelvin/repos/auto-orchestra/pcb/controller/controllerparts.lib)(options "")(descr ""))
+)
