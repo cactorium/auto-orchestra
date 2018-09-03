@@ -8,6 +8,10 @@ $CMP LIS2DE12TR
 D Accelerometers MEMS digital output motion sensor: ultra low-power high performance 3-axes femto accelerometer
 $ENDCMP
 #
+$CMP MSP430FR2512IPW16
+D 16-bit Microcontrollers - MCU MSP430 MCU With CapTIvate Technology - the Lowest Power, Most Noise-immune Capacitive Touch 16-TSSOP -40 to 85
+$ENDCMP
+#
 $CMP TPS613222ADBVR
 D Switching Voltage Regulators 6-uA Quiescent Current, 1.8-A Switch Current Boost Converter 5-SOT-23 -40 to 85
 $ENDCMP
