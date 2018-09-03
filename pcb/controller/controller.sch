@@ -56,8 +56,9 @@ U 1 1 5B819964
 P 850 1650
 F 0 "J2" H 770 1867 50  0000 C CNN
 F 1 "Conn_01x02" H 770 1776 50  0000 C CNN
-F 2 "" H 850 1650 50  0001 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x02_Pitch1.27mm" H 850 1650 50  0001 C CNN
 F 3 "~" H 850 1650 50  0001 C CNN
+F 4 "NoPart" H 850 1650 50  0001 C CNN "Mouser"
 	1    850  1650
 	-1   0    0    -1  
 $EndComp
@@ -419,6 +420,7 @@ F 0 "U3" H 5075 4865 50  0000 C CNN
 F 1 "MSP430FR2512IRHLR" H 5075 4774 50  0000 C CNN
 F 2 "controller:TI_MSP430_VQFN20" H 4900 4800 50  0001 C CNN
 F 3 "" H 4900 4800 50  0001 C CNN
+F 4 "595-430FR2512IRHLR" H 4900 4800 50  0001 C CNN "Mouser"
 	2    4900 4800
 	1    0    0    -1  
 $EndComp
@@ -799,6 +801,7 @@ F 0 "J4" H 3650 7167 50  0000 C CNN
 F 1 "Conn_02x02_Odd_Even" H 3650 7076 50  0000 C CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_2x02_Pitch1.27mm" H 3600 6950 50  0001 C CNN
 F 3 "~" H 3600 6950 50  0001 C CNN
+F 4 "NoPart" H 3600 6950 50  0001 C CNN "Mouser"
 	1    3600 6950
 	1    0    0    -1  
 $EndComp
@@ -820,8 +823,9 @@ U 1 1 5B91C8C6
 P 1200 7200
 F 0 "MH2" H 1300 7246 50  0000 L CNN
 F 1 "MountingHole" H 1300 7155 50  0000 L CNN
-F 2 "" H 1200 7200 50  0001 C CNN
+F 2 "Mounting_Holes:MountingHole_3.2mm_M3" H 1200 7200 50  0001 C CNN
 F 3 "~" H 1200 7200 50  0001 C CNN
+F 4 "NoPart" H 1200 7200 50  0001 C CNN "Mouser"
 	1    1200 7200
 	1    0    0    -1  
 $EndComp
