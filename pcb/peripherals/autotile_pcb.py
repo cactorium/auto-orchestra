@@ -374,7 +374,7 @@ def main():
           print("[ERR] line {}: net not known in netmap".format(line_num))
           return
         sheet_idx = netmap[net_idx].sheet_idx
-        if sheet_idx == src_idx or sheet_idx == -1:
+        if sheet_idx == src_idx:
           tracks.append(line_num)
         elif sheet_idx in dst_idxs:
           removed.append(line_num)
