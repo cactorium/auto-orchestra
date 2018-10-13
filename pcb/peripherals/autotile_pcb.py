@@ -23,6 +23,111 @@ class Module:
     self.x = None
     self.y = None
 
+# used in s-expr parser to demarcate identifiers from strings
+class Identifier:
+  def __init__(self, id):
+    self.id = id
+  def __repr__(self):
+    return self.id
+
+
+def parse_sexpr(s):
+  # returns (name, [values])
+  parts = list()
+  # ignore whitespace
+  while s[0] == " " or s[0] == "\n":
+    s = s[1:]
+  # grab the first part of the s-expression, the "(name " part, and then
+  # recursively parse the rest
+  assert s[0] == "("
+  s = s[1:]
+  name = ""
+  while s[0] != " ":
+    name += s[0]
+    s = s[1:]
+
+  while s[0] == " " or s[0] == "\n":
+    s = s[1:]
+
+  while s[0] != ")":
+    if s[0] == "(":
+      new_part, s = parse_sexpr(s)
+      parts.append(new_part)
+    elif s[0] == "\"":
+      string = ""
+      escaped = False
+
+      s = s[1:]
+      # really inefficient but whatever this is Python
+      # NOTE: crashes if the string isn't terminated
+      while escaped or s[0] != "\"":
+        escaped = (s[0] == "\\")
+        string += s[0]
+        s = s[1:]
+      # eat the ending quotes
+      s = s[1:]
+      parts.append(string)
+    else:
+      # it's either a number or some kind of identifier
+      # grab until there's whitespace and process is accordingly
+      part = ""
+      while s[0] not in [" ", ")", "\n"]:
+        part += s[0]
+        s = s[1:]
+
+      try:
+        part = int(part)
+      except ValueError:
+        try:
+          part = float(part)
+        except ValueError:
+          part = Identifier(part)
+      parts.append(part)
+
+    # skip over any whitespace
+    while s[0] == " " or s[0] == "\n":
+      s = s[1:]
+  # skip over the ending parenthesis
+  s = s[1:]
+  return [name, parts], s
+
+def findval(sexpr, attrname):
+  parts = sexpr[1]
+  matching = [vals for name, vals in parts if name == attrname]
+  if len(matching) > 0:
+    return matching[0]
+  else:
+    return None
+
+def setval(sexpr, attrname, newvals):
+  for attr in sexpr[1]:
+    if attr[0] == attrname:
+      attr[1] = newvals
+      return
+  raise RuntimeError("could not find attribute {}".format(attrname))
+
+def print_sexpr(sexpr, indentlevel=0):
+  s = " "*indentlevel + "("
+  s += sexpr[0]
+  for attr in sexpr[1]:
+    s += " "
+    if isinstance(attr, list):
+      s += print_sexpr(attr)
+    elif isinstance(attr, str):
+      s += repr(attr)
+    elif isinstance(attr, int):
+      s += str(attr)
+    elif isinstance(attr, float):
+      s += str(attr)
+    elif isinstance(attr, Identifier):
+      s += str(attr.id)
+    else:
+      # this should be unreachable
+      raise NotImplementedError
+  s += ")"
+  return s
+
+
 
 def quotesplit(line):
   parts = line.split(" ")
@@ -122,21 +227,19 @@ def boundscheck(x, y, left, right, upper, lower):
 
 
 def istrackinbounds(unstripped, left, right, upper, lower):
-  track_parts = unstripped.split(" ")
-  # NOTE: hardcoded offsets within (segment ...)
-  startx = float(track_parts[4])
-  starty = float(track_parts[5][:-1])
-  endx = float(track_parts[7])
-  endy = float(track_parts[8][:-1])
+  sexpr, _ = parse_sexpr(unstripped)
+  startx = findval(sexpr, "start")[0]
+  starty = findval(sexpr, "start")[1]
+  endx = findval(sexpr, "end")[0]
+  endy = findval(sexpr, "end")[1]
   return (boundscheck(startx, starty, left, right, upper, lower) or 
           boundscheck(endx, endy, left, right, upper, lower))
 
 
 def isviainbounds(unstripped, left, right, upper, lower):
-  via_parts = unstripped.split(" ")
-  # NOTE: hardcoded offsets within (segment ...)
-  x = float(via_parts[4])
-  y = float(via_parts[5][:-1])
+  sexpr, _ = parse_sexpr(unstripped)
+  x = findval(sexpr, "at")[0]
+  y = findval(sexpr, "at")[1]
   return boundscheck(x, y, left, right, upper, lower)
 
 
@@ -413,13 +516,14 @@ def main():
     # switched out and the position offset
     for track_idx in tracks:
       track_line = lines[track_idx]
-      track_parts = track_line.split(" ")
-      # NOTE: hardcoded offsets within (segment ...)
-      startx = float(track_parts[4])
-      starty = float(track_parts[5][:-1])
-      endx = float(track_parts[7])
-      endy = float(track_parts[8][:-1])
-      net_id = int(track_parts[-1][:-3])
+      # NOTE: assumes tracks always take up exactly one line
+      indentlevel = len(track_line) - len(track_line.lstrip(" "))
+      sexpr, _ = parse_sexpr(track_line)
+      startx = findval(sexpr, "start")[0]
+      starty = findval(sexpr, "start")[1]
+      endx = findval(sexpr, "end")[0]
+      endy = findval(sexpr, "end")[1]
+      net_id = findval(sexpr, "net")[0]
       #print(startx, starty, endx, endy, net_id)
       
       startx += xoff
@@ -427,10 +531,8 @@ def main():
       endx += xoff
       endy += yoff
 
-      track_parts[4] = str(startx)
-      track_parts[5] = str(starty) + ")"
-      track_parts[7] = str(endx)
-      track_parts[8] = str(endy) + ")"
+      setval(sexpr, "start", [startx, starty])
+      setval(sexpr, "end", [endx, endy])
       
       if getsheetnet(netmap[net_id].name) == src_idx:
         net_name = remapnet(netmap[net_id].name, dst_idx)
@@ -445,24 +547,23 @@ def main():
         print("unable to find remapped net {}".format(net_name))
         return
       #print(dst_idx, net_name, net_id)
-      track_parts[-1] = str(net_id) + "))\n"
+      setval(sexpr, "net", [net_id])
 
-      new_traces.append(" ".join(track_parts))
+      new_traces.append(print_sexpr(sexpr, indentlevel) + "\n")
     # copy vias
     for via_idx in vias:
       via_line = lines[via_idx]
-      via_parts = via_line.split(" ")
-      # NOTE: hardcoded offsets within (segment ...)
-      x = float(via_parts[4])
-      y = float(via_parts[5][:-1])
-      net_id = int(via_parts[-1][:-3])
+      sexpr, _ = parse_sexpr(via_line)
+      indentlevel = len(via_line) - len(via_line.lstrip(" "))
+      x = findval(sexpr, "at")[0]
+      y = findval(sexpr, "at")[1]
+      net_id = findval(sexpr, "net")[0]
       #print(startx, starty, endx, endy, net_id)
       
       x += xoff
       y += yoff
 
-      via_parts[4] = str(x)
-      via_parts[5] = str(y) + ")"
+      setval(sexpr, "at", [x, y])
       
       if getsheetnet(netmap[net_id].name) == src_idx:
         net_name = remapnet(netmap[net_id].name, dst_idx)
@@ -477,9 +578,9 @@ def main():
         print("unable to find remapped net {}".format(net_name))
         return
       #print(dst_idx, net_name, net_id)
-      via_parts[-1] = str(net_id) + "))\n"
+      setval(sexpr, "net", [net_id])
 
-      new_traces.append(" ".join(via_parts))
+      new_traces.append(print_sexpr(sexpr, indentlevel) + "\n")
 
   #print("".join(new_traces))
 
