@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 9
+Sheet 3 9
 Title ""
 Date ""
 Rev ""
@@ -332,86 +332,6 @@ F 3 "" H 4300 2700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4300 2650 4300 2700
-$Comp
-L Device:C_Small C?
-U 1 1 5B723454
-P 5550 2550
-AR Path="/5B723454" Ref="C?"  Part="1" 
-AR Path="/5B7230C4/5B723454" Ref="C203"  Part="1" 
-AR Path="/5B725BF5/5B723454" Ref="C?"  Part="1" 
-AR Path="/5B6E69BA/5B723454" Ref="C303"  Part="1" 
-AR Path="/5B6E69C9/5B723454" Ref="C403"  Part="1" 
-AR Path="/5B6E69CE/5B723454" Ref="C503"  Part="1" 
-AR Path="/5B6E6A62/5B723454" Ref="C603"  Part="1" 
-AR Path="/5B6E6A67/5B723454" Ref="C703"  Part="1" 
-AR Path="/5B6E6A6C/5B723454" Ref="C803"  Part="1" 
-AR Path="/5B6E6A71/5B723454" Ref="C903"  Part="1" 
-F 0 "C903" H 5642 2596 50  0000 L CNN
-F 1 "470uF" H 5642 2505 50  0000 L CNN
-F 2 "Capacitors_ThroughHole:CP_Radial_D10.0mm_P5.00mm" H 5550 2550 50  0001 C CNN
-F 3 "~" H 5550 2550 50  0001 C CNN
-F 4 "140-REA471M1EBK1012P" H 5550 2550 50  0001 C CNN "Mouser"
-	1    5550 2550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:C_Small C?
-U 1 1 5B72345C
-P 6000 2550
-AR Path="/5B72345C" Ref="C?"  Part="1" 
-AR Path="/5B7230C4/5B72345C" Ref="C204"  Part="1" 
-AR Path="/5B725BF5/5B72345C" Ref="C?"  Part="1" 
-AR Path="/5B6E69BA/5B72345C" Ref="C304"  Part="1" 
-AR Path="/5B6E69C9/5B72345C" Ref="C404"  Part="1" 
-AR Path="/5B6E69CE/5B72345C" Ref="C504"  Part="1" 
-AR Path="/5B6E6A62/5B72345C" Ref="C604"  Part="1" 
-AR Path="/5B6E6A67/5B72345C" Ref="C704"  Part="1" 
-AR Path="/5B6E6A6C/5B72345C" Ref="C804"  Part="1" 
-AR Path="/5B6E6A71/5B72345C" Ref="C904"  Part="1" 
-F 0 "C904" H 6092 2596 50  0000 L CNN
-F 1 "1000uF" H 6092 2505 50  0000 L CNN
-F 2 "Capacitors_ThroughHole:CP_Radial_D18.0mm_P7.50mm" H 6000 2550 50  0001 C CNN
-F 3 "~" H 6000 2550 50  0001 C CNN
-F 4 "598-108SAK025M" H 6000 2550 50  0001 C CNN "Mouser"
-	1    6000 2550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5550 2450 5550 2400
-Wire Wire Line
-	6000 2450 6000 2400
-Wire Wire Line
-	6000 2400 5550 2400
-$Comp
-L power:GND #PWR?
-U 1 1 5B723466
-P 6000 2800
-AR Path="/5B723466" Ref="#PWR?"  Part="1" 
-AR Path="/5B7230C4/5B723466" Ref="#PWR0204"  Part="1" 
-AR Path="/5B725BF5/5B723466" Ref="#PWR?"  Part="1" 
-AR Path="/5B6E69BA/5B723466" Ref="#PWR0304"  Part="1" 
-AR Path="/5B6E69C9/5B723466" Ref="#PWR0404"  Part="1" 
-AR Path="/5B6E69CE/5B723466" Ref="#PWR0504"  Part="1" 
-AR Path="/5B6E6A62/5B723466" Ref="#PWR0604"  Part="1" 
-AR Path="/5B6E6A67/5B723466" Ref="#PWR0704"  Part="1" 
-AR Path="/5B6E6A6C/5B723466" Ref="#PWR0804"  Part="1" 
-AR Path="/5B6E6A71/5B723466" Ref="#PWR0904"  Part="1" 
-F 0 "#PWR0904" H 6000 2550 50  0001 C CNN
-F 1 "GND" H 6005 2627 50  0000 C CNN
-F 2 "" H 6000 2800 50  0001 C CNN
-F 3 "" H 6000 2800 50  0001 C CNN
-	1    6000 2800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5550 2650 5550 2700
-Wire Wire Line
-	5550 2700 6000 2700
-Wire Wire Line
-	6000 2700 6000 2800
-Wire Wire Line
-	6000 2650 6000 2700
-Connection ~ 6000 2700
 Wire Wire Line
 	5400 2300 5400 2400
 $Comp
@@ -469,9 +389,6 @@ Wire Wire Line
 	3250 3400 3800 3400
 Wire Wire Line
 	3250 3500 3800 3500
-Wire Wire Line
-	5400 2400 5550 2400
-Connection ~ 5550 2400
 $Comp
 L peripherals:Q_NMOS_SSSGDDDD Q?
 U 1 1 5B723489
