@@ -15,22 +15,22 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Sheet
-S 4850 1750 1150 500 
+S 4850 2450 1150 500 
 U 5B7230C4
 F0 "Sheet5B7230C3" 50
-F1 "half-h.sch" 50
-F2 "OUT" I R 6000 2000 50 
-F3 "IN" I L 4850 1900 50 
-F4 "EN" I L 4850 2100 50 
-$EndSheet
-$Sheet
-S 4850 2450 1150 500 
-U 5B6E69BA
-F0 "sheet5B6E69B5" 50
 F1 "half-h.sch" 50
 F2 "OUT" I R 6000 2700 50 
 F3 "IN" I L 4850 2600 50 
 F4 "EN" I L 4850 2800 50 
+$EndSheet
+$Sheet
+S 4850 1750 1150 500 
+U 5B6E69BA
+F0 "sheet5B6E69B5" 50
+F1 "half-h.sch" 50
+F2 "OUT" I R 6000 2000 50 
+F3 "IN" I L 4850 1900 50 
+F4 "EN" I L 4850 2100 50 
 $EndSheet
 $Sheet
 S 4850 3200 1150 500 
@@ -406,8 +406,6 @@ Wire Wire Line
 Wire Wire Line
 	7700 2400 7700 3350
 Wire Wire Line
-	7700 3350 8200 3350
-Wire Wire Line
 	7550 2500 7650 2500
 Wire Wire Line
 	7650 2500 7650 4050
@@ -461,25 +459,25 @@ $EndComp
 $Comp
 L Connector_Generic:Conn_01x05 J102
 U 1 1 5B71D2AF
-P 7350 2400
-F 0 "J102" H 7270 1975 50  0000 C CNN
-F 1 "Conn_01x05" H 7270 2066 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 7350 2400 50  0001 C CNN
-F 3 "~" H 7350 2400 50  0001 C CNN
-F 4 "NoPart" H 7350 2400 50  0001 C CNN "Mouser"
-	1    7350 2400
+P 7350 2300
+F 0 "J102" H 7270 1875 50  0000 C CNN
+F 1 "Conn_01x05" H 7270 1966 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 7350 2300 50  0001 C CNN
+F 3 "~" H 7350 2300 50  0001 C CNN
+F 4 "NoPart" H 7350 2300 50  0001 C CNN "Mouser"
+	1    7350 2300
 	-1   0    0    1   
 $EndComp
 $Comp
 L Connector_Generic:Conn_01x05 J108
 U 1 1 5B71D307
-P 7350 3850
-F 0 "J108" H 7270 3425 50  0000 C CNN
-F 1 "Conn_01x05" H 7270 3516 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 7350 3850 50  0001 C CNN
-F 3 "~" H 7350 3850 50  0001 C CNN
-F 4 "NoPart" H 7350 3850 50  0001 C CNN "Mouser"
-	1    7350 3850
+P 7350 3750
+F 0 "J108" H 7270 3325 50  0000 C CNN
+F 1 "Conn_01x05" H 7270 3416 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x05_Pitch2.54mm" H 7350 3750 50  0001 C CNN
+F 3 "~" H 7350 3750 50  0001 C CNN
+F 4 "NoPart" H 7350 3750 50  0001 C CNN "Mouser"
+	1    7350 3750
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -500,33 +498,25 @@ Wire Wire Line
 $Comp
 L power:GND #PWR0108
 U 1 1 5B720152
-P 7600 4200
-F 0 "#PWR0108" H 7600 3950 50  0001 C CNN
-F 1 "GND" H 7605 4027 50  0000 C CNN
-F 2 "" H 7600 4200 50  0001 C CNN
-F 3 "" H 7600 4200 50  0001 C CNN
-	1    7600 4200
-	1    0    0    -1  
+P 7700 3550
+F 0 "#PWR0108" H 7700 3300 50  0001 C CNN
+F 1 "GND" H 7705 3377 50  0000 C CNN
+F 2 "" H 7700 3550 50  0001 C CNN
+F 3 "" H 7700 3550 50  0001 C CNN
+	1    7700 3550
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	7600 4200 7600 4050
-Wire Wire Line
-	7600 4050 7550 4050
 $Comp
 L power:GND #PWR0106
 U 1 1 5B723175
-P 7600 2750
-F 0 "#PWR0106" H 7600 2500 50  0001 C CNN
-F 1 "GND" H 7605 2577 50  0000 C CNN
-F 2 "" H 7600 2750 50  0001 C CNN
-F 3 "" H 7600 2750 50  0001 C CNN
-	1    7600 2750
-	1    0    0    -1  
+P 7800 2100
+F 0 "#PWR0106" H 7800 1850 50  0001 C CNN
+F 1 "GND" H 7805 1927 50  0000 C CNN
+F 2 "" H 7800 2100 50  0001 C CNN
+F 3 "" H 7800 2100 50  0001 C CNN
+	1    7800 2100
+	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	7600 2750 7600 2600
-Wire Wire Line
-	7600 2600 7550 2600
 $Comp
 L Mechanical:MountingHole MH101
 U 1 1 5B72BC06
@@ -576,10 +566,10 @@ F 4 "NoPart" H 2300 6800 50  0001 C CNN "Mouser"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C?
+L Device:C_Small C101
 U 1 1 5BC0AD90
 P 1600 2450
-AR Path="/5BC0AD90" Ref="C?"  Part="1" 
+AR Path="/5BC0AD90" Ref="C101"  Part="1" 
 AR Path="/5B7230C4/5BC0AD90" Ref="C?"  Part="1" 
 AR Path="/5B725BF5/5BC0AD90" Ref="C?"  Part="1" 
 AR Path="/5B6E69BA/5BC0AD90" Ref="C?"  Part="1" 
@@ -589,7 +579,7 @@ AR Path="/5B6E6A62/5BC0AD90" Ref="C?"  Part="1"
 AR Path="/5B6E6A67/5BC0AD90" Ref="C?"  Part="1" 
 AR Path="/5B6E6A6C/5BC0AD90" Ref="C?"  Part="1" 
 AR Path="/5B6E6A71/5BC0AD90" Ref="C?"  Part="1" 
-F 0 "C?" H 1692 2496 50  0000 L CNN
+F 0 "C101" H 1692 2496 50  0000 L CNN
 F 1 "470uF" H 1692 2405 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:CP_Radial_D10.0mm_P5.00mm" H 1600 2450 50  0001 C CNN
 F 3 "~" H 1600 2450 50  0001 C CNN
@@ -598,10 +588,10 @@ F 4 "140-REA471M1EBK1012P" H 1600 2450 50  0001 C CNN "Mouser"
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C_Small C?
+L Device:C_Small C103
 U 1 1 5BC0AD98
 P 2500 2450
-AR Path="/5BC0AD98" Ref="C?"  Part="1" 
+AR Path="/5BC0AD98" Ref="C103"  Part="1" 
 AR Path="/5B7230C4/5BC0AD98" Ref="C?"  Part="1" 
 AR Path="/5B725BF5/5BC0AD98" Ref="C?"  Part="1" 
 AR Path="/5B6E69BA/5BC0AD98" Ref="C?"  Part="1" 
@@ -611,7 +601,7 @@ AR Path="/5B6E6A62/5BC0AD98" Ref="C?"  Part="1"
 AR Path="/5B6E6A67/5BC0AD98" Ref="C?"  Part="1" 
 AR Path="/5B6E6A6C/5BC0AD98" Ref="C?"  Part="1" 
 AR Path="/5B6E6A71/5BC0AD98" Ref="C?"  Part="1" 
-F 0 "C?" H 2592 2496 50  0000 L CNN
+F 0 "C103" H 2592 2496 50  0000 L CNN
 F 1 "1000uF" H 2592 2405 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:CP_Radial_D18.0mm_P7.50mm" H 2500 2450 50  0001 C CNN
 F 3 "~" H 2500 2450 50  0001 C CNN
@@ -640,10 +630,10 @@ Connection ~ 1100 2300
 Wire Wire Line
 	1100 2300 1100 2400
 $Comp
-L Device:C_Small C?
+L Device:C_Small C104
 U 1 1 5BC15D3D
 P 3000 2450
-AR Path="/5BC15D3D" Ref="C?"  Part="1" 
+AR Path="/5BC15D3D" Ref="C104"  Part="1" 
 AR Path="/5B7230C4/5BC15D3D" Ref="C?"  Part="1" 
 AR Path="/5B725BF5/5BC15D3D" Ref="C?"  Part="1" 
 AR Path="/5B6E69BA/5BC15D3D" Ref="C?"  Part="1" 
@@ -653,7 +643,7 @@ AR Path="/5B6E6A62/5BC15D3D" Ref="C?"  Part="1"
 AR Path="/5B6E6A67/5BC15D3D" Ref="C?"  Part="1" 
 AR Path="/5B6E6A6C/5BC15D3D" Ref="C?"  Part="1" 
 AR Path="/5B6E6A71/5BC15D3D" Ref="C?"  Part="1" 
-F 0 "C?" H 3092 2496 50  0000 L CNN
+F 0 "C104" H 3092 2496 50  0000 L CNN
 F 1 "1000uF" H 3092 2405 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:CP_Radial_D18.0mm_P7.50mm" H 3000 2450 50  0001 C CNN
 F 3 "~" H 3000 2450 50  0001 C CNN
@@ -673,10 +663,10 @@ Wire Wire Line
 Wire Wire Line
 	1100 2300 1600 2300
 $Comp
-L power:GND #PWR?
+L power:GND #PWR0109
 U 1 1 5BC21B4A
 P 3000 2700
-F 0 "#PWR?" H 3000 2450 50  0001 C CNN
+F 0 "#PWR0109" H 3000 2450 50  0001 C CNN
 F 1 "GND" H 3000 2550 50  0000 C CNN
 F 2 "" H 3000 2700 50  0001 C CNN
 F 3 "" H 3000 2700 50  0001 C CNN
@@ -687,10 +677,10 @@ Wire Wire Line
 	3000 2600 3000 2700
 Connection ~ 3000 2600
 $Comp
-L Device:C_Small C?
+L Device:C_Small C102
 U 1 1 5BC2E009
 P 2050 2450
-AR Path="/5BC2E009" Ref="C?"  Part="1" 
+AR Path="/5BC2E009" Ref="C102"  Part="1" 
 AR Path="/5B7230C4/5BC2E009" Ref="C?"  Part="1" 
 AR Path="/5B725BF5/5BC2E009" Ref="C?"  Part="1" 
 AR Path="/5B6E69BA/5BC2E009" Ref="C?"  Part="1" 
@@ -700,7 +690,7 @@ AR Path="/5B6E6A62/5BC2E009" Ref="C?"  Part="1"
 AR Path="/5B6E6A67/5BC2E009" Ref="C?"  Part="1" 
 AR Path="/5B6E6A6C/5BC2E009" Ref="C?"  Part="1" 
 AR Path="/5B6E6A71/5BC2E009" Ref="C?"  Part="1" 
-F 0 "C?" H 2142 2496 50  0000 L CNN
+F 0 "C102" H 2142 2496 50  0000 L CNN
 F 1 "470uF" H 2142 2405 50  0000 L CNN
 F 2 "Capacitors_ThroughHole:CP_Radial_D10.0mm_P5.00mm" H 2050 2450 50  0001 C CNN
 F 3 "~" H 2050 2450 50  0001 C CNN
@@ -719,4 +709,10 @@ Wire Wire Line
 	2050 2300 1600 2300
 Connection ~ 2050 2300
 Connection ~ 1600 2300
+Wire Wire Line
+	7700 3350 8200 3350
+Wire Wire Line
+	7700 3550 7550 3550
+Wire Wire Line
+	7800 2100 7550 2100
 $EndSCHEMATC
