@@ -969,7 +969,7 @@ F 4 "603-RC0603JR-0747KL" H 2300 2150 50  0001 C CNN "Mouser"
 	1    0    0    -1  
 $EndComp
 Text Notes 5300 1600 0    50   ~ 0
-target: 2mA current
+target: 65mA current
 Text Notes 1650 5600 0    50   ~ 0
 UART
 Wire Wire Line
@@ -1147,10 +1147,9 @@ L Device:R_Small R1
 U 1 1 5BA65996
 P 6150 1800
 F 0 "R1" H 6209 1846 50  0000 L CNN
-F 1 "1k" H 6209 1755 50  0000 L CNN
+F 1 "33" H 6209 1755 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" H 6150 1800 50  0001 C CNN
 F 3 "~" H 6150 1800 50  0001 C CNN
-F 4 "755-ESR03EZPJ102" H 6150 1800 50  0001 C CNN "Mouser"
 	1    6150 1800
 	1    0    0    -1  
 $EndComp
@@ -1190,7 +1189,7 @@ F 0 "D1" V 6188 1333 50  0000 R CNN
 F 1 "LED" V 6097 1333 50  0000 R CNN
 F 2 "Socket_Strips:Socket_Strip_Straight_1x02_Pitch1.27mm" H 6150 1450 50  0001 C CNN
 F 3 "~" H 6150 1450 50  0001 C CNN
-F 4 "NoPart" V 6150 1450 50  0001 C CNN "Mouser"
+F 4 "941-JB3030W00A0UC435" V 6150 1450 50  0001 C CNN "Mouser"
 	1    6150 1450
 	0    -1   -1   0   
 $EndComp
@@ -1322,4 +1321,8 @@ Wire Wire Line
 Wire Wire Line
 	8000 3450 8000 3400
 Connection ~ 8000 3400
+Text Notes 6400 1800 0    50   ~ 0
+TODO source
+Text Notes 5250 900  0    50   ~ 0
+maybe lower to 30mA to avoid maxing out \nprotection FET
 $EndSCHEMATC

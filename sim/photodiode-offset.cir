@@ -1,0 +1,32 @@
+* Qucs 0.0.19  /home/kelvin/.qucs/tia_offset.sch
+Q1 _net0  _net1  _net3 DI_MMBT2222A
+Q2 _net2  _net2  out DI_MMBT2222A
+R1 _net3 out  10MEGEG
+B_OP1 out 0 V = 1E6*V(_net3,gnd)*u(30-1E6*V(_net3,gnd))*u(1E6*V(_net3,gnd)-(-30))+30*u(1E6*V(_net3,gnd)-30)+(-30)*u((-30)-1E6*V(_net3,gnd))
+
+I1 _net3 0 DC 1UA
+V1 _net0 0 DC 20
+R3 _net2 _net0  10K
+I2 0 _net3 DC 0 SIN(0 100PA 10K 0 0) AC 100PA
+R2 _net1 _net2  100K
+C2 0 _net1  10U 
+C1 _net2 0  10U 
+.MODEL DI_MMBT2222A  NPN (IS=25.4f NF=1.00 BF=274 VAF=114
++ IKF=0.121 ISE=14.3p NE=2.00 BR=4.00 NR=1.00 + VAR=24.0 IKR=0.300 RE=0.219 RB=0.877 RC=87.7m 
++ XTB=1.5 CJE=27.6p VJE=1.10 MJE=0.500 CJC=14.2p VJC=0.300 + MJC=0.300 TF=622p TR=124n EG=1.12 )
+
++ IKF=0.121 ISE=14.3p NE=2.00 BR=4.00 NR=1.00
++ VAR=24.0 IKR=0.300 RE=0.219 RB=0.877 RC=87.7m
++ XTB=1.5 CJE=27.6p VJE=1.10 MJE=0.500 CJC=14.2p VJC=0.300
++ MJC=0.300 TF=622p TR=124n EG=1.12 )
+.control
+echo "" > spice4qucs.cir.noise
+echo "" > spice4qucs.cir.pz
+ac lin 250 1 20k 
+write tia_offset_ac.txt v(out) 
+destroy all
+reset
+
+exit
+.endc
+.END

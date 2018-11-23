@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name receiver)(type Legacy)(uri /home/kelvin/repos/auto-orchestra/pcb/receiver/receiver.lib)(options "")(descr ""))
+)

@@ -1,0 +1,30 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MAX4477AUA+
+D Operational Amplifiers - Op Amps Wide-Band Rail-Rail
+K dual opamp
+$ENDCMP
+#
+$CMP NLAS4599DFT2G
+D Single SPDT Monolithic CMOS Analog Switch, 20Ohm Ron, DIP-8
+K CMOS Analog Switch
+F https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf
+$ENDCMP
+#
+$CMP OPA2141AIDR
+D Operational Amplifiers - Op Amps 10MHzSgl SupplyLo NoiseJFET Prec Amp
+K dual opamp
+$ENDCMP
+#
+$CMP OPA2197QDGKRQ1
+D Operational Amplifiers - Op Amps 36-V, Precision, Rail-to-Rail Input Output, Low Offset Voltage Op Amp 8-VSSOP -40 to 125
+K dual opamp
+$ENDCMP
+#
+$CMP TL974IPWR
+D Operational Amplifiers - Op Amps Output Rail-to-Rail Very-Low-Noise
+K quad opamp
+F http://www.ti.com/lit/ds/symlink/lm2902-n.pdf
+$ENDCMP
+#
+#End Doc Library

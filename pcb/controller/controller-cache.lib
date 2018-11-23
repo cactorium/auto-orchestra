@@ -1,11 +1,11 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Connector_Generic:Conn_01x01
+# Connector_Generic_Conn_01x01
 #
-DEF Connector_Generic:Conn_01x01 J 0 40 Y N 1 F N
+DEF Connector_Generic_Conn_01x01 J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "Connector_Generic:Conn_01x01" 0 -100 50 H V C CNN
+F1 "Connector_Generic_Conn_01x01" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -18,11 +18,11 @@ X Pin_1 1 -200 0 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Connector_Generic:Conn_01x02
+# Connector_Generic_Conn_01x02
 #
-DEF Connector_Generic:Conn_01x02 J 0 40 Y N 1 F N
+DEF Connector_Generic_Conn_01x02 J 0 40 Y N 1 F N
 F0 "J" 0 100 50 H V C CNN
-F1 "Connector_Generic:Conn_01x02" 0 -200 50 H V C CNN
+F1 "Connector_Generic_Conn_01x02" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -37,11 +37,11 @@ X Pin_2 2 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Connector_Generic:Conn_01x03
+# Connector_Generic_Conn_01x03
 #
-DEF Connector_Generic:Conn_01x03 J 0 40 Y N 1 F N
+DEF Connector_Generic_Conn_01x03 J 0 40 Y N 1 F N
 F0 "J" 0 200 50 H V C CNN
-F1 "Connector_Generic:Conn_01x03" 0 -200 50 H V C CNN
+F1 "Connector_Generic_Conn_01x03" 0 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -58,11 +58,11 @@ X Pin_3 3 -200 -100 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Connector_Generic:Conn_02x02_Odd_Even
+# Connector_Generic_Conn_02x02_Odd_Even
 #
-DEF Connector_Generic:Conn_02x02_Odd_Even J 0 40 Y N 1 F N
+DEF Connector_Generic_Conn_02x02_Odd_Even J 0 40 Y N 1 F N
 F0 "J" 50 100 50 H V C CNN
-F1 "Connector_Generic:Conn_02x02_Odd_Even" 50 -200 50 H V C CNN
+F1 "Connector_Generic_Conn_02x02_Odd_Even" 50 -200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -81,11 +81,11 @@ X Pin_4 4 300 -100 150 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:C_Small
+# Device_C_Small
 #
-DEF Device:C_Small C 0 10 N N 1 F N
+DEF Device_C_Small C 0 10 N N 1 F N
 F0 "C" 10 70 50 H V L CNN
-F1 "Device:C_Small" 10 -80 50 H V L CNN
+F1 "Device_C_Small" 10 -80 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -99,11 +99,11 @@ X ~ 2 0 -100 80 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:Crystal
+# Device_Crystal
 #
-DEF Device:Crystal Y 0 40 N N 1 F N
+DEF Device_Crystal Y 0 40 N N 1 F N
 F0 "Y" 0 150 50 H V C CNN
-F1 "Device:Crystal" 0 -150 50 H V C CNN
+F1 "Device_Crystal" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -120,11 +120,11 @@ X 2 2 150 0 50 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:LED
+# Device_LED
 #
-DEF Device:LED D 0 40 N N 1 F N
+DEF Device_LED D 0 40 N N 1 F N
 F0 "D" 0 100 50 H V C CNN
-F1 "Device:LED" 0 -100 50 H V C CNN
+F1 "Device_LED" 0 -100 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -143,11 +143,11 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:L_Small
+# Device_L_Small
 #
-DEF Device:L_Small L 0 10 N N 1 F N
+DEF Device_L_Small L 0 10 N N 1 F N
 F0 "L" 30 40 50 H V L CNN
-F1 "Device:L_Small" 30 -40 50 H V L CNN
+F1 "Device_L_Small" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -166,11 +166,11 @@ X ~ 2 0 -100 20 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:Q_NPN_BEC
+# Device_Q_NPN_BEC
 #
-DEF Device:Q_NPN_BEC Q 0 0 Y N 1 F N
+DEF Device_Q_NPN_BEC Q 0 0 Y N 1 F N
 F0 "Q" 200 50 50 H V L CNN
-F1 "Device:Q_NPN_BEC" 200 -50 50 H V L CNN
+F1 "Device_Q_NPN_BEC" 200 -50 50 H V L CNN
 F2 "" 200 100 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -185,11 +185,11 @@ X C 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:Q_PMOS_GSD
+# Device_Q_PMOS_GSD
 #
-DEF Device:Q_PMOS_GSD Q 0 0 Y N 1 F N
+DEF Device_Q_PMOS_GSD Q 0 0 Y N 1 F N
 F0 "Q" 200 50 50 H V L CNN
-F1 "Device:Q_PMOS_GSD" 200 -50 50 H V L CNN
+F1 "Device_Q_PMOS_GSD" 200 -50 50 H V L CNN
 F2 "" 200 100 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -217,11 +217,11 @@ X D 3 100 200 100 D 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Device:R_Small
+# Device_R_Small
 #
-DEF Device:R_Small R 0 10 N N 1 F N
+DEF Device_R_Small R 0 10 N N 1 F N
 F0 "R" 30 20 50 H V L CNN
-F1 "Device:R_Small" 30 -40 50 H V L CNN
+F1 "Device_R_Small" 30 -40 50 H V L CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 $FPLIST
@@ -234,11 +234,11 @@ X ~ 2 0 -100 30 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# controllerparts:BMG250
+# controllerparts_BMG250
 #
-DEF controllerparts:BMG250 U 0 40 Y Y 1 F N
+DEF controllerparts_BMG250 U 0 40 Y Y 1 F N
 F0 "U" 0 350 50 H V C CNN
-F1 "controllerparts:BMG250" 0 -850 50 H V C CNN
+F1 "controllerparts_BMG250" 0 -850 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -260,11 +260,11 @@ X INT2 9 450 -500 100 L 50 50 1 1 B
 ENDDRAW
 ENDDEF
 #
-# controllerparts:LIS2DE12TR
+# controllerparts_LIS2DE12TR
 #
-DEF controllerparts:LIS2DE12TR U 0 40 Y Y 1 F N
+DEF controllerparts_LIS2DE12TR U 0 40 Y Y 1 F N
 F0 "U" 0 400 50 H V C CNN
-F1 "controllerparts:LIS2DE12TR" 0 350 50 H V C CNN
+F1 "controllerparts_LIS2DE12TR" 0 350 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -284,11 +284,11 @@ X Vdd 9 600 200 100 L 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
-# controllerparts:MSP430FR2512IRHLR
+# controllerparts_MSP430FR2512IRHLR
 #
-DEF controllerparts:MSP430FR2512IRHLR U 0 40 Y Y 2 L N
+DEF controllerparts_MSP430FR2512IRHLR U 0 40 Y Y 2 L N
 F0 "U" 0 0 50 H V C CNN
-F1 "controllerparts:MSP430FR2512IRHLR" 0 -1300 50 H V C CNN
+F1 "controllerparts_MSP430FR2512IRHLR" 0 -1300 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -318,11 +318,11 @@ X GND 21 1450 -200 200 L 50 50 2 1 P
 ENDDRAW
 ENDDEF
 #
-# controllerparts:TPS613222ADBVR
+# controllerparts_TPS613222ADBVR
 #
-DEF controllerparts:TPS613222ADBVR U 0 40 Y Y 1 F N
+DEF controllerparts_TPS613222ADBVR U 0 40 Y Y 1 F N
 F0 "U" 0 300 50 H V C CNN
-F1 "controllerparts:TPS613222ADBVR" 0 200 50 H V C CNN
+F1 "controllerparts_TPS613222ADBVR" 0 200 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -335,11 +335,11 @@ X NC 5 100 -400 100 U 50 50 1 1 N N
 ENDDRAW
 ENDDEF
 #
-# power:GND
+# power_GND
 #
-DEF power:GND #PWR 0 0 Y Y 1 F P
+DEF power_GND #PWR 0 0 Y Y 1 F P
 F0 "#PWR" 0 -250 50 H I C CNN
-F1 "power:GND" 0 -150 50 H V C CNN
+F1 "power_GND" 0 -150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
@@ -348,11 +348,11 @@ X GND 1 0 0 0 D 50 50 1 1 W N
 ENDDRAW
 ENDDEF
 #
-# power:PWR_FLAG
+# power_PWR_FLAG
 #
-DEF power:PWR_FLAG #FLG 0 0 N N 1 F P
+DEF power_PWR_FLAG #FLG 0 0 N N 1 F P
 F0 "#FLG" 0 75 50 H I C CNN
-F1 "power:PWR_FLAG" 0 150 50 H V C CNN
+F1 "power_PWR_FLAG" 0 150 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW
