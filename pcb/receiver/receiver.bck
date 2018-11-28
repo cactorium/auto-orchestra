@@ -1,8 +1,22 @@
 EESchema-DOCLIB  Version 2.0
 #
+$CMP ADR550ARTZ-REEL7
+D Voltage References Shunt Mode 5.0V High Prec
+$ENDCMP
+#
 $CMP MAX4477AUA+
 D Operational Amplifiers - Op Amps Wide-Band Rail-Rail
 K dual opamp
+$ENDCMP
+#
+$CMP NCP1403SNT1G
+D Switching Voltage Regulators 15V 50mA Boost PFM
+$ENDCMP
+#
+$CMP NLAS4599DFT2G
+D Single SPDT Monolithic CMOS Analog Switch, 20Ohm Ron, DIP-8
+K CMOS Analog Switch
+F https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf
 $ENDCMP
 #
 $CMP OPA2141AIDR
@@ -19,6 +33,10 @@ $CMP TL974IPWR
 D Operational Amplifiers - Op Amps Output Rail-to-Rail Very-Low-Noise
 K quad opamp
 F http://www.ti.com/lit/ds/symlink/lm2902-n.pdf
+$ENDCMP
+#
+$CMP TPS63700DRCR
+D Switching Voltage Regulators Adj -15V Out Inv DC/DC Converter
 $ENDCMP
 #
 #End Doc Library
