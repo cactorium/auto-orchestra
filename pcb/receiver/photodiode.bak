@@ -20,7 +20,7 @@ U 1 1 5C072AEE
 P 4300 3200
 F 0 "U203" H 4300 3400 50  0000 L CNN
 F 1 "MAX4477AUA+" H 4300 3000 50  0000 L CNN
-F 2 "" H 4300 3200 50  0001 C CNN
+F 2 "receiver-footprints:Maxim-uMAX8" H 4300 3200 50  0001 C CNN
 F 3 "" H 4300 3200 50  0001 C CNN
 	1    4300 3200
 	1    0    0    1   
@@ -31,7 +31,7 @@ U 2 1 5C072AF5
 P 5950 3300
 F 0 "U203" H 5950 3500 50  0000 L CNN
 F 1 "MAX4477AUA+" H 5950 3100 50  0000 L CNN
-F 2 "" H 5950 3300 50  0001 C CNN
+F 2 "receiver-footprints:Maxim-uMAX8" H 5950 3300 50  0001 C CNN
 F 3 "" H 5950 3300 50  0001 C CNN
 	2    5950 3300
 	1    0    0    1   
@@ -415,7 +415,7 @@ U 1 1 5C072BE3
 P 8050 3400
 F 0 "U204" H 8050 3600 50  0000 L CNN
 F 1 "OPA2141AIDR" H 8050 3200 50  0000 L CNN
-F 2 "" H 8050 3400 50  0001 C CNN
+F 2 "receiver-footprints:TI-SOIC8" H 8050 3400 50  0001 C CNN
 F 3 "" H 8050 3400 50  0001 C CNN
 	1    8050 3400
 	1    0    0    1   
@@ -426,7 +426,7 @@ U 2 1 5C072BEA
 P 10050 3500
 F 0 "U204" H 10050 3700 50  0000 L CNN
 F 1 "OPA2141AIDR" H 10050 3300 50  0000 L CNN
-F 2 "" H 10050 3500 50  0001 C CNN
+F 2 "receiver-footprints:TI-SOIC8" H 10050 3500 50  0001 C CNN
 F 3 "" H 10050 3500 50  0001 C CNN
 	2    10050 3500
 	1    0    0    1   
@@ -825,7 +825,7 @@ U 1 1 5C072CDA
 P 9900 2050
 F 0 "U205" H 9775 2235 50  0000 L CNN
 F 1 "NLAS4599DFT2G" H 9775 2165 50  0000 L CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 9900 1750 50  0001 C CNN
+F 2 "receiver-footprints:On-SOT363" H 9900 1750 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf" H 9900 1850 50  0001 C CNN
 	1    9900 2050
 	-1   0    0    -1  
@@ -1100,7 +1100,7 @@ AR Path="/5C086FBB" Ref="U?"  Part="3"
 AR Path="/5C071C62/5C086FBB" Ref="U203"  Part="3" 
 F 0 "U203" H 9450 5800 50  0000 L CNN
 F 1 "MAX4477AUA+" H 9450 5400 50  0000 L CNN
-F 2 "" H 9450 5600 50  0001 C CNN
+F 2 "receiver-footprints:Maxim-uMAX8" H 9450 5600 50  0001 C CNN
 F 3 "" H 9450 5600 50  0001 C CNN
 	3    9450 5600
 	1    0    0    -1  
@@ -1113,7 +1113,7 @@ AR Path="/5C086FC2" Ref="U?"  Part="3"
 AR Path="/5C071C62/5C086FC2" Ref="U204"  Part="3" 
 F 0 "U204" H 10300 5850 50  0000 L CNN
 F 1 "OPA2141AIDR" H 10300 5450 50  0000 L CNN
-F 2 "" H 10300 5650 50  0001 C CNN
+F 2 "receiver-footprints:TI-SOIC8" H 10300 5650 50  0001 C CNN
 F 3 "" H 10300 5650 50  0001 C CNN
 	3    10300 5650
 	1    0    0    -1  
@@ -1126,7 +1126,7 @@ AR Path="/5C086FD0" Ref="U?"  Part="2"
 AR Path="/5C071C62/5C086FD0" Ref="U205"  Part="2" 
 F 0 "U205" H 8775 5685 50  0000 L CNN
 F 1 "NLAS4599DFT2G" H 8775 5615 50  0000 L CNN
-F 2 "Package_DIP:DIP-8_W7.62mm" H 8900 5200 50  0001 C CNN
+F 2 "receiver-footprints:On-SOT363" H 8900 5200 50  0001 C CNN
 F 3 "https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf" H 8900 5300 50  0001 C CNN
 	2    8900 5500
 	-1   0    0    -1  
@@ -2724,7 +2724,7 @@ Connection ~ 6250 5900
 Wire Wire Line
 	6250 5900 6300 5900
 Text Notes 2000 5550 0    50   ~ 0
-TODO maybe add pullups to improve\nop amp performance; they can sink\nmore than they can source
+NOTE maybe add pullups to improve\nop amp performance; they can sink\nmore than they can source
 NoConn ~ 600  6550
 Text Label 8900 4150 0    50   ~ 0
 +2V5
