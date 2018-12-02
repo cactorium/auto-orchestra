@@ -2724,7 +2724,7 @@ Connection ~ 6250 5900
 Wire Wire Line
 	6250 5900 6300 5900
 Text Notes 2000 5550 0    50   ~ 0
-NOTE maybe add pullups to improve\nop amp performance; they can sink\nmore than they can source
+TODO maybe add pullups to improve\nop amp performance; they can sink\nmore than they can source
 NoConn ~ 600  6550
 Text Label 8900 4150 0    50   ~ 0
 +2V5

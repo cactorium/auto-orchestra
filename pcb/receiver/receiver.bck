@@ -4,6 +4,18 @@ $CMP ADR550ARTZ-REEL7
 D Voltage References Shunt Mode 5.0V High Prec
 $ENDCMP
 #
+$CMP ATTINY412-SSNR
+D 8-bit Microcontrollers - MCU 105C, Green, 20MHz, SOIC8, T&R
+$ENDCMP
+#
+$CMP L78L33ABUTR
+D Linear Voltage Regulators 3.3V 0.1A Positive
+$ENDCMP
+#
+$CMP MAX11666AUB+T
+D Analog to Digital Converters - ADC 1-2Ch 12-Bit 500ksps ADC
+$ENDCMP
+#
 $CMP MAX4477AUA+
 D Operational Amplifiers - Op Amps Wide-Band Rail-Rail
 K dual opamp
@@ -27,6 +39,10 @@ $ENDCMP
 $CMP OPA2197QDGKRQ1
 D Operational Amplifiers - Op Amps 36-V, Precision, Rail-to-Rail Input Output, Low Offset Voltage Op Amp 8-VSSOP -40 to 125
 K dual opamp
+$ENDCMP
+#
+$CMP STM32F070F6P6
+D ARM Microcontrollers - MCU Mainstream ARM Cortex-M0 Value line MCU with up to 32 Kbytes Flash, 48 MHz CPU, USB
 $ENDCMP
 #
 $CMP TL974IPWR
