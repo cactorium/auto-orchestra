@@ -225,7 +225,7 @@ F 2 "Capacitors_SMD:CP_Elec_4x5.3" H 3750 7000 50  0001 C CNN
 F 3 "~" H 3750 7000 50  0001 C CNN
 F 4 "647-UWX1E4R7MCL1" H 3750 7000 50  0001 C CNN "Mouser"
 	1    3750 7000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L power:GND #PWR0112
@@ -309,7 +309,7 @@ F 2 "Capacitors_SMD:CP_Elec_4x5.3" H 4150 7000 50  0001 C CNN
 F 3 "~" H 4150 7000 50  0001 C CNN
 F 4 "647-UWX1E4R7MCL1" H 4150 7000 50  0001 C CNN "Mouser"
 	1    4150 7000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Device:C_Small C114
@@ -321,7 +321,7 @@ F 2 "Capacitors_SMD:CP_Elec_4x5.3" H 4500 7000 50  0001 C CNN
 F 3 "~" H 4500 7000 50  0001 C CNN
 F 4 "647-UWX1E4R7MCL1" H 4500 7000 50  0001 C CNN "Mouser"
 	1    4500 7000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Device:C_Small C116
@@ -333,7 +333,7 @@ F 2 "Capacitors_SMD:CP_Elec_4x5.3" H 4850 7000 50  0001 C CNN
 F 3 "~" H 4850 7000 50  0001 C CNN
 F 4 "647-UWX1E4R7MCL1" H 4850 7000 50  0001 C CNN "Mouser"
 	1    4850 7000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L Device:C_Small C102
