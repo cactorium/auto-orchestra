@@ -1083,8 +1083,9 @@ U 1 1 5C2F2529
 P 5550 4150
 F 0 "TP102" H 5550 4420 50  0000 C CNN
 F 1 "TestPoint" H 5550 4350 50  0000 C CNN
-F 2 "" H 5750 4150 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 5750 4150 50  0001 C CNN
 F 3 "~" H 5750 4150 50  0001 C CNN
+F 4 "NoPart" H 5750 4150 50  0001 C CNN "Mouser"
 	1    5550 4150
 	1    0    0    -1  
 $EndComp
@@ -1099,8 +1100,9 @@ U 1 1 5C2F7F38
 P 5200 6700
 F 0 "TP101" H 5200 6970 50  0000 C CNN
 F 1 "TestPoint" H 5200 6900 50  0000 C CNN
-F 2 "" H 5400 6700 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 5400 6700 50  0001 C CNN
 F 3 "~" H 5400 6700 50  0001 C CNN
+F 4 "NoPart" H 5200 6700 50  0001 C CNN "Mouser"
 	1    5200 6700
 	0    1    1    0   
 $EndComp

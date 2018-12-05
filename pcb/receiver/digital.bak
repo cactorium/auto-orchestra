@@ -1685,8 +1685,9 @@ U 1 1 5C2C1BD7
 P 2700 5400
 F 0 "TP304" H 2700 5670 50  0000 C CNN
 F 1 "TestPoint" H 2700 5600 50  0000 C CNN
-F 2 "" H 2900 5400 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2900 5400 50  0001 C CNN
 F 3 "~" H 2900 5400 50  0001 C CNN
+F 4 "NoPart" H 2900 5400 50  0001 C CNN "Mouser"
 	1    2700 5400
 	0    1    1    0   
 $EndComp
@@ -1699,8 +1700,9 @@ U 1 1 5C2CDF5E
 P 1600 5300
 F 0 "TP301" H 1600 5570 50  0000 C CNN
 F 1 "TestPoint" H 1600 5500 50  0000 C CNN
-F 2 "" H 1800 5300 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1800 5300 50  0001 C CNN
 F 3 "~" H 1800 5300 50  0001 C CNN
+F 4 "NoPart" H 1800 5300 50  0001 C CNN "Mouser"
 	1    1600 5300
 	1    0    0    -1  
 $EndComp
@@ -1713,8 +1715,9 @@ U 1 1 5C2D99F9
 P 2100 2900
 F 0 "TP302" H 2100 3170 50  0000 C CNN
 F 1 "TestPoint" H 2100 3100 50  0000 C CNN
-F 2 "" H 2300 2900 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2300 2900 50  0001 C CNN
 F 3 "~" H 2300 2900 50  0001 C CNN
+F 4 "NoPart" H 2300 2900 50  0001 C CNN "Mouser"
 	1    2100 2900
 	1    0    0    -1  
 $EndComp
@@ -1727,8 +1730,9 @@ U 1 1 5C2E5AD2
 P 2100 3800
 F 0 "TP303" H 2100 4070 50  0000 C CNN
 F 1 "TestPoint" H 2100 4000 50  0000 C CNN
-F 2 "" H 2300 3800 50  0001 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 2300 3800 50  0001 C CNN
 F 3 "~" H 2300 3800 50  0001 C CNN
+F 4 "NoPart" H 2300 3800 50  0001 C CNN "Mouser"
 	1    2100 3800
 	-1   0    0    1   
 $EndComp

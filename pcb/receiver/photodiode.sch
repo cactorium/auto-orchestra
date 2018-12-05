@@ -2600,8 +2600,6 @@ Wire Wire Line
 Wire Wire Line
 	1100 1500 1600 1500
 Wire Wire Line
-	1100 1800 1500 1800
-Wire Wire Line
 	1100 4000 1450 4000
 Text GLabel 1300 5800 1    50   Input ~ 0
 +12V
@@ -3024,23 +3022,6 @@ Connection ~ 1100 2400
 Wire Wire Line
 	1100 2400 1100 2450
 $Comp
-L Connector:TestPoint TP203
-U 1 1 5C38B0A8
-P 1500 1850
-F 0 "TP203" H 1500 2120 50  0000 C CNN
-F 1 "TestPoint" H 1500 2050 50  0000 C CNN
-F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1700 1850 50  0001 C CNN
-F 3 "~" H 1700 1850 50  0001 C CNN
-F 4 "NoPart" H 1700 1850 50  0001 C CNN "Mouser"
-	1    1500 1850
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	1500 1850 1500 1800
-Connection ~ 1500 1800
-Wire Wire Line
-	1500 1800 1650 1800
-$Comp
 L Connector:TestPoint TP205
 U 1 1 5C3AF0B6
 P 1600 1300
@@ -3112,4 +3093,6 @@ Wire Wire Line
 Connection ~ 4800 2700
 Wire Wire Line
 	4800 2700 4800 2650
+Wire Wire Line
+	1100 1800 1650 1800
 $EndSCHEMATC
