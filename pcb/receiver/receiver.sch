@@ -692,7 +692,7 @@ Wire Wire Line
 	5750 4300 5750 4450
 Connection ~ 5750 4300
 Wire Wire Line
-	5750 4300 5400 4300
+	5750 4300 5550 4300
 Wire Wire Line
 	6100 4300 6100 4450
 Connection ~ 6100 4300
@@ -1015,7 +1015,7 @@ F 3 "~" H 4950 6650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4950 6650 4950 6800
+	4950 6650 4950 6700
 Connection ~ 4950 6800
 Wire Wire Line
 	4950 6800 5000 6800
@@ -1077,4 +1077,38 @@ F 4 "726-BSS215PH6327" H 2650 4650 50  0001 C CNN "Mouser"
 $EndComp
 Wire Wire Line
 	1850 4550 2100 4550
+$Comp
+L Connector:TestPoint TP102
+U 1 1 5C2F2529
+P 5550 4150
+F 0 "TP102" H 5550 4420 50  0000 C CNN
+F 1 "TestPoint" H 5550 4350 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 5750 4150 50  0001 C CNN
+F 3 "~" H 5750 4150 50  0001 C CNN
+F 4 "NoPart" H 5750 4150 50  0001 C CNN "Mouser"
+	1    5550 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 4150 5550 4300
+Connection ~ 5550 4300
+Wire Wire Line
+	5550 4300 5400 4300
+$Comp
+L Connector:TestPoint TP101
+U 1 1 5C2F7F38
+P 5200 6700
+F 0 "TP101" H 5200 6970 50  0000 C CNN
+F 1 "TestPoint" H 5200 6900 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 5400 6700 50  0001 C CNN
+F 3 "~" H 5400 6700 50  0001 C CNN
+F 4 "NoPart" H 5200 6700 50  0001 C CNN "Mouser"
+	1    5200 6700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5200 6700 4950 6700
+Connection ~ 4950 6700
+Wire Wire Line
+	4950 6700 4950 6800
 $EndSCHEMATC

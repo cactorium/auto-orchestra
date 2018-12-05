@@ -144,7 +144,7 @@ Wire Wire Line
 Connection ~ 4350 2800
 Connection ~ 4800 2800
 Wire Wire Line
-	4800 2800 4800 2650
+	4800 2800 4800 2700
 Wire Wire Line
 	4800 1950 4800 2350
 Wire Wire Line
@@ -928,7 +928,7 @@ Connection ~ 8900 3400
 Wire Wire Line
 	8900 3400 9000 3400
 Wire Wire Line
-	8450 3400 8600 3400
+	8450 3400 8550 3400
 Connection ~ 8450 3400
 $Comp
 L power:GND #PWR0230
@@ -2353,7 +2353,7 @@ F 3 "" H 1100 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1100 2350 1100 2450
+	1100 2350 1100 2400
 Wire Wire Line
 	1100 2050 1100 2150
 Wire Wire Line
@@ -2563,7 +2563,7 @@ $EndComp
 Wire Wire Line
 	1700 4000 1800 4000
 Wire Wire Line
-	1500 3700 1100 3700
+	1500 3700 1450 3700
 Connection ~ 1100 3700
 Wire Wire Line
 	1100 3700 1100 3750
@@ -2598,11 +2598,11 @@ Wire Wire Line
 Wire Wire Line
 	1100 1450 1100 1500
 Wire Wire Line
-	1100 1500 1650 1500
+	1100 1500 1600 1500
 Wire Wire Line
-	1100 1800 1650 1800
+	1100 1800 1500 1800
 Wire Wire Line
-	1100 4000 1500 4000
+	1100 4000 1450 4000
 Text GLabel 1300 5800 1    50   Input ~ 0
 +12V
 Text Label 6600 5150 1    50   ~ 0
@@ -2730,7 +2730,7 @@ NoConn ~ 600  6550
 Text Label 8900 4150 0    50   ~ 0
 +2V5
 Wire Wire Line
-	10200 2150 10600 2150
+	10200 2150 10450 2150
 $Comp
 L Device:R_Small R248
 U 1 1 5C114054
@@ -2957,4 +2957,159 @@ Text Notes 2600 3850 1    50   ~ 0
 NOTE alternate part\n828-OP906\nOP906
 Wire Wire Line
 	2750 3500 2750 3900
+$Comp
+L Connector:TestPoint TP207
+U 1 1 5C2FEC78
+P 6550 2850
+F 0 "TP207" H 6550 3120 50  0000 C CNN
+F 1 "TestPoint" H 6550 3050 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 6750 2850 50  0001 C CNN
+F 3 "~" H 6750 2850 50  0001 C CNN
+F 4 "NoPart" H 6750 2850 50  0001 C CNN "Mouser"
+	1    6550 2850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 2850 6550 2950
+Connection ~ 6550 2950
+$Comp
+L Connector:TestPoint TP208
+U 1 1 5C32152F
+P 8550 3700
+F 0 "TP208" H 8550 3970 50  0000 C CNN
+F 1 "TestPoint" H 8550 3900 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 8750 3700 50  0001 C CNN
+F 3 "~" H 8750 3700 50  0001 C CNN
+F 4 "NoPart" H 8750 3700 50  0001 C CNN "Mouser"
+	1    8550 3700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8550 3700 8550 3400
+Connection ~ 8550 3400
+Wire Wire Line
+	8550 3400 8600 3400
+$Comp
+L Connector:TestPoint TP209
+U 1 1 5C34427D
+P 10450 2000
+F 0 "TP209" H 10450 2270 50  0000 C CNN
+F 1 "TestPoint" H 10450 2200 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 10650 2000 50  0001 C CNN
+F 3 "~" H 10650 2000 50  0001 C CNN
+F 4 "NoPart" H 10650 2000 50  0001 C CNN "Mouser"
+	1    10450 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10450 2000 10450 2150
+Connection ~ 10450 2150
+Wire Wire Line
+	10450 2150 10600 2150
+$Comp
+L Connector:TestPoint TP201
+U 1 1 5C3675CA
+P 1250 2400
+F 0 "TP201" H 1250 2670 50  0000 C CNN
+F 1 "TestPoint" H 1250 2600 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1450 2400 50  0001 C CNN
+F 3 "~" H 1450 2400 50  0001 C CNN
+F 4 "NoPart" H 1450 2400 50  0001 C CNN "Mouser"
+	1    1250 2400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1250 2400 1100 2400
+Connection ~ 1100 2400
+Wire Wire Line
+	1100 2400 1100 2450
+$Comp
+L Connector:TestPoint TP203
+U 1 1 5C38B0A8
+P 1500 1850
+F 0 "TP203" H 1500 2120 50  0000 C CNN
+F 1 "TestPoint" H 1500 2050 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1700 1850 50  0001 C CNN
+F 3 "~" H 1700 1850 50  0001 C CNN
+F 4 "NoPart" H 1700 1850 50  0001 C CNN "Mouser"
+	1    1500 1850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1500 1850 1500 1800
+Connection ~ 1500 1800
+Wire Wire Line
+	1500 1800 1650 1800
+$Comp
+L Connector:TestPoint TP205
+U 1 1 5C3AF0B6
+P 1600 1300
+F 0 "TP205" H 1600 1570 50  0000 C CNN
+F 1 "TestPoint" H 1600 1500 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1800 1300 50  0001 C CNN
+F 3 "~" H 1800 1300 50  0001 C CNN
+F 4 "NoPart" H 1800 1300 50  0001 C CNN "Mouser"
+	1    1600 1300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1600 1300 1600 1500
+Connection ~ 1600 1500
+Wire Wire Line
+	1600 1500 1650 1500
+$Comp
+L Connector:TestPoint TP204
+U 1 1 5C3D37D0
+P 1550 3300
+F 0 "TP204" H 1550 3570 50  0000 C CNN
+F 1 "TestPoint" H 1550 3500 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1750 3300 50  0001 C CNN
+F 3 "~" H 1750 3300 50  0001 C CNN
+F 4 "NoPart" H 1750 3300 50  0001 C CNN "Mouser"
+	1    1550 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 3300 1550 3450
+Wire Wire Line
+	1550 3450 1450 3450
+Wire Wire Line
+	1450 3450 1450 3700
+Connection ~ 1450 3700
+Wire Wire Line
+	1450 3700 1100 3700
+$Comp
+L Connector:TestPoint TP202
+U 1 1 5C3F933E
+P 1450 4150
+F 0 "TP202" H 1450 4420 50  0000 C CNN
+F 1 "TestPoint" H 1450 4350 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 1650 4150 50  0001 C CNN
+F 3 "~" H 1650 4150 50  0001 C CNN
+F 4 "NoPart" H 1650 4150 50  0001 C CNN "Mouser"
+	1    1450 4150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1450 4150 1450 4000
+Connection ~ 1450 4000
+Wire Wire Line
+	1450 4000 1500 4000
+$Comp
+L Connector:TestPoint TP206
+U 1 1 5C4200FC
+P 4950 2700
+F 0 "TP206" H 4950 2970 50  0000 C CNN
+F 1 "TestPoint" H 4950 2900 50  0000 C CNN
+F 2 "Measurement_Points:Measurement_Point_Round-SMD-Pad_Small" H 5150 2700 50  0001 C CNN
+F 3 "~" H 5150 2700 50  0001 C CNN
+F 4 "NoPart" H 5150 2700 50  0001 C CNN "Mouser"
+	1    4950 2700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4950 2700 4800 2700
+Connection ~ 4800 2700
+Wire Wire Line
+	4800 2700 4800 2650
 $EndSCHEMATC
