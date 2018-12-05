@@ -1,0 +1,3597 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<export version="D">
+  <design>
+    <source>/home/kelvin/repos/auto-orchestra/pcb/receiver/receiver.sch</source>
+    <date>Tue 04 Dec 2018 09:39:08 PM EST</date>
+    <tool>Eeschema 5.0.1</tool>
+    <sheet number="1" name="/" tstamps="/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>receiver.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="2" name="/Photodiode/" tstamps="/5C071C62/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>photodiode.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+    <sheet number="3" name="/Digital/" tstamps="/5D2D7802/">
+      <title_block>
+        <title/>
+        <company/>
+        <rev/>
+        <date/>
+        <source>digital.sch</source>
+        <comment number="1" value=""/>
+        <comment number="2" value=""/>
+        <comment number="3" value=""/>
+        <comment number="4" value=""/>
+      </title_block>
+    </sheet>
+  </design>
+  <components>
+    <comp ref="U101">
+      <value>TPS63700DRCR</value>
+      <footprint>receiver-footprints:TI-VSON10</footprint>
+      <fields>
+        <field name="Mouser">595-TPS63700DRCR</field>
+      </fields>
+      <libsource lib="receiver" part="TPS63700DRCR" description="Switching Voltage Regulators Adj -15V Out Inv DC/DC Converter"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19B9AD</tstamp>
+    </comp>
+    <comp ref="R101">
+      <value>10</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">667-ERJ-U02D10R0X</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19BC7D</tstamp>
+    </comp>
+    <comp ref="L102">
+      <value>10 uH</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">810-MLZ2012M100WT000</field>
+      </fields>
+      <libsource lib="Device" part="L_Small" description="Inductor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19CCF8</tstamp>
+    </comp>
+    <comp ref="D102">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19D0F5</tstamp>
+    </comp>
+    <comp ref="C101">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19DCEA</tstamp>
+    </comp>
+    <comp ref="C103">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D19EA5E</tstamp>
+    </comp>
+    <comp ref="C106">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A2465</tstamp>
+    </comp>
+    <comp ref="C109">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A5A46</tstamp>
+    </comp>
+    <comp ref="C114">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A5A74</tstamp>
+    </comp>
+    <comp ref="C116">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A5AA6</tstamp>
+    </comp>
+    <comp ref="C102">
+      <value>4.7 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012205029</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A5B98</tstamp>
+    </comp>
+    <comp ref="R105">
+      <value>1.2M</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-071M2L</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A709F</tstamp>
+    </comp>
+    <comp ref="R104">
+      <value>120k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-07120KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A70EE</tstamp>
+    </comp>
+    <comp ref="C112">
+      <value>10 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012005074</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1A9A97</tstamp>
+    </comp>
+    <comp ref="R106">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1AA707</tstamp>
+    </comp>
+    <comp ref="C111">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1AF2DD</tstamp>
+    </comp>
+    <comp ref="C110">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D1B1DC8</tstamp>
+    </comp>
+    <comp ref="U102">
+      <value>NCP1403SNT1G</value>
+      <footprint>receiver-footprints:ON-TSOP-5</footprint>
+      <fields>
+        <field name="Mouser">863-NCP1403SNT1G</field>
+      </fields>
+      <libsource lib="receiver" part="NCP1403SNT1G" description="Switching Voltage Regulators 15V 50mA Boost PFM"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D29C60D</tstamp>
+    </comp>
+    <comp ref="L101">
+      <value>47 uH</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">810-MLZ2012M470WT000</field>
+      </fields>
+      <libsource lib="Device" part="L_Small" description="Inductor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A2177</tstamp>
+    </comp>
+    <comp ref="D101">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A4B88</tstamp>
+    </comp>
+    <comp ref="C108">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A7FEB</tstamp>
+    </comp>
+    <comp ref="C113">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A800E</tstamp>
+    </comp>
+    <comp ref="C115">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A8015</tstamp>
+    </comp>
+    <comp ref="C117">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2A801C</tstamp>
+    </comp>
+    <comp ref="R102">
+      <value>680k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-13680KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2B5912</tstamp>
+    </comp>
+    <comp ref="R103">
+      <value>47k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0747KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2B5961</tstamp>
+    </comp>
+    <comp ref="C107">
+      <value>1 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012205061</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2B5A21</tstamp>
+    </comp>
+    <comp ref="C104">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2C9C19</tstamp>
+    </comp>
+    <comp ref="C105">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5D2C9C9B</tstamp>
+    </comp>
+    <comp ref="R108">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C32B484</tstamp>
+    </comp>
+    <comp ref="J101">
+      <value>Conn_01x02</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C337705</tstamp>
+    </comp>
+    <comp ref="R107">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C3456ED</tstamp>
+    </comp>
+    <comp ref="Q102">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C66C411</tstamp>
+    </comp>
+    <comp ref="D103">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C0E0504</tstamp>
+    </comp>
+    <comp ref="Q101">
+      <value>BSS215PH6327XTSA1</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">726-BSS215PH6327</field>
+      </fields>
+      <libsource lib="Device" part="Q_PMOS_GSD" description="P-MOSFET transistor, gate/source/drain"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C140684</tstamp>
+    </comp>
+    <comp ref="TP102">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C2F2529</tstamp>
+    </comp>
+    <comp ref="TP101">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamp>5C2F7F38</tstamp>
+    </comp>
+    <comp ref="U203">
+      <value>MAX4477AUA+</value>
+      <footprint>receiver-footprints:Maxim-uMAX8</footprint>
+      <fields>
+        <field name="Mouser">700-MAX4477AUA</field>
+      </fields>
+      <libsource lib="receiver" part="MAX4477AUA+" description="Operational Amplifiers - Op Amps Wide-Band Rail-Rail"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072AEE</tstamp>
+    </comp>
+    <comp ref="R211">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071ML</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072AFC</tstamp>
+    </comp>
+    <comp ref="C210">
+      <value>2 pF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-C0603BRNPO9BN2R0</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B03</tstamp>
+    </comp>
+    <comp ref="R212">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B18</tstamp>
+    </comp>
+    <comp ref="R216">
+      <value>4k7</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">71-CRCW06034K70JNEAC</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B1F</tstamp>
+    </comp>
+    <comp ref="C208">
+      <value>33 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012105014</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B26</tstamp>
+    </comp>
+    <comp ref="C213">
+      <value>1 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012205061</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B2D</tstamp>
+    </comp>
+    <comp ref="R215">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071ML</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B34</tstamp>
+    </comp>
+    <comp ref="D201">
+      <value>QSB34CGR</value>
+      <footprint>receiver-footprints:Fairchild_QSB34CGR</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">512-QSB34CGR</field>
+      </fields>
+      <libsource lib="Device" part="D_Photo" description="Photodiode"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B69</tstamp>
+    </comp>
+    <comp ref="D202">
+      <value>BPW 34 S-Z</value>
+      <footprint>receiver-footprints:OSRAM_BPW34S-Z</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">720-BPW34S-Z</field>
+      </fields>
+      <libsource lib="Device" part="D_Photo" description="Photodiode"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B70</tstamp>
+    </comp>
+    <comp ref="D203">
+      <value>TEFD4300F</value>
+      <footprint>LEDs:LED_D3.0mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">78-TEFD4300F</field>
+      </fields>
+      <libsource lib="Device" part="D_Photo" description="Photodiode"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B77</tstamp>
+    </comp>
+    <comp ref="R204">
+      <value>0</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR03EZPJ000</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072B9D</tstamp>
+    </comp>
+    <comp ref="C214">
+      <value>150 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206021</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BB2</tstamp>
+    </comp>
+    <comp ref="R218">
+      <value>2k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-102KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BB9</tstamp>
+    </comp>
+    <comp ref="R222">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BC0</tstamp>
+    </comp>
+    <comp ref="C219">
+      <value>56 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">77-VJ0402A560KXAPBC</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BC7</tstamp>
+    </comp>
+    <comp ref="U204">
+      <value>OPA2141AIDR</value>
+      <footprint>receiver-footprints:TI-SOIC8</footprint>
+      <fields>
+        <field name="Mouser">595-OPA2141AIDR</field>
+      </fields>
+      <libsource lib="receiver" part="OPA2141AIDR" description="Operational Amplifiers - Op Amps 10MHzSgl SupplyLo NoiseJFET Prec Amp"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BE3</tstamp>
+    </comp>
+    <comp ref="C224">
+      <value>33 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012105014</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BF1</tstamp>
+    </comp>
+    <comp ref="R224">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BF8</tstamp>
+    </comp>
+    <comp ref="C223">
+      <value>3.3 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">77-VJ0402A560KXAPBC</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072BFF</tstamp>
+    </comp>
+    <comp ref="R228">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C0C</tstamp>
+    </comp>
+    <comp ref="C228">
+      <value>2 pF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-C0603BRNPO9BN2R0</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C13</tstamp>
+    </comp>
+    <comp ref="R231">
+      <value>470k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-07470KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C21</tstamp>
+    </comp>
+    <comp ref="R232">
+      <value>470k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-07470KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C28</tstamp>
+    </comp>
+    <comp ref="U202">
+      <value>TL974IPWR</value>
+      <footprint>receiver-footprints:TI-SOIC14</footprint>
+      <fields>
+        <field name="Mouser">595-TL974IPWR</field>
+      </fields>
+      <libsource lib="receiver" part="TL974IPWR" description="Operational Amplifiers - Op Amps Output Rail-to-Rail Very-Low-Noise"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C4C</tstamp>
+    </comp>
+    <comp ref="R230">
+      <value>18k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0718KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C62</tstamp>
+    </comp>
+    <comp ref="R226">
+      <value>12k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-1012KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C74</tstamp>
+    </comp>
+    <comp ref="R221">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C8F</tstamp>
+    </comp>
+    <comp ref="R220">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C96</tstamp>
+    </comp>
+    <comp ref="C216">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072C9D</tstamp>
+    </comp>
+    <comp ref="C220">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CA4</tstamp>
+    </comp>
+    <comp ref="R225">
+      <value>12k DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-1012KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CC8</tstamp>
+    </comp>
+    <comp ref="U205">
+      <value>NLAS4599DFT2G</value>
+      <footprint>receiver-footprints:On-SOT363</footprint>
+      <fields>
+        <field name="Mouser">863-NLAS4599DFT2G</field>
+      </fields>
+      <libsource lib="receiver" part="NLAS4599DFT2G" description="Single SPDT Monolithic CMOS Analog Switch, 20Ohm Ron, DIP-8"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CDA</tstamp>
+    </comp>
+    <comp ref="R234">
+      <value>330k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402FR-07330KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CE1</tstamp>
+    </comp>
+    <comp ref="R235">
+      <value>20k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR01MZPF2002</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CE8</tstamp>
+    </comp>
+    <comp ref="C233">
+      <value>270 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">963-UMK105CH271JVHF</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CEF</tstamp>
+    </comp>
+    <comp ref="C232">
+      <value>10 pF DNP</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012005074</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CF6</tstamp>
+    </comp>
+    <comp ref="R233">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072CFD</tstamp>
+    </comp>
+    <comp ref="C230">
+      <value>3.3 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">77-VJ0402A560KXAPBC</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D04</tstamp>
+    </comp>
+    <comp ref="C231">
+      <value>33 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012105014</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D0B</tstamp>
+    </comp>
+    <comp ref="R237">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D12</tstamp>
+    </comp>
+    <comp ref="R229">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D44</tstamp>
+    </comp>
+    <comp ref="R238">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D4B</tstamp>
+    </comp>
+    <comp ref="C236">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D55</tstamp>
+    </comp>
+    <comp ref="C225">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C072D5C</tstamp>
+    </comp>
+    <comp ref="R210">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C0C3172</tstamp>
+    </comp>
+    <comp ref="R213">
+      <value>100k DNP</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C0C3343</tstamp>
+    </comp>
+    <comp ref="C212">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C0EBAC9</tstamp>
+    </comp>
+    <comp ref="R219">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C119EE0</tstamp>
+    </comp>
+    <comp ref="C218">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C119FA8</tstamp>
+    </comp>
+    <comp ref="C202">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C4B997E</tstamp>
+    </comp>
+    <comp ref="R202">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C4B97B6</tstamp>
+    </comp>
+    <comp ref="C215">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C3AFE56</tstamp>
+    </comp>
+    <comp ref="R217">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C37E3A5</tstamp>
+    </comp>
+    <comp ref="C217">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C30F7C4</tstamp>
+    </comp>
+    <comp ref="C221">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C30F700</tstamp>
+    </comp>
+    <comp ref="C222">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C2C515D</tstamp>
+    </comp>
+    <comp ref="R223">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C2C5154</tstamp>
+    </comp>
+    <comp ref="C227">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C26059A</tstamp>
+    </comp>
+    <comp ref="R227">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C2453CF</tstamp>
+    </comp>
+    <comp ref="C206">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C1D781D</tstamp>
+    </comp>
+    <comp ref="C209">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D57C</tstamp>
+    </comp>
+    <comp ref="C207">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D575</tstamp>
+    </comp>
+    <comp ref="C201">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D54F</tstamp>
+    </comp>
+    <comp ref="R208">
+      <value>4k7</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">71-CRCW06034K70JNEAC</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D548</tstamp>
+    </comp>
+    <comp ref="R207">
+      <value>4k7</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">71-CRCW06034K70JNEAC</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D541</tstamp>
+    </comp>
+    <comp ref="R201">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D52E</tstamp>
+    </comp>
+    <comp ref="U201">
+      <value>ADR550ARTZ-REEL7</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <fields>
+        <field name="Mouser">584-ADR550ARTZ-R7</field>
+      </fields>
+      <libsource lib="receiver" part="ADR550ARTZ-REEL7" description="Voltage References Shunt Mode 5.0V High Prec"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C07D527</tstamp>
+    </comp>
+    <comp ref="R209">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C6FF680</tstamp>
+    </comp>
+    <comp ref="C205">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C7237BC</tstamp>
+    </comp>
+    <comp ref="R203">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C781002</tstamp>
+    </comp>
+    <comp ref="C203">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C78100A</tstamp>
+    </comp>
+    <comp ref="C211">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C830170</tstamp>
+    </comp>
+    <comp ref="R214">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C857DF0</tstamp>
+    </comp>
+    <comp ref="R205">
+      <value>1k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C86CC0D</tstamp>
+    </comp>
+    <comp ref="C204">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C895BA8</tstamp>
+    </comp>
+    <comp ref="C237">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C8EA99C</tstamp>
+    </comp>
+    <comp ref="C238">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C8EB112</tstamp>
+    </comp>
+    <comp ref="R239">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C8EB971</tstamp>
+    </comp>
+    <comp ref="C229">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C998BD8</tstamp>
+    </comp>
+    <comp ref="C234">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C9C61A9</tstamp>
+    </comp>
+    <comp ref="C235">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C9C61B0</tstamp>
+    </comp>
+    <comp ref="R236">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C9C61B7</tstamp>
+    </comp>
+    <comp ref="C226">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CA0C732</tstamp>
+    </comp>
+    <comp ref="R206">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CA5A185</tstamp>
+    </comp>
+    <comp ref="R240">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CA5A284</tstamp>
+    </comp>
+    <comp ref="R241">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CA5A370</tstamp>
+    </comp>
+    <comp ref="R242">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CA5A462</tstamp>
+    </comp>
+    <comp ref="C240">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CAD41F6</tstamp>
+    </comp>
+    <comp ref="C244">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CB6FE67</tstamp>
+    </comp>
+    <comp ref="C245">
+      <value>100 nF DNP</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CBA5ACF</tstamp>
+    </comp>
+    <comp ref="R244">
+      <value>30k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-AC0402FR-0730KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CC320F7</tstamp>
+    </comp>
+    <comp ref="R245">
+      <value>20k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR01MZPF2002</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CC32219</tstamp>
+    </comp>
+    <comp ref="R243">
+      <value>51k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402FR-0751KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CC4DAE3</tstamp>
+    </comp>
+    <comp ref="C239">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CC6957E</tstamp>
+    </comp>
+    <comp ref="C243">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CD33BD2</tstamp>
+    </comp>
+    <comp ref="C242">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5CDAC578</tstamp>
+    </comp>
+    <comp ref="C246">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5D0B2274</tstamp>
+    </comp>
+    <comp ref="C241">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5D11183C</tstamp>
+    </comp>
+    <comp ref="R246">
+      <value>1k DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5D1B8F0D</tstamp>
+    </comp>
+    <comp ref="R247">
+      <value>10k DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5D258C61</tstamp>
+    </comp>
+    <comp ref="R248">
+      <value>4k7</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">71-CRCW06034K70JNEAC</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C114054</tstamp>
+    </comp>
+    <comp ref="D205">
+      <value>PLZ4V7B-G3/H</value>
+      <footprint>receiver-footprints:Vishay_DO-219AC</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">78-PLZ4V7B-G3/H</field>
+      </fields>
+      <libsource lib="Device" part="D_Zener" description="Zener diode"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C155E21</tstamp>
+    </comp>
+    <comp ref="Q201">
+      <value>BFR31,215</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">771-BFR31215</field>
+      </fields>
+      <libsource lib="Device" part="Q_NJFET_DSG" description="N-JFET transistor, drain/source/gate"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C636C60</tstamp>
+    </comp>
+    <comp ref="Q207">
+      <value>TF414T5G</value>
+      <footprint>receiver-footprints:ON_XDFN3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">863-TF414T5G</field>
+      </fields>
+      <libsource lib="Device" part="Q_NJFET_SDG" description="N-JFET transistor, source/drain/gate"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C65B0BB</tstamp>
+    </comp>
+    <comp ref="Q204">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C66871D</tstamp>
+    </comp>
+    <comp ref="Q203">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C668A80</tstamp>
+    </comp>
+    <comp ref="Q206">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C668C90</tstamp>
+    </comp>
+    <comp ref="Q205">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C66B190</tstamp>
+    </comp>
+    <comp ref="Q202">
+      <value>MMBT2222A-7-F</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-23_Handsoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">621-MMBT2222A-F</field>
+      </fields>
+      <libsource lib="Device" part="Q_NPN_BEC" description="NPN transistor, base/emitter/collector"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C66B3BA</tstamp>
+    </comp>
+    <comp ref="TP207">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C2FEC78</tstamp>
+    </comp>
+    <comp ref="TP208">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C32152F</tstamp>
+    </comp>
+    <comp ref="TP209">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C34427D</tstamp>
+    </comp>
+    <comp ref="TP201">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C3675CA</tstamp>
+    </comp>
+    <comp ref="TP205">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C3AF0B6</tstamp>
+    </comp>
+    <comp ref="TP204">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C3D37D0</tstamp>
+    </comp>
+    <comp ref="TP202">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C3F933E</tstamp>
+    </comp>
+    <comp ref="TP206">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Photodiode/" tstamps="/5C071C62/"/>
+      <tstamp>5C4200FC</tstamp>
+    </comp>
+    <comp ref="U302">
+      <value>STM32F070F6P6</value>
+      <footprint>receiver-footprints:ST-TSSOP20</footprint>
+      <fields>
+        <field name="Mouser">511-STM32F070F6P6</field>
+      </fields>
+      <libsource lib="receiver" part="STM32F070F6P6" description="ARM Microcontrollers - MCU Mainstream ARM Cortex-M0 Value line MCU with up to 32 Kbytes Flash, 48 MHz CPU, USB"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C03D31D</tstamp>
+    </comp>
+    <comp ref="U301">
+      <value>ATTINY412-SSNR</value>
+      <footprint>receiver-footprints:Atmel-SOIC150-8</footprint>
+      <fields>
+        <field name="Mouser">556-ATTINY412-SSNR</field>
+      </fields>
+      <libsource lib="receiver" part="ATTINY412-SSNR" description="8-bit Microcontrollers - MCU 105C, Green, 20MHz, SOIC8, T&amp;R"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C03D7C5</tstamp>
+    </comp>
+    <comp ref="C304">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C040866</tstamp>
+    </comp>
+    <comp ref="C305">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C044FA9</tstamp>
+    </comp>
+    <comp ref="C306">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C04594B</tstamp>
+    </comp>
+    <comp ref="C307">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C045971</tstamp>
+    </comp>
+    <comp ref="C308">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C045F72</tstamp>
+    </comp>
+    <comp ref="C309">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C045F9A</tstamp>
+    </comp>
+    <comp ref="C310">
+      <value>4.7 uF</value>
+      <footprint>Capacitors_SMD:CP_Elec_4x5.3</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">647-UWX1E4R7MCL1</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C045FC4</tstamp>
+    </comp>
+    <comp ref="C303">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C04B6CC</tstamp>
+    </comp>
+    <comp ref="C302">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C04C95B</tstamp>
+    </comp>
+    <comp ref="C301">
+      <value>1 uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012106022</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C04C9B0</tstamp>
+    </comp>
+    <comp ref="R303">
+      <value>0</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR03EZPJ000</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C052C0B</tstamp>
+    </comp>
+    <comp ref="R304">
+      <value>0</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR03EZPJ000</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C052CA3</tstamp>
+    </comp>
+    <comp ref="R302">
+      <value>0 DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR03EZPJ000</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C053845</tstamp>
+    </comp>
+    <comp ref="R305">
+      <value>0 DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-SFR03EZPJ000</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0538D5</tstamp>
+    </comp>
+    <comp ref="U303">
+      <value>MAX11666AUB+T</value>
+      <footprint>receiver-footprints:Maxim-U10E+3</footprint>
+      <fields>
+        <field name="Mouser">700-MAX11666AUB+T</field>
+      </fields>
+      <libsource lib="receiver" part="MAX11666AUB+T" description="Analog to Digital Converters - ADC 1-2Ch 12-Bit 500ksps ADC"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0813D0</tstamp>
+    </comp>
+    <comp ref="R309">
+      <value>33</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">755-ESR03EZPJ330</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C086952</tstamp>
+    </comp>
+    <comp ref="C315">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0869F8</tstamp>
+    </comp>
+    <comp ref="C314">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C086A63</tstamp>
+    </comp>
+    <comp ref="C316">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C086AB1</tstamp>
+    </comp>
+    <comp ref="C317">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C086AFD</tstamp>
+    </comp>
+    <comp ref="R312">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C095D39</tstamp>
+    </comp>
+    <comp ref="C318">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C09B687</tstamp>
+    </comp>
+    <comp ref="C319">
+      <value>10 uF</value>
+      <footprint>Capacitors_SMD:C_0805_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">81-GRM21BR61E106MA3L</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C09B725</tstamp>
+    </comp>
+    <comp ref="R311">
+      <value>100k DNP</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0A7968</tstamp>
+    </comp>
+    <comp ref="R310">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0C2065</tstamp>
+    </comp>
+    <comp ref="C311">
+      <value>1 nF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012205061</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0E50B6</tstamp>
+    </comp>
+    <comp ref="R307">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071ML</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0E5214</tstamp>
+    </comp>
+    <comp ref="R306">
+      <value>1M</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603JR-071ML</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0E5273</tstamp>
+    </comp>
+    <comp ref="R308">
+      <value>47k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0747KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0E52DF</tstamp>
+    </comp>
+    <comp ref="C313">
+      <value>100 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">963-UMK105CH101JVHF</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0E54A7</tstamp>
+    </comp>
+    <comp ref="D302">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0F0EF8</tstamp>
+    </comp>
+    <comp ref="D303">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0F0F94</tstamp>
+    </comp>
+    <comp ref="C312">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C12ED5B</tstamp>
+    </comp>
+    <comp ref="J303">
+      <value>AVR_DEBUG</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C144565</tstamp>
+    </comp>
+    <comp ref="J301">
+      <value>UART</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_1x03_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x03" description="Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C144722</tstamp>
+    </comp>
+    <comp ref="J302">
+      <value>STM32_SWD</value>
+      <footprint>Socket_Strips:Socket_Strip_Straight_2x02_Pitch2.54mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector_Generic" part="Conn_01x04" description="Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C1448E5</tstamp>
+    </comp>
+    <comp ref="R314">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-7D330RL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C1B057F</tstamp>
+    </comp>
+    <comp ref="R315">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-7D330RL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C1B0665</tstamp>
+    </comp>
+    <comp ref="R316">
+      <value>330</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-7D330RL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C1F1B1E</tstamp>
+    </comp>
+    <comp ref="J304">
+      <value>USB_B_Micro</value>
+      <footprint>receiver-footprints:Amphenol_10118194</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">649-10118194-0001LF</field>
+      </fields>
+      <libsource lib="Connector" part="USB_B_Micro" description="USB Micro Type B connector"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C1FE231</tstamp>
+    </comp>
+    <comp ref="R313">
+      <value>100k</value>
+      <footprint>Resistors_SMD:R_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0402JR-13100KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C22312B</tstamp>
+    </comp>
+    <comp ref="D305">
+      <value>TPD1E04U04DPYR</value>
+      <footprint>receiver-footprints:TI_X1SON</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">595-TPD1E04U04DPYR</field>
+      </fields>
+      <libsource lib="Device" part="D_Small" description="Diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2A19C1</tstamp>
+    </comp>
+    <comp ref="D306">
+      <value>TPD1E04U04DPYR</value>
+      <footprint>receiver-footprints:TI_X1SON</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">595-TPD1E04U04DPYR</field>
+      </fields>
+      <libsource lib="Device" part="D_Small" description="Diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2A245A</tstamp>
+    </comp>
+    <comp ref="D304">
+      <value>TPD1E04U04DPYR</value>
+      <footprint>receiver-footprints:TI_X1SON</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">595-TPD1E04U04DPYR</field>
+      </fields>
+      <libsource lib="Device" part="D_Small" description="Diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2A2619</tstamp>
+    </comp>
+    <comp ref="U304">
+      <value>L78L33ABUTR</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-89-3_Handsoldering</footprint>
+      <fields>
+        <field name="Mouser">511-L78L33ABU-TR</field>
+      </fields>
+      <libsource lib="receiver" part="L78L33ABUTR" description="Linear Voltage Regulators 3.3V 0.1A Positive"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C3C25B7</tstamp>
+    </comp>
+    <comp ref="C320">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C3E789B</tstamp>
+    </comp>
+    <comp ref="C321">
+      <value>100 nF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012206071</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C417D48</tstamp>
+    </comp>
+    <comp ref="Y301">
+      <value>ABM3B-8.000MHZ-10-1UT</value>
+      <footprint>Crystals:Crystal_SMD_Abracon_ABM3C-4pin_5.0x3.2mm</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">815-ABM3B-8.0-10-1UT</field>
+      </fields>
+      <libsource lib="Device" part="Crystal_GND24" description="Four pin crystal, GND on pins 2 and 4"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C5381D9</tstamp>
+    </comp>
+    <comp ref="C322">
+      <value>22 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012005009</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C5789E0</tstamp>
+    </comp>
+    <comp ref="C323">
+      <value>22 pF</value>
+      <footprint>Capacitors_SMD:C_0402</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">710-885012005009</field>
+      </fields>
+      <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C578AB0</tstamp>
+    </comp>
+    <comp ref="R317">
+      <value>10k</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C5A5D92</tstamp>
+    </comp>
+    <comp ref="R318">
+      <value>10k DNP</value>
+      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">603-RC0603FR-0710KL</field>
+      </fields>
+      <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C5A5F3F</tstamp>
+    </comp>
+    <comp ref="D301">
+      <value>2SS100L-W</value>
+      <footprint>receiver-footprints:Rectron_SOD-123FL</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">583-2SS100L-W</field>
+      </fields>
+      <libsource lib="Device" part="D_Schottky_Small" description="Schottky diode, small symbol"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C0DFE5D</tstamp>
+    </comp>
+    <comp ref="TP304">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2C1BD7</tstamp>
+    </comp>
+    <comp ref="TP301">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2CDF5E</tstamp>
+    </comp>
+    <comp ref="TP302">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2D99F9</tstamp>
+    </comp>
+    <comp ref="TP303">
+      <value>TestPoint</value>
+      <footprint>Measurement_Points:Measurement_Point_Round-SMD-Pad_Small</footprint>
+      <datasheet>~</datasheet>
+      <fields>
+        <field name="Mouser">NoPart</field>
+      </fields>
+      <libsource lib="Connector" part="TestPoint" description="test point"/>
+      <sheetpath names="/Digital/" tstamps="/5D2D7802/"/>
+      <tstamp>5C2E5AD2</tstamp>
+    </comp>
+  </components>
+  <libparts>
+    <libpart lib="Connector" part="TestPoint">
+      <description>test point</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Pin*</fp>
+        <fp>Test*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">TP</field>
+        <field name="Value">TestPoint</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector" part="USB_B_Micro">
+      <aliases>
+        <alias>USB_B_Mini</alias>
+      </aliases>
+      <description>USB Micro Type B connector</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>USB*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">USB_B_Micro</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VBUS" type="power_out"/>
+        <pin num="2" name="D-" type="passive"/>
+        <pin num="3" name="D+" type="passive"/>
+        <pin num="4" name="ID" type="passive"/>
+        <pin num="5" name="GND" type="power_out"/>
+        <pin num="6" name="Shield" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x02">
+      <description>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x02</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x03">
+      <description>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x03</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Connector_Generic" part="Conn_01x04">
+      <description>Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Connector*:*_1x??_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Conn_01x04</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+        <pin num="3" name="Pin_3" type="passive"/>
+        <pin num="4" name="Pin_4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="C_Small">
+      <description>Unpolarized capacitor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>C_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">C</field>
+        <field name="Value">C_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Crystal_GND24">
+      <description>Four pin crystal, GND on pins 2 and 4</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Crystal*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">Y</field>
+        <field name="Value">Crystal_GND24</field>
+      </fields>
+      <pins>
+        <pin num="1" name="1" type="passive"/>
+        <pin num="2" name="2" type="passive"/>
+        <pin num="3" name="3" type="passive"/>
+        <pin num="4" name="4" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Photo">
+      <description>Photodiode</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Photo</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Schottky_Small">
+      <description>Schottky diode, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Schottky_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Small">
+      <description>Diode, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="D_Zener">
+      <description>Zener diode</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TO-???*</fp>
+        <fp>*_Diode_*</fp>
+        <fp>*SingleDiode*</fp>
+        <fp>D_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">D</field>
+        <field name="Value">D_Zener</field>
+      </fields>
+      <pins>
+        <pin num="1" name="K" type="passive"/>
+        <pin num="2" name="A" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="L_Small">
+      <description>Inductor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>Choke_*</fp>
+        <fp>*Coil*</fp>
+        <fp>Inductor_*</fp>
+        <fp>L_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">L</field>
+        <field name="Value">L_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NJFET_DSG">
+      <description>N-JFET transistor, drain/source/gate</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NJFET_DSG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="D" type="passive"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="G" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NJFET_SDG">
+      <description>N-JFET transistor, source/drain/gate</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NJFET_SDG</field>
+      </fields>
+      <pins>
+        <pin num="1" name="S" type="passive"/>
+        <pin num="2" name="D" type="passive"/>
+        <pin num="3" name="G" type="input"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_NPN_BEC">
+      <description>NPN transistor, base/emitter/collector</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_NPN_BEC</field>
+      </fields>
+      <pins>
+        <pin num="1" name="B" type="input"/>
+        <pin num="2" name="E" type="passive"/>
+        <pin num="3" name="C" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="Q_PMOS_GSD">
+      <description>P-MOSFET transistor, gate/source/drain</description>
+      <docs>~</docs>
+      <fields>
+        <field name="Reference">Q</field>
+        <field name="Value">Q_PMOS_GSD</field>
+      </fields>
+      <pins>
+        <pin num="1" name="G" type="input"/>
+        <pin num="2" name="S" type="passive"/>
+        <pin num="3" name="D" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="Device" part="R_Small">
+      <description>Resistor, small symbol</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_Small</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="ADR550ARTZ-REEL7">
+      <description>Voltage References Shunt Mode 5.0V High Prec</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ADR550ARTZ-REEL7</field>
+      </fields>
+      <pins>
+        <pin num="1" name="V+" type="passive"/>
+        <pin num="2" name="V-" type="passive"/>
+        <pin num="3" name="TRIM" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="ATTINY412-SSNR">
+      <description>8-bit Microcontrollers - MCU 105C, Green, 20MHz, SOIC8, T&amp;R</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">ATTINY412-SSNR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VDD" type="power_in"/>
+        <pin num="2" name="PA6" type="BiDi"/>
+        <pin num="3" name="PA7" type="BiDi"/>
+        <pin num="4" name="PA1" type="BiDi"/>
+        <pin num="5" name="PA2" type="BiDi"/>
+        <pin num="6" name="PA0/nRESET/UPDI" type="BiDi"/>
+        <pin num="7" name="PA3/EXTCLK" type="BiDi"/>
+        <pin num="8" name="GND" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="L78L33ABUTR">
+      <description>Linear Voltage Regulators 3.3V 0.1A Positive</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">L78L33ABUTR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="VOUT" type="power_out"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="VIN" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="MAX11666AUB+T">
+      <description>Analog to Digital Converters - ADC 1-2Ch 12-Bit 500ksps ADC</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MAX11666AUB+T</field>
+      </fields>
+      <pins>
+        <pin num="1" name="AIN1" type="input"/>
+        <pin num="2" name="AIN2" type="input"/>
+        <pin num="3" name="AGND" type="passive"/>
+        <pin num="4" name="REF" type="input"/>
+        <pin num="5" name="VDD" type="power_in"/>
+        <pin num="6" name="nCS" type="input"/>
+        <pin num="7" name="CHSEL" type="input"/>
+        <pin num="8" name="DVDD" type="power_in"/>
+        <pin num="9" name="DOUT" type="output"/>
+        <pin num="10" name="SCLK" type="input"/>
+        <pin num="11" name="GPAD" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="MAX4477AUA+">
+      <description>Operational Amplifiers - Op Amps Wide-Band Rail-Rail</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">MAX4477AUA+</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="NCP1403SNT1G">
+      <description>Switching Voltage Regulators 15V 50mA Boost PFM</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NCP1403SNT1G</field>
+      </fields>
+      <pins>
+        <pin num="1" name="CE" type="input"/>
+        <pin num="2" name="FB" type="input"/>
+        <pin num="3" name="VDD" type="power_in"/>
+        <pin num="4" name="GND" type="passive"/>
+        <pin num="5" name="LX" type="power_out"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="NLAS4599DFT2G">
+      <description>Single SPDT Monolithic CMOS Analog Switch, 20Ohm Ron, DIP-8</description>
+      <docs>https://datasheets.maximintegrated.com/en/ds/DG417-DG419.pdf</docs>
+      <footprints>
+        <fp>DIP*W7.62mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">NLAS4599DFT2G</field>
+        <field name="Footprint">Package_DIP:DIP-8_W7.62mm</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="input"/>
+        <pin num="2" name="V+" type="power_in"/>
+        <pin num="3" name="GND" type="power_in"/>
+        <pin num="4" name="~" type="passive"/>
+        <pin num="5" name="~" type="passive"/>
+        <pin num="6" name="~" type="passive"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="OPA2141AIDR">
+      <description>Operational Amplifiers - Op Amps 10MHzSgl SupplyLo NoiseJFET Prec Amp</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">OPA2141AIDR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V-" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="V+" type="power_in"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="STM32F070F6P6">
+      <description>ARM Microcontrollers - MCU Mainstream ARM Cortex-M0 Value line MCU with up to 32 Kbytes Flash, 48 MHz CPU, USB</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">STM32F070F6P6</field>
+      </fields>
+      <pins>
+        <pin num="1" name="BOOT0/WKUP2/RTC_TAMP1/RTC_TS/RTC_OUT" type="input"/>
+        <pin num="2" name="PF0/OSC_IN" type="BiDi"/>
+        <pin num="3" name="PF1/OSC_OUT" type="BiDi"/>
+        <pin num="4" name="NRST" type="BiDi"/>
+        <pin num="5" name="VDDA" type="power_in"/>
+        <pin num="6" name="PA0/USART2_CTS/USART4_TX/RTC__TAMP2/WKUP1/ADC_IN0" type="BiDi"/>
+        <pin num="7" name="PA1/USART2_RTS/TIM15_CH1N/USART4_RX/EVENTOUT/ADC_IN1" type="BiDi"/>
+        <pin num="8" name="PA2/USART2_TX/TIM15_CH1/ADC_IN2/WKUP4" type="BiDi"/>
+        <pin num="9" name="PA3/USART2_RX/TIM15_CH2/ADC_IN3" type="BiDi"/>
+        <pin num="10" name="PA4/SPI1_NSS/TIM14_CH1/USART2_CK/USB_NOE/ADC_IN4" type="BiDi"/>
+        <pin num="11" name="PA5/SPI1_SCK/ADC_IN5" type="BiDi"/>
+        <pin num="12" name="PA6/SPI1_MISO/TIM3_CH1/TIM1_BKIN/TIM16_CH1/EVENTOUT/USART3_CTS/ADC_IN6" type="BiDi"/>
+        <pin num="13" name="PA7/SPI1_MOSI/TIM3_CH2/TIM14_CH1/TIM1_CH1N/TIM17_CH1/EVENTOUT/ADC_IN7" type="BiDi"/>
+        <pin num="14" name="PB1/TIM3_CH4/USART3_RTS/TIM14_CH1/TIM1_CH3N/ADC_IN9" type="BiDi"/>
+        <pin num="15" name="VSS" type="passive"/>
+        <pin num="16" name="VDD" type="power_in"/>
+        <pin num="17" name="PA9/USART1_TX/TIM1_CH2/TIM15_BKIN/I2C1_SCL/USART1_CTS/TIM1_CH4/EVENTOUT/USB_DM" type="BiDi"/>
+        <pin num="18" name="PA10/USART1_RX/TIM1_CH3/TIM17_BKIN/I2C1_SDA/USART1_RTS/TIM1_ETR/EVENTOUT/USB_DP" type="BiDi"/>
+        <pin num="19" name="PA13/IR_OUT/SWDIO/USB_NOE" type="BiDi"/>
+        <pin num="20" name="PA14/USART2_TX/SWCLK" type="BiDi"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="TL974IPWR">
+      <description>Operational Amplifiers - Op Amps Output Rail-to-Rail Very-Low-Noise</description>
+      <docs>http://www.ti.com/lit/ds/symlink/lm2902-n.pdf</docs>
+      <footprints>
+        <fp>SOIC*3.9x8.7mm*P1.27mm*</fp>
+        <fp>DIP*W7.62mm*</fp>
+        <fp>TSSOP*4.4x5mm*P0.65mm*</fp>
+        <fp>SSOP*5.3x6.2mm*P0.65mm*</fp>
+        <fp>MSOP*3x3mm*P0.5mm*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TL974IPWR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="output"/>
+        <pin num="2" name="-" type="input"/>
+        <pin num="3" name="+" type="input"/>
+        <pin num="4" name="V+" type="power_in"/>
+        <pin num="5" name="+" type="input"/>
+        <pin num="6" name="-" type="input"/>
+        <pin num="7" name="~" type="output"/>
+        <pin num="8" name="~" type="output"/>
+        <pin num="9" name="-" type="input"/>
+        <pin num="10" name="+" type="input"/>
+        <pin num="11" name="V-" type="power_in"/>
+        <pin num="12" name="+" type="input"/>
+        <pin num="13" name="-" type="input"/>
+        <pin num="14" name="~" type="output"/>
+      </pins>
+    </libpart>
+    <libpart lib="receiver" part="TPS63700DRCR">
+      <description>Switching Voltage Regulators Adj -15V Out Inv DC/DC Converter</description>
+      <fields>
+        <field name="Reference">U</field>
+        <field name="Value">TPS63700DRCR</field>
+      </fields>
+      <pins>
+        <pin num="1" name="COMP" type="passive"/>
+        <pin num="2" name="GND" type="passive"/>
+        <pin num="3" name="VIN" type="power_in"/>
+        <pin num="4" name="EN" type="input"/>
+        <pin num="5" name="IN" type="power_in"/>
+        <pin num="6" name="SW" type="power_out"/>
+        <pin num="7" name="PS_GND" type="passive"/>
+        <pin num="8" name="OUT" type="input"/>
+        <pin num="9" name="FB" type="input"/>
+        <pin num="10" name="VREF" type="output"/>
+        <pin num="11" name="GPAD" type="passive"/>
+      </pins>
+    </libpart>
+  </libparts>
+  <libraries>
+    <library logical="Connector">
+      <uri>/usr/share/kicad/library/Connector.lib</uri>
+    </library>
+    <library logical="Connector_Generic">
+      <uri>/usr/share/kicad/library/Connector_Generic.lib</uri>
+    </library>
+    <library logical="Device">
+      <uri>/usr/share/kicad/library/Device.lib</uri>
+    </library>
+    <library logical="receiver">
+      <uri>/home/kelvin/repos/auto-orchestra/pcb/receiver/receiver.lib</uri>
+    </library>
+  </libraries>
+  <nets>
+    <net code="1" name="Net-(C107-Pad2)">
+      <node ref="R102" pin="2"/>
+      <node ref="U102" pin="2"/>
+      <node ref="R103" pin="1"/>
+      <node ref="C107" pin="2"/>
+    </net>
+    <net code="2" name="/Digital/GAIN_ADC">
+      <node ref="R226" pin="1"/>
+      <node ref="Q206" pin="2"/>
+      <node ref="U202" pin="6"/>
+      <node ref="R225" pin="1"/>
+      <node ref="U301" pin="3"/>
+    </net>
+    <net code="3" name="GND">
+      <node ref="U202" pin="11"/>
+      <node ref="C216" pin="2"/>
+      <node ref="C322" pin="2"/>
+      <node ref="C323" pin="2"/>
+      <node ref="C229" pin="2"/>
+      <node ref="C222" pin="2"/>
+      <node ref="C206" pin="2"/>
+      <node ref="C318" pin="2"/>
+      <node ref="C319" pin="2"/>
+      <node ref="U201" pin="2"/>
+      <node ref="C223" pin="2"/>
+      <node ref="R312" pin="2"/>
+      <node ref="U303" pin="11"/>
+      <node ref="C227" pin="2"/>
+      <node ref="C205" pin="2"/>
+      <node ref="R226" pin="2"/>
+      <node ref="C237" pin="2"/>
+      <node ref="R310" pin="1"/>
+      <node ref="C203" pin="2"/>
+      <node ref="C312" pin="2"/>
+      <node ref="C204" pin="2"/>
+      <node ref="J304" pin="5"/>
+      <node ref="C211" pin="2"/>
+      <node ref="R307" pin="2"/>
+      <node ref="C313" pin="2"/>
+      <node ref="D303" pin="2"/>
+      <node ref="C226" pin="2"/>
+      <node ref="C238" pin="2"/>
+      <node ref="C220" pin="2"/>
+      <node ref="C234" pin="2"/>
+      <node ref="C235" pin="2"/>
+      <node ref="R317" pin="1"/>
+      <node ref="J303" pin="1"/>
+      <node ref="C245" pin="2"/>
+      <node ref="C301" pin="2"/>
+      <node ref="C244" pin="2"/>
+      <node ref="C302" pin="2"/>
+      <node ref="U301" pin="8"/>
+      <node ref="C320" pin="2"/>
+      <node ref="C240" pin="2"/>
+      <node ref="C307" pin="2"/>
+      <node ref="U304" pin="2"/>
+      <node ref="R242" pin="2"/>
+      <node ref="C308" pin="2"/>
+      <node ref="C241" pin="2"/>
+      <node ref="C246" pin="2"/>
+      <node ref="C303" pin="2"/>
+      <node ref="R245" pin="2"/>
+      <node ref="C239" pin="2"/>
+      <node ref="C306" pin="2"/>
+      <node ref="U302" pin="15"/>
+      <node ref="C305" pin="2"/>
+      <node ref="C310" pin="2"/>
+      <node ref="C309" pin="2"/>
+      <node ref="R208" pin="2"/>
+      <node ref="C201" pin="2"/>
+      <node ref="D304" pin="2"/>
+      <node ref="D306" pin="2"/>
+      <node ref="C209" pin="2"/>
+      <node ref="C207" pin="2"/>
+      <node ref="R311" pin="2"/>
+      <node ref="C317" pin="2"/>
+      <node ref="D205" pin="2"/>
+      <node ref="U303" pin="3"/>
+      <node ref="TP201" pin="1"/>
+      <node ref="C316" pin="2"/>
+      <node ref="C314" pin="2"/>
+      <node ref="C315" pin="2"/>
+      <node ref="C304" pin="2"/>
+      <node ref="C321" pin="2"/>
+      <node ref="Y301" pin="2"/>
+      <node ref="Y301" pin="4"/>
+      <node ref="C242" pin="2"/>
+      <node ref="C243" pin="2"/>
+      <node ref="C106" pin="1"/>
+      <node ref="C202" pin="2"/>
+      <node ref="J304" pin="6"/>
+      <node ref="C218" pin="2"/>
+      <node ref="L102" pin="2"/>
+      <node ref="R225" pin="2"/>
+      <node ref="U101" pin="2"/>
+      <node ref="U101" pin="7"/>
+      <node ref="U101" pin="11"/>
+      <node ref="C103" pin="2"/>
+      <node ref="C230" pin="2"/>
+      <node ref="U205" pin="3"/>
+      <node ref="R103" pin="2"/>
+      <node ref="C113" pin="2"/>
+      <node ref="C115" pin="2"/>
+      <node ref="C117" pin="2"/>
+      <node ref="C108" pin="2"/>
+      <node ref="C104" pin="2"/>
+      <node ref="C105" pin="2"/>
+      <node ref="C221" pin="2"/>
+      <node ref="C217" pin="2"/>
+      <node ref="C101" pin="2"/>
+      <node ref="J101" pin="1"/>
+      <node ref="Q102" pin="2"/>
+      <node ref="C215" pin="2"/>
+      <node ref="C212" pin="2"/>
+      <node ref="C208" pin="2"/>
+      <node ref="C114" pin="1"/>
+      <node ref="C111" pin="2"/>
+      <node ref="C116" pin="1"/>
+      <node ref="C225" pin="2"/>
+      <node ref="D305" pin="2"/>
+      <node ref="U204" pin="4"/>
+      <node ref="U203" pin="4"/>
+      <node ref="J301" pin="1"/>
+      <node ref="J302" pin="1"/>
+      <node ref="C102" pin="2"/>
+      <node ref="C213" pin="2"/>
+      <node ref="C236" pin="2"/>
+      <node ref="C109" pin="1"/>
+      <node ref="U102" pin="4"/>
+      <node ref="C110" pin="2"/>
+    </net>
+    <net code="4" name="Net-(D101-Pad2)">
+      <node ref="D101" pin="2"/>
+      <node ref="L101" pin="2"/>
+      <node ref="U102" pin="5"/>
+    </net>
+    <net code="5" name="+12V">
+      <node ref="C117" pin="1"/>
+      <node ref="Q202" pin="3"/>
+      <node ref="TP102" pin="1"/>
+      <node ref="C115" pin="1"/>
+      <node ref="R246" pin="1"/>
+      <node ref="C113" pin="1"/>
+      <node ref="C241" pin="1"/>
+      <node ref="R227" pin="1"/>
+      <node ref="C206" pin="1"/>
+      <node ref="C246" pin="1"/>
+      <node ref="D101" pin="1"/>
+      <node ref="C108" pin="1"/>
+      <node ref="R201" pin="1"/>
+      <node ref="R102" pin="1"/>
+      <node ref="C107" pin="1"/>
+    </net>
+    <net code="6" name="/ANALOG_EN">
+      <node ref="R107" pin="2"/>
+      <node ref="U302" pin="14"/>
+    </net>
+    <net code="7" name="Net-(Q102-Pad1)">
+      <node ref="R107" pin="1"/>
+      <node ref="Q102" pin="1"/>
+    </net>
+    <net code="8" name="/Digital/ADC_AIN">
+      <node ref="TP209" pin="1"/>
+      <node ref="U205" pin="5"/>
+      <node ref="C311" pin="1"/>
+      <node ref="R248" pin="1"/>
+      <node ref="D205" pin="1"/>
+    </net>
+    <net code="9" name="+5V_USB">
+      <node ref="C320" pin="1"/>
+      <node ref="J304" pin="1"/>
+      <node ref="U304" pin="3"/>
+      <node ref="R108" pin="1"/>
+      <node ref="D301" pin="1"/>
+      <node ref="U205" pin="2"/>
+      <node ref="D304" pin="1"/>
+      <node ref="D103" pin="1"/>
+      <node ref="Q101" pin="2"/>
+      <node ref="C229" pin="1"/>
+      <node ref="TP301" pin="1"/>
+    </net>
+    <net code="10" name="Net-(Q101-Pad1)">
+      <node ref="Q101" pin="1"/>
+      <node ref="R108" pin="2"/>
+      <node ref="Q102" pin="3"/>
+    </net>
+    <net code="11" name="Net-(D103-Pad2)">
+      <node ref="J101" pin="2"/>
+      <node ref="D103" pin="2"/>
+    </net>
+    <net code="12" name="/Digital/GAIN_PDM">
+      <node ref="R220" pin="1"/>
+      <node ref="U301" pin="2"/>
+    </net>
+    <net code="13" name="/+5V">
+      <node ref="Q101" pin="3"/>
+      <node ref="C104" pin="1"/>
+      <node ref="C105" pin="1"/>
+      <node ref="U102" pin="1"/>
+      <node ref="C101" pin="1"/>
+      <node ref="U102" pin="3"/>
+      <node ref="L101" pin="1"/>
+      <node ref="R101" pin="1"/>
+      <node ref="U101" pin="5"/>
+    </net>
+    <net code="14" name="/Digital/GAIN_SEL">
+      <node ref="U205" pin="1"/>
+      <node ref="U301" pin="7"/>
+    </net>
+    <net code="15" name="Net-(D102-Pad1)">
+      <node ref="L102" pin="1"/>
+      <node ref="D102" pin="1"/>
+      <node ref="U101" pin="6"/>
+    </net>
+    <net code="16" name="Net-(C103-Pad1)">
+      <node ref="C103" pin="1"/>
+      <node ref="R101" pin="2"/>
+      <node ref="U101" pin="3"/>
+      <node ref="U101" pin="4"/>
+    </net>
+    <net code="17" name="Net-(C110-Pad1)">
+      <node ref="R104" pin="1"/>
+      <node ref="U101" pin="10"/>
+      <node ref="C111" pin="1"/>
+      <node ref="C110" pin="1"/>
+    </net>
+    <net code="18" name="Net-(C102-Pad1)">
+      <node ref="C102" pin="1"/>
+      <node ref="U101" pin="1"/>
+    </net>
+    <net code="19" name="Net-(C112-Pad2)">
+      <node ref="C112" pin="2"/>
+      <node ref="R106" pin="1"/>
+    </net>
+    <net code="20" name="Net-(C112-Pad1)">
+      <node ref="R104" pin="2"/>
+      <node ref="C112" pin="1"/>
+      <node ref="R105" pin="1"/>
+      <node ref="U101" pin="9"/>
+    </net>
+    <net code="21" name="-12V">
+      <node ref="R105" pin="2"/>
+      <node ref="R205" pin="2"/>
+      <node ref="C114" pin="2"/>
+      <node ref="C106" pin="2"/>
+      <node ref="U101" pin="8"/>
+      <node ref="D102" pin="2"/>
+      <node ref="C116" pin="2"/>
+      <node ref="TP101" pin="1"/>
+      <node ref="C109" pin="2"/>
+      <node ref="R106" pin="2"/>
+    </net>
+    <net code="22" name="Net-(C211-Pad1)">
+      <node ref="R215" pin="1"/>
+      <node ref="C211" pin="1"/>
+      <node ref="R214" pin="2"/>
+    </net>
+    <net code="23" name="Net-(C204-Pad1)">
+      <node ref="C204" pin="1"/>
+      <node ref="R205" pin="1"/>
+      <node ref="R204" pin="2"/>
+    </net>
+    <net code="24" name="Net-(C205-Pad1)">
+      <node ref="Q203" pin="3"/>
+      <node ref="R209" pin="2"/>
+      <node ref="C205" pin="1"/>
+    </net>
+    <net code="25" name="/Photodiode/+10V">
+      <node ref="R203" pin="1"/>
+      <node ref="R209" pin="1"/>
+      <node ref="R214" pin="1"/>
+      <node ref="R239" pin="1"/>
+      <node ref="R247" pin="1"/>
+      <node ref="R223" pin="1"/>
+      <node ref="C207" pin="1"/>
+      <node ref="C209" pin="1"/>
+      <node ref="R207" pin="1"/>
+      <node ref="C240" pin="1"/>
+      <node ref="Q202" pin="2"/>
+      <node ref="R206" pin="1"/>
+    </net>
+    <net code="26" name="Net-(C203-Pad1)">
+      <node ref="Q201" pin="1"/>
+      <node ref="C203" pin="1"/>
+      <node ref="R203" pin="2"/>
+    </net>
+    <net code="27" name="Net-(C228-Pad1)">
+      <node ref="U204" pin="2"/>
+      <node ref="Q207" pin="2"/>
+      <node ref="C228" pin="1"/>
+      <node ref="R228" pin="2"/>
+      <node ref="U202" pin="10"/>
+    </net>
+    <net code="28" name="Net-(C222-Pad1)">
+      <node ref="Q205" pin="3"/>
+      <node ref="C222" pin="1"/>
+      <node ref="R223" pin="2"/>
+    </net>
+    <net code="29" name="Net-(U201-Pad3)">
+      <node ref="U201" pin="3"/>
+    </net>
+    <net code="30" name="Net-(Q202-Pad1)">
+      <node ref="Q202" pin="1"/>
+      <node ref="U202" pin="1"/>
+      <node ref="R246" pin="2"/>
+    </net>
+    <net code="31" name="Net-(R207-Pad2)">
+      <node ref="R208" pin="1"/>
+      <node ref="U202" pin="2"/>
+      <node ref="R207" pin="2"/>
+    </net>
+    <net code="32" name="Net-(C234-Pad1)">
+      <node ref="U203" pin="8"/>
+      <node ref="C234" pin="1"/>
+      <node ref="R236" pin="2"/>
+      <node ref="C235" pin="1"/>
+    </net>
+    <net code="33" name="Net-(C237-Pad1)">
+      <node ref="U204" pin="8"/>
+      <node ref="R239" pin="2"/>
+      <node ref="C237" pin="1"/>
+      <node ref="C238" pin="1"/>
+    </net>
+    <net code="34" name="Net-(C226-Pad1)">
+      <node ref="C226" pin="1"/>
+      <node ref="R227" pin="2"/>
+      <node ref="C227" pin="1"/>
+      <node ref="U202" pin="4"/>
+    </net>
+    <net code="35" name="Net-(D201-Pad2)">
+      <node ref="D201" pin="2"/>
+      <node ref="D203" pin="2"/>
+      <node ref="Q201" pin="2"/>
+      <node ref="R204" pin="1"/>
+      <node ref="D202" pin="2"/>
+    </net>
+    <net code="36" name="Net-(Q205-Pad1)">
+      <node ref="R247" pin="2"/>
+      <node ref="U202" pin="14"/>
+      <node ref="Q205" pin="1"/>
+    </net>
+    <net code="37" name="Net-(R248-Pad2)">
+      <node ref="U204" pin="7"/>
+      <node ref="R248" pin="2"/>
+    </net>
+    <net code="38" name="Net-(C213-Pad1)">
+      <node ref="Q204" pin="2"/>
+      <node ref="C213" pin="1"/>
+      <node ref="R216" pin="1"/>
+    </net>
+    <net code="39" name="Net-(C208-Pad1)">
+      <node ref="R212" pin="1"/>
+      <node ref="Q203" pin="1"/>
+      <node ref="C208" pin="1"/>
+    </net>
+    <net code="40" name="Net-(Q206-Pad1)">
+      <node ref="U202" pin="7"/>
+      <node ref="Q206" pin="1"/>
+    </net>
+    <net code="41" name="/Photodiode/+1V0">
+      <node ref="R245" pin="1"/>
+      <node ref="C243" pin="1"/>
+      <node ref="TP202" pin="1"/>
+      <node ref="R244" pin="2"/>
+      <node ref="R213" pin="2"/>
+    </net>
+    <net code="42" name="/Photodiode/+2V5">
+      <node ref="R219" pin="2"/>
+      <node ref="R244" pin="1"/>
+      <node ref="R210" pin="2"/>
+      <node ref="R238" pin="1"/>
+      <node ref="C242" pin="1"/>
+      <node ref="R243" pin="2"/>
+      <node ref="TP204" pin="1"/>
+    </net>
+    <net code="43" name="/Photodiode/+5V0_PWR">
+      <node ref="U202" pin="13"/>
+      <node ref="C239" pin="1"/>
+      <node ref="R243" pin="1"/>
+      <node ref="R236" pin="1"/>
+      <node ref="C221" pin="1"/>
+      <node ref="Q205" pin="2"/>
+      <node ref="C217" pin="1"/>
+    </net>
+    <net code="44" name="Net-(R241-Pad2)">
+      <node ref="R242" pin="1"/>
+      <node ref="R241" pin="2"/>
+    </net>
+    <net code="45" name="/Photodiode/+5V0_REF">
+      <node ref="C245" pin="1"/>
+      <node ref="R241" pin="1"/>
+      <node ref="R240" pin="2"/>
+    </net>
+    <net code="46" name="/Photodiode/+7V5">
+      <node ref="TP205" pin="1"/>
+      <node ref="C244" pin="1"/>
+      <node ref="R240" pin="1"/>
+      <node ref="R206" pin="2"/>
+      <node ref="R229" pin="1"/>
+    </net>
+    <net code="47" name="Net-(C224-Pad2)">
+      <node ref="R228" pin="1"/>
+      <node ref="C224" pin="2"/>
+    </net>
+    <net code="48" name="Net-(C228-Pad2)">
+      <node ref="R232" pin="2"/>
+      <node ref="TP208" pin="1"/>
+      <node ref="Q207" pin="1"/>
+      <node ref="U204" pin="1"/>
+      <node ref="C228" pin="2"/>
+      <node ref="R233" pin="1"/>
+    </net>
+    <net code="49" name="Net-(C223-Pad1)">
+      <node ref="R224" pin="2"/>
+      <node ref="C224" pin="1"/>
+      <node ref="C223" pin="1"/>
+    </net>
+    <net code="50" name="Net-(C202-Pad1)">
+      <node ref="U202" pin="3"/>
+      <node ref="C202" pin="1"/>
+      <node ref="R202" pin="2"/>
+    </net>
+    <net code="51" name="Net-(Q207-Pad3)">
+      <node ref="R232" pin="1"/>
+      <node ref="R231" pin="2"/>
+      <node ref="Q207" pin="3"/>
+    </net>
+    <net code="52" name="Net-(C220-Pad1)">
+      <node ref="U202" pin="5"/>
+      <node ref="C220" pin="1"/>
+      <node ref="R221" pin="2"/>
+    </net>
+    <net code="53" name="Net-(C216-Pad1)">
+      <node ref="R221" pin="1"/>
+      <node ref="R220" pin="2"/>
+      <node ref="C216" pin="1"/>
+    </net>
+    <net code="54" name="Net-(R230-Pad1)">
+      <node ref="U202" pin="9"/>
+      <node ref="U202" pin="8"/>
+      <node ref="R230" pin="1"/>
+    </net>
+    <net code="55" name="Net-(Q206-Pad3)">
+      <node ref="R231" pin="1"/>
+      <node ref="R230" pin="2"/>
+      <node ref="Q206" pin="3"/>
+    </net>
+    <net code="56" name="Net-(Q204-Pad1)">
+      <node ref="R215" pin="2"/>
+      <node ref="R212" pin="2"/>
+      <node ref="Q204" pin="1"/>
+      <node ref="Q204" pin="3"/>
+    </net>
+    <net code="57" name="Net-(C212-Pad1)">
+      <node ref="U203" pin="3"/>
+      <node ref="R210" pin="1"/>
+      <node ref="C212" pin="1"/>
+      <node ref="R213" pin="1"/>
+    </net>
+    <net code="58" name="Net-(C210-Pad1)">
+      <node ref="D201" pin="1"/>
+      <node ref="Q203" pin="2"/>
+      <node ref="Q201" pin="3"/>
+      <node ref="C210" pin="1"/>
+      <node ref="D203" pin="1"/>
+      <node ref="D202" pin="1"/>
+      <node ref="R211" pin="1"/>
+      <node ref="U203" pin="2"/>
+    </net>
+    <net code="59" name="Net-(C210-Pad2)">
+      <node ref="TP206" pin="1"/>
+      <node ref="R211" pin="2"/>
+      <node ref="C214" pin="1"/>
+      <node ref="C210" pin="2"/>
+      <node ref="R216" pin="2"/>
+      <node ref="U203" pin="1"/>
+    </net>
+    <net code="60" name="Net-(C214-Pad2)">
+      <node ref="R218" pin="1"/>
+      <node ref="C214" pin="2"/>
+    </net>
+    <net code="61" name="Net-(C219-Pad2)">
+      <node ref="C219" pin="2"/>
+      <node ref="U203" pin="7"/>
+      <node ref="TP207" pin="1"/>
+      <node ref="R222" pin="2"/>
+      <node ref="R224" pin="1"/>
+    </net>
+    <net code="62" name="Net-(C219-Pad1)">
+      <node ref="R218" pin="2"/>
+      <node ref="R222" pin="1"/>
+      <node ref="U203" pin="6"/>
+      <node ref="C219" pin="1"/>
+    </net>
+    <net code="63" name="Net-(C218-Pad1)">
+      <node ref="R219" pin="1"/>
+      <node ref="C218" pin="1"/>
+      <node ref="U203" pin="5"/>
+    </net>
+    <net code="64" name="Net-(C215-Pad1)">
+      <node ref="U202" pin="12"/>
+      <node ref="C215" pin="1"/>
+      <node ref="R217" pin="2"/>
+    </net>
+    <net code="65" name="/Photodiode/REF_5V0">
+      <node ref="C201" pin="1"/>
+      <node ref="R202" pin="1"/>
+      <node ref="R217" pin="1"/>
+      <node ref="R201" pin="2"/>
+      <node ref="U201" pin="1"/>
+    </net>
+    <net code="66" name="Net-(C232-Pad2)">
+      <node ref="U205" pin="4"/>
+      <node ref="R234" pin="2"/>
+      <node ref="C232" pin="2"/>
+    </net>
+    <net code="67" name="Net-(C230-Pad1)">
+      <node ref="R233" pin="2"/>
+      <node ref="C231" pin="1"/>
+      <node ref="C230" pin="1"/>
+    </net>
+    <net code="68" name="Net-(C231-Pad2)">
+      <node ref="C231" pin="2"/>
+      <node ref="R237" pin="1"/>
+    </net>
+    <net code="69" name="Net-(C232-Pad1)">
+      <node ref="R235" pin="1"/>
+      <node ref="C233" pin="1"/>
+      <node ref="U204" pin="6"/>
+      <node ref="R234" pin="1"/>
+      <node ref="R237" pin="2"/>
+      <node ref="C232" pin="1"/>
+    </net>
+    <net code="70" name="Net-(C233-Pad2)">
+      <node ref="R235" pin="2"/>
+      <node ref="C233" pin="2"/>
+      <node ref="U205" pin="6"/>
+    </net>
+    <net code="71" name="Net-(C236-Pad1)">
+      <node ref="R238" pin="2"/>
+      <node ref="U204" pin="5"/>
+      <node ref="C236" pin="1"/>
+    </net>
+    <net code="72" name="Net-(C225-Pad1)">
+      <node ref="R229" pin="2"/>
+      <node ref="U204" pin="3"/>
+      <node ref="C225" pin="1"/>
+    </net>
+    <net code="73" name="Net-(J301-Pad2)">
+      <node ref="R314" pin="2"/>
+      <node ref="J301" pin="2"/>
+    </net>
+    <net code="74" name="Net-(J301-Pad3)">
+      <node ref="R315" pin="2"/>
+      <node ref="J301" pin="3"/>
+    </net>
+    <net code="75" name="/Digital/UPDI">
+      <node ref="R316" pin="1"/>
+      <node ref="U301" pin="6"/>
+    </net>
+    <net code="76" name="Net-(J304-Pad4)">
+      <node ref="J304" pin="4"/>
+    </net>
+    <net code="77" name="Net-(J303-Pad2)">
+      <node ref="R316" pin="2"/>
+      <node ref="J303" pin="2"/>
+    </net>
+    <net code="78" name="Net-(C311-Pad2)">
+      <node ref="R308" pin="1"/>
+      <node ref="R306" pin="2"/>
+      <node ref="R307" pin="1"/>
+      <node ref="C311" pin="2"/>
+    </net>
+    <net code="79" name="/Digital/AIN1">
+      <node ref="D302" pin="2"/>
+      <node ref="C313" pin="1"/>
+      <node ref="R308" pin="2"/>
+      <node ref="U303" pin="1"/>
+      <node ref="D303" pin="1"/>
+    </net>
+    <net code="80" name="Net-(R310-Pad2)">
+      <node ref="U303" pin="2"/>
+      <node ref="R310" pin="2"/>
+    </net>
+    <net code="81" name="Net-(C322-Pad1)">
+      <node ref="Y301" pin="1"/>
+      <node ref="C322" pin="1"/>
+      <node ref="U302" pin="2"/>
+    </net>
+    <net code="82" name="Net-(R317-Pad2)">
+      <node ref="R318" pin="1"/>
+      <node ref="U302" pin="1"/>
+      <node ref="R317" pin="2"/>
+    </net>
+    <net code="83" name="Net-(C323-Pad1)">
+      <node ref="U302" pin="3"/>
+      <node ref="C323" pin="1"/>
+      <node ref="Y301" pin="3"/>
+    </net>
+    <net code="84" name="/Digital/DEBUG_RX">
+      <node ref="R315" pin="1"/>
+      <node ref="U302" pin="7"/>
+    </net>
+    <net code="85" name="/Digital/STM32_SWCLK">
+      <node ref="U302" pin="20"/>
+      <node ref="J302" pin="3"/>
+    </net>
+    <net code="86" name="/Digital/STM32_SWDIO">
+      <node ref="J302" pin="4"/>
+      <node ref="U302" pin="19"/>
+    </net>
+    <net code="87" name="/Digital/DEBUG_TX">
+      <node ref="U302" pin="6"/>
+      <node ref="R314" pin="1"/>
+    </net>
+    <net code="88" name="/Digital/STM32_TXD">
+      <node ref="U302" pin="8"/>
+      <node ref="R304" pin="1"/>
+      <node ref="R302" pin="1"/>
+    </net>
+    <net code="89" name="/Digital/STM32_RXD">
+      <node ref="R303" pin="1"/>
+      <node ref="R305" pin="1"/>
+      <node ref="U302" pin="9"/>
+    </net>
+    <net code="90" name="/Digital/ATTINY_TXD">
+      <node ref="R303" pin="2"/>
+      <node ref="TP302" pin="1"/>
+      <node ref="U301" pin="4"/>
+      <node ref="R302" pin="2"/>
+    </net>
+    <net code="91" name="/Digital/ADC_MOSI">
+      <node ref="U302" pin="13"/>
+      <node ref="R311" pin="1"/>
+    </net>
+    <net code="92" name="/Digital/ADC_MISO">
+      <node ref="U303" pin="9"/>
+      <node ref="U302" pin="12"/>
+    </net>
+    <net code="93" name="/Digital/ADC_SCK">
+      <node ref="U302" pin="11"/>
+      <node ref="U303" pin="10"/>
+    </net>
+    <net code="94" name="/Digital/ADC_NSS">
+      <node ref="U303" pin="6"/>
+      <node ref="U302" pin="10"/>
+      <node ref="R313" pin="1"/>
+    </net>
+    <net code="95" name="/Digital/USB_DM">
+      <node ref="D306" pin="1"/>
+      <node ref="U302" pin="17"/>
+      <node ref="J304" pin="2"/>
+    </net>
+    <net code="96" name="/Digital/USB_DP">
+      <node ref="J304" pin="3"/>
+      <node ref="U302" pin="18"/>
+      <node ref="D305" pin="1"/>
+    </net>
+    <net code="97" name="/Digital/ATTINY_RXD">
+      <node ref="TP303" pin="1"/>
+      <node ref="R305" pin="2"/>
+      <node ref="R304" pin="2"/>
+      <node ref="U301" pin="5"/>
+    </net>
+    <net code="98" name="/Digital/+3V3A">
+      <node ref="R306" pin="1"/>
+      <node ref="C312" pin="1"/>
+      <node ref="C315" pin="1"/>
+      <node ref="C316" pin="1"/>
+      <node ref="C317" pin="1"/>
+      <node ref="R309" pin="2"/>
+      <node ref="U303" pin="4"/>
+      <node ref="U303" pin="5"/>
+      <node ref="C314" pin="1"/>
+      <node ref="D302" pin="1"/>
+    </net>
+    <net code="99" name="Net-(R312-Pad1)">
+      <node ref="U303" pin="7"/>
+      <node ref="R312" pin="1"/>
+    </net>
+    <net code="100" name="/Digital/+3V3">
+      <node ref="R318" pin="2"/>
+      <node ref="J303" pin="3"/>
+      <node ref="R313" pin="2"/>
+      <node ref="C305" pin="1"/>
+      <node ref="C309" pin="1"/>
+      <node ref="C310" pin="1"/>
+      <node ref="C307" pin="1"/>
+      <node ref="C304" pin="1"/>
+      <node ref="U302" pin="16"/>
+      <node ref="C306" pin="1"/>
+      <node ref="C302" pin="1"/>
+      <node ref="C301" pin="1"/>
+      <node ref="U302" pin="5"/>
+      <node ref="U301" pin="1"/>
+      <node ref="C318" pin="1"/>
+      <node ref="TP304" pin="1"/>
+      <node ref="C319" pin="1"/>
+      <node ref="U303" pin="8"/>
+      <node ref="C308" pin="1"/>
+      <node ref="U304" pin="1"/>
+      <node ref="C321" pin="1"/>
+      <node ref="D301" pin="2"/>
+      <node ref="R309" pin="1"/>
+    </net>
+    <net code="101" name="/Digital/STM32_NRST">
+      <node ref="C303" pin="1"/>
+      <node ref="U302" pin="4"/>
+      <node ref="J302" pin="2"/>
+    </net>
+  </nets>
+</export>
