@@ -12,6 +12,10 @@ $CMP MSP430FR2512IPW16
 D 16-bit Microcontrollers - MCU MSP430 MCU With CapTIvate Technology - the Lowest Power, Most Noise-immune Capacitive Touch 16-TSSOP -40 to 85
 $ENDCMP
 #
+$CMP TPS22917DBVR
+D Power Switch ICs - Power Distribution TPS22917 Ultra-Low Leakage, 5.5-V, 2-A, 80-m On-Resistance Load Switch 6-SOT-23 -40 to 125
+$ENDCMP
+#
 $CMP TPS613222ADBVR
 D Switching Voltage Regulators 6-uA Quiescent Current, 1.8-A Switch Current Boost Converter 5-SOT-23 -40 to 85
 $ENDCMP
