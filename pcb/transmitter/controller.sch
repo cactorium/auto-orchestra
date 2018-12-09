@@ -1094,6 +1094,7 @@ F 0 "R1" H 7559 2596 50  0000 L CNN
 F 1 "33" H 7559 2505 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" H 7500 2550 50  0001 C CNN
 F 3 "~" H 7500 2550 50  0001 C CNN
+F 4 "755-ESR03EZPJ330" H 7500 2550 50  0001 C CNN "Mouser"
 	1    7500 2550
 	1    0    0    -1  
 $EndComp
@@ -1218,8 +1219,6 @@ Wire Wire Line
 Wire Wire Line
 	9650 3700 9650 3650
 Connection ~ 9650 3650
-Text Notes 7750 2550 0    50   ~ 0
-TODO source
 Text Notes 6600 1650 0    50   ~ 0
 maybe lower to 30mA to avoid maxing out \nprotection FET
 Wire Wire Line
@@ -1276,8 +1275,6 @@ Wire Wire Line
 	1000 3750 1000 3850
 Wire Wire Line
 	1000 3550 1000 3450
-Text Notes 2600 1150 0    50   ~ 0
-TODO replace MOSFET with a bigger package
 $Comp
 L Device:C_Small C19
 U 1 1 5C0B077A
@@ -1336,10 +1333,10 @@ $EndComp
 Wire Wire Line
 	2050 1950 2050 2050
 $Comp
-L Device:R_Small R103
+L Device:R_Small R14
 U 1 1 5C0D2F74
 P 9450 1300
-F 0 "R103" H 9509 1346 50  0000 L CNN
+F 0 "R14" H 9509 1346 50  0000 L CNN
 F 1 "33" H 9509 1255 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" H 9450 1300 50  0001 C CNN
 F 3 "~" H 9450 1300 50  0001 C CNN
@@ -1354,10 +1351,10 @@ Connection ~ 7950 4500
 Wire Wire Line
 	7950 4500 7750 4500
 $Comp
-L Device:R_Small R104
+L Device:R_Small R13
 U 1 1 5C0BE646
 P 7300 6000
-F 0 "R104" H 7359 6046 50  0000 L CNN
+F 0 "R13" H 7359 6046 50  0000 L CNN
 F 1 "33" H 7359 5955 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" H 7300 6000 50  0001 C CNN
 F 3 "~" H 7300 6000 50  0001 C CNN
@@ -1451,10 +1448,10 @@ Wire Wire Line
 Wire Wire Line
 	3400 1850 3300 1850
 $Comp
-L Device:R_Small R105
+L Device:R_Small R3
 U 1 1 5C1B79B9
 P 2500 2500
-F 0 "R105" H 2559 2546 50  0000 L CNN
+F 0 "R3" H 2559 2546 50  0000 L CNN
 F 1 "47k" H 2559 2455 50  0000 L CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" H 2500 2500 50  0001 C CNN
 F 3 "~" H 2500 2500 50  0001 C CNN
@@ -1478,10 +1475,10 @@ Wire Wire Line
 Wire Wire Line
 	2500 2600 2500 2700
 $Comp
-L Device:C_Small C104
+L Device:C_Small C21
 U 1 1 5C1F11FD
 P 3400 2150
-F 0 "C104" H 3492 2196 50  0000 L CNN
+F 0 "C21" H 3492 2196 50  0000 L CNN
 F 1 "1000pF 5%" H 3492 2105 50  0000 L CNN
 F 2 "Capacitors_SMD:C_0805_HandSoldering" H 3400 2150 50  0001 C CNN
 F 3 "~" H 3400 2150 50  0001 C CNN
