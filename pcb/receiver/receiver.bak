@@ -1111,4 +1111,6 @@ Wire Wire Line
 Connection ~ 4950 6700
 Wire Wire Line
 	4950 6700 4950 6800
+Text Notes 3250 3750 0    50   ~ 0
+TODO fix pin ordering on footprint; it's flipped!
 $EndSCHEMATC
