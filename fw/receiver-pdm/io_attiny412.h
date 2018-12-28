@@ -40,8 +40,182 @@
 #define VPORTA_IN       _SFR_MEM8(VPORTA_BASE + (0x02))
 #define VPORTA_INTFLAGS _SFR_MEM8(VPORTA_BASE + (0x03))
 
-// TODO add registers for a lot of stuff
+// CLKCTRL registers
+#define MCLKCTRLA       _SFR_MEM8(CLKCTRL_BASE + (0x00))
+#define MCLKCTRLB       _SFR_MEM8(CLKCTRL_BASE + (0x01))
+#define MCLKLOCK        _SFR_MEM8(CLKCTRL_BASE + (0x02))
+#define MCLKSTATUS      _SFR_MEM8(CLKCTRL_BASE + (0x03))
+#define OSC20MCTRLA     _SFR_MEM8(CLKCTRL_BASE + (0x10))
+#define OSC20MCALIBA    _SFR_MEM8(CLKCTRL_BASE + (0x11))
+#define OSC20MCALIBB    _SFR_MEM8(CLKCTRL_BASE + (0x12))
+#define OSC32KCTRLA     _SFR_MEM8(CLKCTRL_BASE + (0x18))
+#define XOSC32KCTRLA    _SFR_MEM8(CLKCTRL_BASE + (0x1C))
 
-// TODO add interrupt defines
+// CLKCTRL constants
+//#define MCLKCTRLA_CLKSEL0 (0x01)
+//#define MCLKCTRLA_CLKSEL1 (0x02)
+#define MCLKCTRLA_CLKOUT  (0x80)
+
+#define MCLKCTRLA_CLKSEL_OSC20M     (0x00)
+#define MCLKCTRLA_CLKSEL_OSCULP32K  (0x01)
+#define MCLKCTRLA_CLKSEL_XOSC32K    (0x02)
+#define MCLKCTRLA_CLKSEL_EXTCLK     (0x03)
+
+#define MCLKCTRLB_PEN     (0x01)
+//#define MCLKCTRLB_PDIV0   (0x02)
+//#define MCLKCTRLB_PDIV1   (0x04)
+//#define MCLKCTRLB_PDIV2   (0x08)
+//#define MCLKCTRLB_PDIV3   (0x10)
+
+#define MCLKCTRLB_PDIV2     (0x00)    // NOTE: first bit is prescaler enable, so
+#define MCLKCTRLB_PDIV4     (0x02)    // these all are shifted up 1 bit
+#define MCLKCTRLB_PDIV8     (0x04)
+#define MCLKCTRLB_PDIV16    (0x06)
+#define MCLKCTRLB_PDIV32    (0x08)
+#define MCLKCTRLB_PDIV64    (0x0A)
+#define MCLKCTRLB_PDIV6     (0x10)
+#define MCLKCTRLB_PDIV10    (0x12)
+#define MCLKCTRLB_PDIV12    (0x14)
+#define MCLKCTRLB_PDIV24    (0x16)
+#define MCLKCTRLB_PDIV48    (0x18)
+
+#define MCLKLOCK_LOCKEN   (0x01)
+
+#define MCLKSTATUS_SOSC     (0x01)
+#define MCLKSTATUS_OSC20MS  (0x10)
+#define MCLKSTATUS_OSC32KS  (0x20)
+#define MCLKSTATUS_XOSC32KS (0x40)
+#define MCLKSTATUS_EXTS     (0x80)
+
+#define OSC20MCTRLA_RUNSTDBY  (0x02)
+
+#define OSC20MCALIBB_LOCK     (0x80)
+
+#define OSC32KCTRLA_RUNSTDBY  (0x02)
+
+#define XOSC32KCTRLA_ENABLE   (0x01)
+#define XOSC32KCTRLA_RUNSTDBY (0x02)
+#define XOSC32KCTRLA_SEL      (0x04)
+//#define XOSC32KCTRLA_CSUT0    (0x10)
+//#define XOSC32KCTRLA_CSUT1    (0x20)
+#define XOSC32KCTRLA_CSUT_1K    (0x00)
+#define XOSC32KCTRLA_CSUT_16K   (0x10)
+#define XOSC32KCTRLA_CSUT_32K   (0x20)
+#define XOSC32KCTRLA_CSUT_64K   (0x30)
+
+#define XOSC32KCTRLA_SEL_XTAL   (0x00)
+#define XOSC32KCTRLA_SEL_XOSC   (0x04)
+
+// PORTMUX registers
+#define PORTMUX_CTRLA   _SFR_MEM8(PORTMUX_BASE + (0x00))
+#define PORTMUX_CTRLB   _SFR_MEM8(PORTMUX_BASE + (0x01))
+
+// PORTMUX constants
+#define PORTMUX_CTRLA_EVOUT0  (0x01)
+#define PORTMUX_CTRLB_SPI0    (0x04)
+#define PORTMUX_CTRLB_USART0  (0x01)
+
+// USART0 registers
+// TODO see if the 16 bit registers work correctly
+#define USART0_RXDATA       _SFR_MEM16(USART0_BASE + (0x00))
+#define USART0_RXDATAL      _SFR_MEM8(USART0_BASE + (0x00))
+#define USART0_RXDATAH      _SFR_MEM8(USART0_BASE + (0x01))
+#define USART0_TXDATA       _SFR_MEM16(USART0_BASE + (0x02))
+#define USART0_TXDATAL      _SFR_MEM8(USART0_BASE + (0x02))
+#define USART0_TXDATAH      _SFR_MEM8(USART0_BASE + (0x03))
+#define USART0_STATUS       _SFR_MEM8(USART0_BASE + (0x04))
+
+#define USART0_CTRLA        _SFR_MEM8(USART0_BASE + (0x05))
+#define USART0_CTRLB        _SFR_MEM8(USART0_BASE + (0x06))
+#define USART0_CTRLC        _SFR_MEM8(USART0_BASE + (0x07))
+#define USART0_BAUD         _SFR_MEM16(USART0_BASE + (0x08))
+#define USART0_DBGCTRL      _SFR_MEM8(USART0_BASE + (0x0B))
+#define USART0_EVCTRL       _SFR_MEM8(USART0_BASE + (0x0C))
+#define USART0_TXPLCTRL     _SFR_MEM8(USART0_BASE + (0x0D))
+#define USART0_RXPLCTRL     _SFR_MEM8(USART0_BASE + (0x0E))
+
+#define USART_PERR        (0x02)
+#define USART_FERR        (0x04)
+#define USART_BUFOVF      (0x40)
+#define USART_RXCIF       (0x80)
+
+#define USART_STATUS_WFB      (0x01)
+#define USART_STATUS_BDF      (0x02)
+#define USART_STATUS_ISFIF    (0x08)
+#define USART_STATUS_RXSIF    (0x10)
+#define USART_STATUS_DREIF    (0x20)
+#define USART_STATUS_TXCIF    (0x40)
+#define USART_STATUS_RXCIF    (0x80)
+
+#define USART_CTRLA_RXCIE     (0x80)
+#define USART_CTRLA_TXCIE     (0x40)
+#define USART_CTRLA_DREIE     (0x20)
+#define USART_CTRLA_RXSIE     (0x10)
+#define USART_CTRLA_LBME      (0x80)
+#define USART_CTRLA_ABIE      (0x40)
+
+#define USART_CTRLA_RS485_OFF (0x00)
+#define USART_CTRLA_RS485_EXT (0x01)
+#define USART_CTRLA_RS485_INT (0x02)
+
+#define USART_CTRLB_RXEN            (0x80)
+#define USART_CTRLB_TXEN            (0x40)
+#define USART_CTRLB_SFDEN           (0x10)
+#define USART_CTRLB_ODME            (0x08)
+#define USART_CTRLB_MPCM            (0x01)
+
+#define USART_CTRLB_RXMODE_NORMAL   (0x00)
+#define USART_CTRLB_RXMODE_CLK2X    (0x02)
+#define USART_CTRLB_RXMODE_GENAUTO  (0x04)
+#define USART_CTRLB_RXMODE_LINAUTO  (0x06)
+
+#define USART_CTRLC_CMODE_ASYNCHRONOUS    (0x00)
+#define USART_CTRLC_CMODE_SYNCHRONOUS     (0x40)
+#define USART_CTRLC_CMODE_IRCOM           (0x80)
+#define USART_CTRLC_CMODE_MSPI            (0xC0)
+
+#define USART_CTRLC_PMODE_DISABLED        (0x00)
+#define USART_CTRLC_PMODE_EVEN            (0x20)
+#define USART_CTRLC_PMODE_ODD             (0x40)
+
+#define USART_CTRLC_SBMODE_1BIT           (0x00)
+#define USART_CTRLC_SBMODE_2BIT           (0x08)
+
+#define USART_CTRLC_CHSIZE_5BIT           (0x00)
+#define USART_CTRLC_CHSIZE_6BIT           (0x01)
+#define USART_CTRLC_CHSIZE_7BIT           (0x02)
+#define USART_CTRLC_CHSIZE_8BIT           (0x03)
+#define USART_CTRLC_CHSIZE_9BIT_LOW       (0x06)
+#define USART_CTRLC_CHSIZE_9BIT_HIGH      (0x07)
+
+#define USART_DBGCTRL_DBGRUN              (0x01)
+
+#define USART_EVCTRL_IREI                 (0x01)
+
+// TODO more registers
+
+#define CRCSCAN_NMI_vect                _VECTOR(1)
+#define BOD_VLM_vect                    _VECTOR(2)
+#define PORTA_PORT_vect                 _VECTOR(3)
+#define RTC_CNT_vect                    _VECTOR(6)
+#define RTC_PIT_vect                    _VECTOR(7)
+#define TCA0_OVF_vect                   _VECTOR(8)
+#define TCA0_HUNF_vect                  _VECTOR(9)
+#define TCA0_CMP0_vect                  _VECTOR(10)
+#define TCA0_CMP1_vect                  _VECTOR(11)
+#define TCA0_CMP2_vect                  _VECTOR(12)
+#define TCB0_INT_vect                   _VECTOR(13)
+#define TCD0_OVF_vect                   _VECTOR(14)
+#define TCD0_TRIG_vect                  _VECTOR(15)
+#define AC0_AC_vect                     _VECTOR(16)
+#define ADC0_RESRDY_vect                _VECTOR(17)
+#define ADC0_WCOMP_vect                 _VECTOR(18)
+#define TWI0_TWIS_vect                  _VECTOR(19)
+#define TWI0_TWIM_vect                  _VECTOR(20)
+#define SPI0_INT_vect                   _VECTOR(21)
+#define USART0_RXC_vect                 _VECTOR(22)
+#define USART0_DRE_vect                 _VECTOR(23)
+#define USART0_TXC_vect                 _VECTOR(24)
+#define NVMCTRL_EE_vect                 _VECTOR(25)
 
 #endif
