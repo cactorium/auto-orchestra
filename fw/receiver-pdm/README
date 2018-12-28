@@ -1,0 +1,13 @@
+# Build instructions
+So it looks like I messed up a bit and picked an MCU that isn't very well supported.
+So you'll need the latest (3.6.2) AVR toolchain for whatever platform you're on.
+If you're on Linux, that'd be something like http://ww1.microchip.com/downloads/en/DeviceDoc/avr8-gnu-toolchain-3.6.2.1759-linux.any.x86_64.tar.gz
+I'll probably package for Arch Linux eventually.
+Anyways, you'll need to fix the path in the Makefile to point towards the right toolchain.
+
+It looks like this toolchain is still missing something called crtattiny412.o, so I downloaded a random copy off the Internet and it seems to be working.
+Hopefully this won't be required later.
+
+The ATtiny412's definitely an interesting MCU.
+It's got an AVR core with PIC-style peripherals.
+I really prefer the old style Atmel peripherals over PIC, so I probably should've looked a little closer at the datasheet before picking this guy.
