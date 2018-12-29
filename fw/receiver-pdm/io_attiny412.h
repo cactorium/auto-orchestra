@@ -115,6 +115,103 @@
 #define PORTMUX_CTRLB_SPI0    (0x04)
 #define PORTMUX_CTRLB_USART0  (0x01)
 
+// ADC0 registers
+#define ADC0_CTRLA            _SFR_MEM8(ADC0_BASE + (0x00))
+#define ADC0_CTRLB            _SFR_MEM8(ADC0_BASE + (0x01))
+#define ADC0_CTRLC            _SFR_MEM8(ADC0_BASE + (0x02))
+#define ADC0_CTRLD            _SFR_MEM8(ADC0_BASE + (0x03))
+#define ADC0_CTRLE            _SFR_MEM8(ADC0_BASE + (0x04))
+#define ADC0_SAMPLECTRL       _SFR_MEM8(ADC0_BASE + (0x05))
+#define ADC0_MUXPOS           _SFR_MEM8(ADC0_BASE + (0x06))
+#define ADC0_COMMAND          _SFR_MEM8(ADC0_BASE + (0x08))
+#define ADC0_EVCTRL           _SFR_MEM8(ADC0_BASE + (0x09))
+#define ADC0_INTCTRL          _SFR_MEM8(ADC0_BASE + (0x0A))
+#define ADC0_INTFLAGS         _SFR_MEM8(ADC0_BASE + (0x0B))
+#define ADC0_DBGCTRL          _SFR_MEM8(ADC0_BASE + (0x0C))
+#define ADC0_TEMP             _SFR_MEM8(ADC0_BASE + (0x0D))
+#define ADC0_RES              _SFR_MEM16(ADC0_BASE + (0x10))
+#define ADC0_RESL             _SFR_MEM8(ADC0_BASE + (0x10))
+#define ADC0_RESH             _SFR_MEM8(ADC0_BASE + (0x11))
+#define ADC0_WINLT            _SFR_MEM16(ADC0_BASE + (0x12))
+#define ADC0_WINLTL           _SFR_MEM8(ADC0_BASE + (0x12))
+#define ADC0_WINLTH           _SFR_MEM8(ADC0_BASE + (0x13))
+#define ADC0_WINHT            _SFR_MEM16(ADC0_BASE + (0x14))
+#define ADC0_WINHTL           _SFR_MEM8(ADC0_BASE + (0x14))
+#define ADC0_WINHTH           _SFR_MEM8(ADC0_BASE + (0x15))
+
+// ADC constants
+#define ADC_CTRLA_RUNSTBY     (0x80)
+#define ADC_CTRLA_RESSEL      (0x04)
+#define ADC_CTRLA_FREERUN     (0x02)
+#define ADC_CTRLA_ENABLE      (0x01)
+
+#define ADC_CTRLB_SAMPNUM_NONE    (0x00)
+#define ADC_CTRLB_SAMPNUM_ACC2    (0x01)
+#define ADC_CTRLB_SAMPNUM_ACC4    (0x02)
+#define ADC_CTRLB_SAMPNUM_ACC8    (0x03)
+#define ADC_CTRLB_SAMPNUM_ACC16   (0x04)
+#define ADC_CTRLB_SAMPNUM_ACC32   (0x05)
+#define ADC_CTRLB_SAMPNUM_ACC64   (0x06)
+
+#define ADC_CTRLC_SAMPCAP_BIG     (0x00)
+#define ADC_CTRLC_SAMPCAP_SMALL   (0x40)
+
+#define ADC_CTRLC_REFSEL_INTERNAL (0x00)
+#define ADC_CTRLC_REFSEL_VDD      (0x10)
+
+#define ADC_CTRLC_PRESC_DIV2      (0x00)
+#define ADC_CTRLC_PRESC_DIV4      (0x01)
+#define ADC_CTRLC_PRESC_DIV8      (0x02)
+#define ADC_CTRLC_PRESC_DIV16     (0x03)
+#define ADC_CTRLC_PRESC_DIV32     (0x04)
+#define ADC_CTRLC_PRESC_DIV64     (0x05)
+#define ADC_CTRLC_PRESC_DIV128    (0x06)
+#define ADC_CTRLC_PRESC_DIV256    (0x07)
+
+#define ADC_CTRLD_INITDLK_DLY0    (0x00)
+#define ADC_CTRLD_INITDLK_DLY16   (0x20)
+#define ADC_CTRLD_INITDLK_DLY32   (0x40)
+#define ADC_CTRLD_INITDLK_DLY64   (0x60)
+#define ADC_CTRLD_INITDLK_DLY128  (0x80)
+#define ADC_CTRLD_INITDLK_DLY256  (0xA0)
+
+#define ADC_CTRLD_ASDV            (0x10)
+
+#define ADC_CTRLE_WINCM_NONE      (0x00)
+#define ADC_CTRLE_WINCM_BELOW     (0x01)
+#define ADC_CTRLE_WINCM_ABOVE     (0x02)
+#define ADC_CTRLE_WINCM_INSIDE    (0x03)
+#define ADC_CTRLE_WINCM_OUTSIDE   (0x04)
+
+#define ADC_MUXPOS_AIN0           (0x00)
+#define ADC_MUXPOS_AIN1           (0x01)
+#define ADC_MUXPOS_AIN2           (0x02)
+#define ADC_MUXPOS_AIN3           (0x03)
+#define ADC_MUXPOS_AIN4           (0x04)
+#define ADC_MUXPOS_AIN5           (0x05)
+#define ADC_MUXPOS_AIN6           (0x06)
+#define ADC_MUXPOS_AIN7           (0x07)
+#define ADC_MUXPOS_AIN8           (0x08)
+#define ADC_MUXPOS_AIN9           (0x09)
+#define ADC_MUXPOS_AIN10          (0x0A)
+#define ADC_MUXPOS_AIN11          (0x0B)
+#define ADC_MUXPOS_DAC0           (0x1C)
+#define ADC_MUXPOS_INTREF         (0x1D)
+#define ADC_MUXPOS_TEMPSENSE      (0x1E)
+#define ADC_MUXPOS_GND            (0x1F)
+
+#define ADC_COMMAND_STCONV        (0x01)
+
+#define ADC_EVCTRL_STARTEI        (0x01)
+
+#define ADC_INTCTRL_WCOMP         (0x02)
+#define ADC_INTCTRL_RESRDY        (0x01)
+
+#define ADC_INTFLAGS_WCOMP        (0x02)
+#define ADC_INTFLAGS_RESRDY       (0x01)
+
+#define ADC_DBGCTRL_DBGRUN        (0x01)
+
 // USART0 registers
 // TODO see if the 16 bit registers work correctly
 #define USART0_RXDATA       _SFR_MEM16(USART0_BASE + (0x00))
