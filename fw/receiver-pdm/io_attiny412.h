@@ -40,6 +40,17 @@
 #define VPORTA_IN       _SFR_MEM8(VPORTA_BASE + (0x02))
 #define VPORTA_INTFLAGS _SFR_MEM8(VPORTA_BASE + (0x03))
 
+// CPU registers
+#define CPU_CCP         _SFR_MEM8(CPU_BASE + (0x04))
+#define CPU_SP          _SFR_MEM16(CPU_BASE + (0x0D))
+#define CPU_SPL         _SFR_MEM8(CPU_BASE + (0x0D))
+#define CPU_SPH         _SFR_MEM8(CPU_BASE + (0x0E))
+#define CPU_SREG        _SFR_MEM8(CPU_BASE + (0x0F))
+
+// CPU constants
+#define CPU_CCP_SPM     (0x9D)
+#define CPU_CCP_IOREG   (0xD8)
+
 // CLKCTRL registers
 #define MCLKCTRLA       _SFR_MEM8(CLKCTRL_BASE + (0x00))
 #define MCLKCTRLB       _SFR_MEM8(CLKCTRL_BASE + (0x01))
