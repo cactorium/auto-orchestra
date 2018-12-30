@@ -3095,4 +3095,8 @@ Wire Wire Line
 	4800 2700 4800 2650
 Wire Wire Line
 	1100 1800 1650 1800
+Text Notes 7900 4250 0    50   ~ 0
+TODO buy 3.3 nF caps! wrong part number
+Text Notes 6200 4450 0    50   ~ 0
+TODO reorder OPA2141; wrong package!\nNeed 595-OPA2141AIDGKT\n
 $EndSCHEMATC

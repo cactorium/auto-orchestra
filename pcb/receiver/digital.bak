@@ -1739,4 +1739,6 @@ $EndComp
 Wire Wire Line
 	2100 3800 2100 3550
 Connection ~ 2100 3550
+Text Notes 1100 6450 0    50   ~ 0
+Dropout voltage is too high on selected regulator; need to source a new one....\n\nTODO buy 511-LDK320ADU33R
 $EndSCHEMATC

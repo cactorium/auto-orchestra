@@ -1113,4 +1113,6 @@ Wire Wire Line
 	4950 6700 4950 6800
 Text Notes 3250 3750 0    50   ~ 0
 TODO fix pin ordering on footprint; it's flipped!
+Text Notes 5100 5350 0    50   ~ 0
+TODO Increase size of inductors to reduce ripple!
 $EndSCHEMATC
