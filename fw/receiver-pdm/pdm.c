@@ -132,7 +132,6 @@ SIGNAL(USART0_RXC_vect) {
     new_adc_target = new_adc_target << 4;
     new_adc_target |= (tmp & 0x000f);
   } else {
-    const char tohex[] = "0123456789abcdef";
     static char str[8] = "xXXXX\x0a\x0d";
     static struct usart_msg cust_msg = {
       .msg = str,
@@ -150,20 +149,20 @@ SIGNAL(USART0_RXC_vect) {
         break;
       case 'a':
         str[0] = 't';
-        str[1] = tohex[(new_adc_target >> 12) & 0x0f];
-        str[2] = tohex[(new_adc_target >> 8) & 0x0f];
-        str[3] = tohex[(new_adc_target >> 4) & 0x0f];
-        str[4] = tohex[(new_adc_target >> 0) & 0x0f];
+        str[1] = ((new_adc_target >> 12) & 0x0f) + 'a';
+        str[2] = ((new_adc_target >> 8) & 0x0f) + 'a';
+        str[3] = ((new_adc_target >> 4) & 0x0f) + 'a';
+        str[4] = ((new_adc_target >> 0) & 0x0f) + 'a';
         usart_write(&cust_msg);
         break;
       case 'A':
         {
           int target_tmp = adc_target;
           str[0] = 'T';
-          str[1] = tohex[(target_tmp >> 12) & 0x0f];
-          str[2] = tohex[(target_tmp >> 8) & 0x0f];
-          str[3] = tohex[(target_tmp >> 4) & 0x0f];
-          str[4] = tohex[(target_tmp >> 0) & 0x0f];
+          str[1] = ((target_tmp >> 12) & 0x0f) + 'a';
+          str[2] = ((target_tmp >> 8) & 0x0f) + 'a';
+          str[3] = ((target_tmp >> 4) & 0x0f) + 'a';
+          str[4] = ((target_tmp >> 0) & 0x0f) + 'a';
         }
         usart_write(&cust_msg);
         break;
@@ -172,22 +171,23 @@ SIGNAL(USART0_RXC_vect) {
         {
           int target_tmp = adc_target;
           str[0] = 'w';
-          str[1] = tohex[(target_tmp >> 12) & 0x0f];
-          str[2] = tohex[(target_tmp >> 8) & 0x0f];
-          str[3] = tohex[(target_tmp >> 4) & 0x0f];
-          str[4] = tohex[(target_tmp >> 0) & 0x0f];
+          str[1] = ((target_tmp >> 12) & 0x0f) + 'a';
+          str[2] = ((target_tmp >> 8) & 0x0f) + 'a';
+          str[3] = ((target_tmp >> 4) & 0x0f) + 'a';
+          str[4] = ((target_tmp >> 0) & 0x0f) + 'a';
+          usart_write(&cust_msg);
         }
         break;
       case 'q':
         {
           int adc_tmp = adc_val;
           str[0] = 'T';
-          str[1] = tohex[(adc_tmp >> 12) & 0x0f];
-          str[2] = tohex[(adc_tmp >> 8) & 0x0f];
-          str[3] = tohex[(adc_tmp >> 4) & 0x0f];
-          str[4] = tohex[(adc_tmp >> 0) & 0x0f];
+          str[1] = ((adc_tmp >> 12) & 0x0f) + 'a';
+          str[2] = ((adc_tmp >> 8) & 0x0f) + 'a';
+          str[3] = ((adc_tmp >> 4) & 0x0f) + 'a';
+          str[4] = ((adc_tmp >> 0) & 0x0f) + 'a';
+          usart_write(&cust_msg);
         }
-        usart_write(&cust_msg);
         break;
       default:
         SEND_MSG("err\x0a\x0d");
