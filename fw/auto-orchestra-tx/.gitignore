@@ -1,0 +1,7 @@
+Release/*
+Debug/*
+Debug__GNU/*
+Debug__TI/*
+.xdchelp
+config/*
+.launches/*
