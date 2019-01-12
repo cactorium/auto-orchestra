@@ -96,7 +96,7 @@ bin:  $(PRG).bin
 srec: $(PRG).srec
 
 flash: hex
-	avrdude -C ~/repos/jtag2updi/avrdude.conf -c jtag2updi -P /dev/ttyUSB0 -p t412 -U flash:w:$(PRG).hex
+	avrdude -C ~/repos/jtag2updi/avrdude.conf -c jtag2updi -b 19200 -P /dev/ttyUSB0 -p t412 -U flash:w:$(PRG).hex
 
 %.hex: %.elf
 	$(OBJCOPY) -j .text -j .data -O ihex $< $@
