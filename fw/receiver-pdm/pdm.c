@@ -24,7 +24,8 @@ static void adc_init() {
     ADC_CTRLC_PRESC_DIV4; // 4x prescale so that the 3.333 MHz clock is slowed down to below 1.5 MHz, max specified clock rate for the ADC
     */
   ADC0_CTRLC = ADC_CTRLC_SAMPCAP_BIG | ADC_CTRLC_REFSEL_VDD |
-    ADC_CTRLC_PRESC_DIV16; // 32x prescale so that the 20 MHz clock is slowed down to below 1.5 MHz, max specified clock rate for the ADC
+    //ADC_CTRLC_PRESC_DIV16; // 32x prescale so that the 20 MHz clock is slowed down to below 1.5 MHz, max specified clock rate for the ADC
+    ADC_CTRLC_PRESC_DIV64; // 32x prescale so that the 20 MHz clock is slowed down to below 1.5 MHz, max specified clock rate for the ADC
 
   ADC0_MUXPOS = ADC_MUXPOS_AIN7;
 
@@ -209,11 +210,15 @@ int main() {
 
   int error = 0;
   int pdm_target = 4*(adc_target - 512L);
+  int last_adc = -1;
   while (1) {
     // ADC control loop
     if (adc_val != -1) {
       // effectively gain of s/4; pdm_target is scaled up by four above
       pdm_target -= (adc_val - adc_target);
+      pdm_target -= 128*(adc_val - last_adc);
+      pdm_target -= 128*(adc_val - last_adc);
+      last_adc = adc_val;
       // clamp to scaled -1 to 1
       if (pdm_target > 4*512L) {
         pdm_target = 4*512L;
