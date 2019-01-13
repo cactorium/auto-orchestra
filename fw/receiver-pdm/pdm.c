@@ -215,7 +215,7 @@ int main() {
     // ADC control loop
     if (adc_val != -1) {
       // effectively gain of s/4; pdm_target is scaled up by four above
-      pdm_target -= (adc_val - adc_target);
+      pdm_target -= (adc_val - adc_target)/2;
       pdm_target -= 128*(adc_val - last_adc);
       pdm_target -= 128*(adc_val - last_adc);
       last_adc = adc_val;
