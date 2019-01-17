@@ -3099,4 +3099,8 @@ Text Notes 6200 4200 0    50   ~ 0
 TODO buy 3.3 nF caps! wrong part number
 Text Notes 6200 4450 0    50   ~ 0
 TODO reorder OPA2141; wrong package!\nNeed 595-OPA2141AIDGKT\n
+Text Notes 5200 4750 0    50   ~ 0
+TODO fix 3.3 nF part number\nnew part 77-VJ0603Y332MXXCBC\n
+Text Notes 8950 1100 0    50   ~ 0
+TODO use clamping diode configuration instead of this
 $EndSCHEMATC

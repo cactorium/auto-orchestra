@@ -3095,8 +3095,12 @@ Wire Wire Line
 	4800 2700 4800 2650
 Wire Wire Line
 	1100 1800 1650 1800
-Text Notes 7900 4250 0    50   ~ 0
+Text Notes 6200 4200 0    50   ~ 0
 TODO buy 3.3 nF caps! wrong part number
 Text Notes 6200 4450 0    50   ~ 0
 TODO reorder OPA2141; wrong package!\nNeed 595-OPA2141AIDGKT\n
+Text Notes 5200 4750 0    50   ~ 0
+TODO fix 3.3 nF part number\nnew part 77-VJ0603Y332MXXCBC\n
+Text Notes 8950 1100 0    50   ~ 0
+TODO use clamping diode configuration instead of this
 $EndSCHEMATC

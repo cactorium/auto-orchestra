@@ -1741,4 +1741,8 @@ Wire Wire Line
 Connection ~ 2100 3550
 Text Notes 1100 6450 0    50   ~ 0
 Dropout voltage is too high on selected regulator; need to source a new one....\n\nTODO buy 511-LDK320ADU33R
+Text Notes 5700 2900 0    50   ~ 0
+TODO swap out with 1 channel variant\n700-MAX11665AUT+T
+Text Notes 4050 4150 0    50   ~ 0
+TODO replace R308 with 1k
 $EndSCHEMATC
