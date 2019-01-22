@@ -1,0 +1,3 @@
+[submodule "fw/receiver-adc/libopencm3"]
+	path = fw/receiver-adc/libopencm3
+	url = https://github.com/libopencm3/libopencm3
