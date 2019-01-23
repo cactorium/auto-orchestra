@@ -2,7 +2,7 @@ DEVICE = stm32f070f6p6
 OPENCM3_DIR = ../libopencm3
 OBJS += main.o
 
-CPPFLAGS += -O2 -Wall -Werror
+CPPFLAGS += -O2 -Wall -Werror -Os
 LDFLAGS         += -static -nostartfiles
 LDLIBS          += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
 
