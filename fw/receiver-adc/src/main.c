@@ -21,6 +21,7 @@
 #include <libopencm3/stm32/crs.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
+#include <libopencm3/stm32/syscfg.h>
 #include <libopencm3/usb/usbd.h>
 #include <libopencm3/usb/cdc.h>
 
@@ -233,12 +234,13 @@ static void cdcacm_set_config(usbd_device *usbd_dev, uint16_t wValue) {
 
 static void usb_setup(void) {
 	/* Enable clocks for GPIO port A and USB peripheral. */
-	//rcc_periph_clock_enable(RCC_USB);
+	rcc_periph_clock_enable(RCC_USB);
 	rcc_periph_clock_enable(RCC_GPIOA);
+  SYSCFG_CFGR1 |= (1 << 4);
 
 	/* Setup GPIO pins for USB D+/D-. */
-	//gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
-	//gpio_set_af(GPIOA, GPIO_AF14, GPIO11| GPIO12);
+	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
+	gpio_set_af(GPIOA, GPIO_AF14, GPIO11| GPIO12);
 }
 
 int main(void) {
