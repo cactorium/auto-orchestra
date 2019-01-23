@@ -1745,4 +1745,6 @@ Text Notes 5700 2900 0    50   ~ 0
 TODO maybe swap out with 1 channel variant\n700-MAX11665AUT+T
 Text Notes 4050 4150 0    50   ~ 0
 TODO replace R308 with 1k
+Text Notes 9150 2850 0    50   ~ 0
+TODO add more ESD diodes
 $EndSCHEMATC
