@@ -51,7 +51,7 @@ static const struct usb_endpoint_descriptor comm_endp[] = {{
 	.bDescriptorType = USB_DT_ENDPOINT,
 	.bEndpointAddress = 0x83,
 	.bmAttributes = USB_ENDPOINT_ATTR_INTERRUPT,
-	.wMaxPacketSize = 16,
+	.wMaxPacketSize = 64,
 	.bInterval = 255,
 }};
 
@@ -221,7 +221,7 @@ static void cdcacm_set_config(usbd_device *usbd_dev, uint16_t wValue) {
 
 	usbd_ep_setup(usbd_dev, 0x01, USB_ENDPOINT_ATTR_BULK, 64, cdcacm_data_rx_cb);
 	usbd_ep_setup(usbd_dev, 0x82, USB_ENDPOINT_ATTR_BULK, 64, NULL);
-	usbd_ep_setup(usbd_dev, 0x83, USB_ENDPOINT_ATTR_INTERRUPT, 16, NULL);
+	usbd_ep_setup(usbd_dev, 0x83, USB_ENDPOINT_ATTR_INTERRUPT, 64, NULL);
 
 	usbd_register_control_callback(
 				usbd_dev,
@@ -233,27 +233,25 @@ static void cdcacm_set_config(usbd_device *usbd_dev, uint16_t wValue) {
 
 static void usb_setup(void) {
 	/* Enable clocks for GPIO port A and USB peripheral. */
-	rcc_periph_clock_enable(RCC_USB);
+	//rcc_periph_clock_enable(RCC_USB);
 	rcc_periph_clock_enable(RCC_GPIOA);
 
-#if 0
 	/* Setup GPIO pins for USB D+/D-. */
-	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
-	gpio_set_af(GPIOA, GPIO_AF14, GPIO11| GPIO12);
-#endif
+	//gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
+	//gpio_set_af(GPIOA, GPIO_AF14, GPIO11| GPIO12);
 }
 
 int main(void) {
 	usbd_device *usbd_dev;
 
+  /*
   rcc_clock_setup_in_hsi48_out_48mhz();
 	crs_autotrim_usb_enable();
 	rcc_set_usbclk_source(RCC_HSI48);
-	usb_setup();
-  /*
+  */
   rcc_clock_setup_in_hse_8mhz_out_48mhz();
   rcc_set_usbclk_source(RCC_PLL);
-  */
+	usb_setup();
 
 	usbd_dev = usbd_init(&st_usbfs_v2_usb_driver, &dev, &config, usb_strings,
 			3, usbd_control_buffer, sizeof(usbd_control_buffer));
