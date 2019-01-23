@@ -18,6 +18,7 @@
  */
 
 #include <stdlib.h>
+#include <libopencm3/stm32/crs.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/usb/usbd.h>
@@ -235,17 +236,24 @@ static void usb_setup(void) {
 	rcc_periph_clock_enable(RCC_USB);
 	rcc_periph_clock_enable(RCC_GPIOA);
 
+#if 0
 	/* Setup GPIO pins for USB D+/D-. */
 	gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO11 | GPIO12);
 	gpio_set_af(GPIOA, GPIO_AF14, GPIO11| GPIO12);
+#endif
 }
 
 int main(void) {
 	usbd_device *usbd_dev;
 
+  rcc_clock_setup_in_hsi48_out_48mhz();
+	crs_autotrim_usb_enable();
+	rcc_set_usbclk_source(RCC_HSI48);
+	usb_setup();
+  /*
   rcc_clock_setup_in_hse_8mhz_out_48mhz();
   rcc_set_usbclk_source(RCC_PLL);
-	usb_setup();
+  */
 
 	usbd_dev = usbd_init(&st_usbfs_v2_usb_driver, &dev, &config, usb_strings,
 			3, usbd_control_buffer, sizeof(usbd_control_buffer));
