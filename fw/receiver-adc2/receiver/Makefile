@@ -22,7 +22,7 @@ TARGET = receiver
 # debug build?
 DEBUG = 1
 # optimization
-OPT = -Og
+OPT = -Os
 
 
 #######################################
