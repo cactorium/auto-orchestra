@@ -31,7 +31,7 @@
 #include "delay.h"
 #include "usb-gadget0.h"
 
-#define ER_DEBUG
+//#define ER_DEBUG
 #ifdef ER_DEBUG
 #include <stdio.h>
 #define ER_DPRINTF(fmt, ...) \
@@ -268,6 +268,7 @@ static void gadget0_out_cb_loopback(usbd_device *usbd_dev, uint8_t ep)
 	/* Copy data we received on OUT ep back to the paired IN ep */
 	int x = usbd_ep_read_packet(usbd_dev, ep, buf, BULK_EP_MAXPACKET);
 	int y = usbd_ep_write_packet(usbd_dev, 0x80 | ep, buf, x);
+  (void)y;
 	ER_DPRINTF("loop OUT %x got %d => %d\n", ep, x, y);
 }
 

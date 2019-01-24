@@ -2,9 +2,9 @@ DEVICE = stm32f070f6p6
 OPENCM3_DIR = ../libopencm3
 OBJS += main.o
 
-CPPFLAGS += -O2 -Wall -Werror -Os
+CPPFLAGS += -Os -Wall -Werror
 LDFLAGS         += -static -nostartfiles
-LDLIBS          += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group
+LDLIBS          += -Wl,--start-group -lc -lgcc -lnosys -Wl,--end-group -Wl,--gc-sections
 
 include $(OPENCM3_DIR)/mk/genlink-config.mk
 include $(OPENCM3_DIR)/mk/gcc-config.mk
