@@ -49,12 +49,16 @@ void trace_send_blocking8(int stimulus_port, char c)
 
 int main(void)
 {
-	rcc_clock_setup_in_hsi48_out_48mhz();
-	crs_autotrim_usb_enable();
-	rcc_set_usbclk_source(RCC_HSI48);
+  rcc_clock_setup_in_hse_8mhz_out_48mhz();
+  rcc_set_usbclk_source(RCC_PLL);
 
 	/* LED on for boot progress */
+	rcc_periph_clock_enable(RCC_SYSCFG_COMP);
 	rcc_periph_clock_enable(RCC_GPIOC);
+	rcc_periph_clock_enable(RCC_USB);
+
+  SYSCFG_CFGR1 |= (1 << 4);
+
 	gpio_mode_setup(GPIOC, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO7);
 	gpio_set(GPIOC, GPIO7);
 
