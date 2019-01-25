@@ -179,12 +179,15 @@ static enum usbd_request_return_codes cdcacm_control_request(usbd_device *usbd_d
   return USBD_REQ_NOTSUPP;
 }
 
+volatile int usb_rdy = 0;
+
 static void cdcacm_data_rx_cb(usbd_device *usbd_dev, uint8_t ep) {
   (void)ep;
   (void)usbd_dev;
 
   char buf[64];
   int len = usbd_ep_read_packet(usbd_dev, 0x01, buf, 64);
+  usb_rdy = 1;
 
   if (len) {
     usbd_ep_write_packet(usbd_dev, 0x82, buf, len);
