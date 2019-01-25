@@ -40,7 +40,7 @@ static void timer3_setup() {
   // prescaled clock = 1 MHz, 1 us
   timer_set_prescaler(TIM3, 48);
   // slow down to 50 kHz for ADC sampling
-  timer_set_period(TIM3, 25);
+  timer_set_period(TIM3, 20);
   timer_disable_oc_output(TIM3, TIM_OC1 | TIM_OC2 | TIM_OC3 | TIM_OC4);
   timer_disable_oc_clear(TIM3, TIM_OC1);
   timer_disable_oc_preload(TIM3, TIM_OC1);
@@ -69,7 +69,7 @@ void tim3_isr() {
 }
 
 volatile int buf_full = 0;
-#define kBufSz 8
+#define kBufSz 30
 uint16_t buf1[kBufSz];
 uint16_t buf2[kBufSz];
 volatile uint16_t *cur_buf = buf1;
@@ -107,7 +107,7 @@ static void spi_setup() {
   // clock rate = 1.5 MHz,
   // receive time = 10.6 us
   spi_init_master(SPI1, SPI_CR1_BR_FPCLK_DIV_64, SPI_CR1_CPOL_CLK_TO_1_WHEN_IDLE, 
-      SPI_CR1_CPHA_CLK_TRANSITION_1, SPI_CR1_MSBFIRST);
+      SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_MSBFIRST);
   spi_set_data_size(SPI1, SPI_CR2_DS_16BIT);
   //spi_enable_software_slave_management(SPI1);
   //spi_set_nss_high(SPI1);
@@ -142,15 +142,23 @@ int main(void) {
       } else {
         buf = buf1;
       }
-      static uint8_t packet[4 + sizeof(buf1)];
-      packet[0] = 0xf0;
-      packet[1] = 0x0f;
-      packet[2] = 0x0f;
-      packet[3] = 0xf0;
-      memcpy(packet + 4, buf, sizeof(buf1));
- 
       if (usb_rdy) {
-        usbd_ep_write_packet(usbd_dev, 0x82, packet, sizeof(packet));
+        static uint8_t packet1[4 + 2*kBufSz];
+        static uint8_t packet2[4 + 2*kBufSz];
+        static uint8_t* packet = packet1;
+
+        packet[0] = 0xaa;
+        packet[1] = 0xbb;
+        packet[2] = 0xcc;
+        packet[3] = 0xdd;
+        memcpy(packet + 4, buf, 2*kBufSz);
+ 
+        usbd_ep_write_packet(usbd_dev, 0x82, packet, 4 + 2*kBufSz);
+        if (packet == packet1) {
+          packet = packet2;
+        } else {
+          packet = packet1;
+        }
       }
     }
     usbd_poll(usbd_dev);
