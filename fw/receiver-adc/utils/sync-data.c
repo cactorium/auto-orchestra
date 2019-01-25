@@ -19,6 +19,7 @@ int main(int argc, char** argv) {
   int synced = 0;
   int offset = 0;
   int write_pos = 0;
+  int write_seq = 0;
   const char preamble[] = {0xaa, 0xbb, 0xcc, 0xdd};
   unsigned char lb = 0, ub = 0;
   while (1) {
@@ -48,7 +49,7 @@ int main(int argc, char** argv) {
           }
           offset++;
           if ((offset == 4) && synced) {
-            fprintf(stderr, "sync kept\n");
+            //fprintf(stderr, "sync kept\n");
           }
         } else {
           ub = lb;
@@ -63,8 +64,12 @@ int main(int argc, char** argv) {
             wbuf[write_pos + 1] = ub;
             write_pos += 2;
             if (write_pos == sizeof(wbuf)) {
-              write(1, wbuf, sizeof(wbuf));
+              // decimate by tossing out a lot of data so the Python plotter can keep up
+              if (write_seq & 15) {
+                write(1, wbuf, sizeof(wbuf));
+              }
               write_pos = 0;
+              ++write_seq;
             }
           }
         }
