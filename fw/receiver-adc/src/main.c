@@ -28,6 +28,14 @@
 #include <libopencm3/stm32/spi.h>
 #include <libopencm3/stm32/syscfg.h>
 #include <libopencm3/stm32/timer.h>
+#include <libopencm3/stm32/usart.h>
+
+volatile uint8_t status_byte = 0;
+#define STATUS_USB_RDY       (1 << 0)
+#define STATUS_ANALOG_EN     (1 << 1)
+#define STATUS_ADC_EN        (1 << 2)
+#define STATUS_GAIN33X_EN    (1 << 3)
+#define STATUS_USART_ERR     (1 << 4)
 
 #include "usb.c"
 
@@ -60,8 +68,10 @@ void tim3_isr() {
   if (timer_get_flag(TIM3, TIM_SR_CC1IF)) {
     timer_clear_flag(TIM3, TIM_SR_CC1IF);
 
-    spi_enable(SPI1);
-    SPI1_DR = 0x0000;
+    if (status_byte & STATUS_ADC_EN) {
+      spi_enable(SPI1);
+      SPI1_DR = 0x0000;
+    }
 
     //static char buf[] = "test\r\n";
     //usbd_ep_write_packet(usbd_dev, 0x82, buf, sizeof(buf)-1);
@@ -116,6 +126,74 @@ static void spi_setup() {
   nvic_enable_irq(NVIC_SPI1_IRQ);
 }
 
+static void usart_setup() {
+  rcc_periph_clock_enable(RCC_GPIOA);
+  rcc_periph_clock_enable(RCC_USART2);
+
+  gpio_mode_setup(GPIOA, GPIO_MODE_AF, GPIO_PUPD_NONE, GPIO2 | GPIO3);
+  gpio_set_af(GPIOA, GPIO_AF1, GPIO2 | GPIO3);
+
+  usart_set_baudrate(USART2, 115200);
+  usart_set_databits(USART2, 8);
+  usart_set_parity(USART2, USART_PARITY_NONE);
+  usart_set_stopbits(USART2, USART_CR2_STOPBITS_1);
+  usart_set_mode(USART2, USART_MODE_TX_RX);
+  usart_set_flow_control(USART2, USART_FLOWCONTROL_NONE);
+
+  usart_enable(USART2);
+}
+
+struct usart_msg {
+  char* str;
+  int len;
+  struct usart_msg* next;
+};
+
+struct usart_msg* cur_msg = 0;
+volatile int usart_pos = 0;
+
+static void usart2_rx(uint8_t c);
+
+void usart2_process() {
+  // check rx
+  if (usart_get_flag(USART2, USART_ISR_RXNE)) {
+    uint8_t c = usart_recv(USART2);
+    usart2_rx(c);
+  }
+  // check tx
+  if (usart_get_flag(USART2, USART_ISR_TXE)) {
+    if (cur_msg) {
+      usart_send(USART2, cur_msg->str[usart_pos]);
+      ++usart_pos;
+
+      if (usart_pos >= cur_msg->len) {
+        cur_msg = cur_msg->next;
+      }
+    }
+  }
+}
+
+static void usart2_tx_msg(struct usart_msg* msg) {
+  msg->next = 0;
+  if (!cur_msg) {
+    cur_msg = msg;
+    usart_pos = 0;
+    return;
+  }
+  struct usart_msg* m = cur_msg;
+  struct usart_msg* n = m->next;
+  while (n) {
+    m = n;
+    n = m->next;
+  }
+  m->next = msg;
+}
+
+static void usart2_rx(uint8_t c) {
+  (void) c;
+  // TODO check responses from MCU
+}
+
 int main(void) {
 
   /*
@@ -126,6 +204,7 @@ int main(void) {
   rcc_clock_setup_in_hse_8mhz_out_48mhz();
 
   timer3_setup();
+  usart_setup();
   spi_setup();
   usb_setup();
 
@@ -133,7 +212,28 @@ int main(void) {
       3, usbd_control_buffer, sizeof(usbd_control_buffer));
   usbd_register_set_config_callback(usbd_dev, cdcacm_set_config);
 
+  uint8_t old_analog_en = 0;
+  uint8_t old_gain_en = 0;
+
   while (1) {
+    usart2_process();
+    if ((status_byte & STATUS_ANALOG_EN) != old_analog_en) {
+      old_analog_en = (status_byte & STATUS_ANALOG_EN);
+      // TODO set analog enable gpio pin based on status byte
+    }
+    if ((status_byte & STATUS_GAIN33X_EN) != old_gain_en) {
+      old_gain_en = (status_byte & STATUS_GAIN33X_EN);
+
+      // send a byte to the MCU
+      static char gain_str[1] = { 'g' };
+      gain_str[0] = old_gain_en ? 'g' : 'G';
+      static struct usart_msg gain_msg = {
+        .str = gain_str,
+        .len = sizeof(gain_str),
+        .next = 0,
+      };
+      usart2_tx_msg(&gain_msg);
+    }
     if (buf_full) {
       buf_full = 0;
       uint16_t *buf;
@@ -142,15 +242,15 @@ int main(void) {
       } else {
         buf = buf1;
       }
-      if (usb_rdy) {
+      if (status_byte & STATUS_USB_RDY) {
         static uint8_t packet1[4 + 2*kBufSz];
         static uint8_t packet2[4 + 2*kBufSz];
         static uint8_t* packet = packet1;
 
-        packet[0] = 0xaa;
-        packet[1] = 0xbb;
-        packet[2] = 0xcc;
-        packet[3] = 0xdd;
+        packet[0] = 0xff;
+        packet[1] = 0x00;
+        packet[2] = status_byte;
+        packet[3] = ~status_byte;
         memcpy(packet + 4, buf, 2*kBufSz);
  
         usbd_ep_write_packet(usbd_dev, 0x82, packet, 4 + 2*kBufSz);
@@ -160,6 +260,12 @@ int main(void) {
           packet = packet1;
         }
       }
+    }
+    if (commit_gain) {
+      int gain_set = new_gain_set;
+      commit_gain = 0;
+      // TODO send message to MCU
+      (void) gain_set;
     }
     usbd_poll(usbd_dev);
   }

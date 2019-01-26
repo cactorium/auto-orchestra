@@ -179,7 +179,8 @@ static enum usbd_request_return_codes cdcacm_control_request(usbd_device *usbd_d
   return USBD_REQ_NOTSUPP;
 }
 
-volatile int usb_rdy = 0;
+int new_gain_set = 0;
+int commit_gain = 0;
 
 static void cdcacm_data_rx_cb(usbd_device *usbd_dev, uint8_t ep) {
   (void)ep;
@@ -187,12 +188,50 @@ static void cdcacm_data_rx_cb(usbd_device *usbd_dev, uint8_t ep) {
 
   char buf[64];
   int len = usbd_ep_read_packet(usbd_dev, 0x01, buf, 64);
-  usb_rdy = 1;
+  status_byte |= STATUS_USB_RDY;
+  // TODO process packet
 
+  for (int i = 0; i < len; i++) {
+    const uint8_t c = buf[i];
+    if (c == 'q') {
+      status_byte |= STATUS_ADC_EN;
+    }
+    if (c == 'Q') {
+      status_byte &= ~STATUS_ADC_EN;
+    }
+    if (c == 'w') {
+      status_byte |= STATUS_ANALOG_EN;
+    }
+    if (c == 'W') {
+      status_byte &= ~STATUS_ANALOG_EN;
+    }
+    if (c == 'r') {
+      status_byte |= STATUS_GAIN33X_EN;
+    }
+    if (c == 'R') {
+      status_byte &= ~STATUS_GAIN33X_EN;
+    }
+
+    if (c >= '0' && c <= '9') {
+      int val = c - '0';
+      new_gain_set = ((new_gain_set << 4) & 0x0000ffff) | val;
+    }
+    if (c >= 'a' && c <= 'f') {
+      int val = c - 'a' + 10;
+      new_gain_set = ((new_gain_set << 4) & 0x0000ffff) | val;
+    }
+    if (c == 't') {
+      commit_gain = 1;
+    }
+
+  }
+
+  /*
   if (len) {
     usbd_ep_write_packet(usbd_dev, 0x82, buf, len);
     buf[len] = 0;
   }
+  */
 }
 
 static void cdcacm_set_config(usbd_device *usbd_dev, uint16_t wValue) {
