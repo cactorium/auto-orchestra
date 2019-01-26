@@ -64,6 +64,27 @@
 #define GYRO_INT_MAP    (0x56)
 #define GYRO_CMD        (0x7E)
 
+#define ACCEL_ADDR      (0x19)
+#define ACCEL_WHO_AM_I  (0x33)
+#define ACCEL_CTRL_REG1_LPEN    (1 << 3)
+#define ACCEL_CTRL_REG1_ZEN     (1 << 2)
+#define ACCEL_CTRL_REG1_YEN     (1 << 1)
+#define ACCEL_CTRL_REG1_XEN     (1 << 0)
+#define ACCEL_CTRL_REG1_ODR100HZ    (0x3 << 4)
+
+#define ACCEL_CTRL_REG1_ENABLEALL (ACCEL_CTRL_REG1_LPEN | ACCEL_CTRL_REG1_ZEN | ACCEL_CTRL_REG1_YEN | ACCEL_CTRL_REG1_XEN)
+
+//#define ACCEL_CTRL_REG4_BDU     (1 << 7)
+#define ACCEL_CTRL_REG4_2G      (0 << 4)
+
+#define ACCEL_CHIP_ID   (0x0F)
+#define ACCEL_CTRL_REG1 (0x20)
+#define ACCEL_CTRL_REG4 (0x23)
+
+#define ACCEL_REG_OUT_XH    (0x29)
+#define ACCEL_REG_OUT_YH    (0x2B)
+#define ACCEL_REG_OUT_ZH    (0x2D)
+
 #define LED_EN_PIN  (1 << 2)
 #define BOOT_EN_PIN (1 << 3)
 
@@ -340,6 +361,7 @@ static void i2c_unsetup() {
 // TODO refactor the preambles of read/write into a separate function
 static int i2c_write(unsigned char addr, unsigned char reg, unsigned char data) {
     UCB0CTL1 |= UCSWRST;
+
     // clear flags
     UCB0IFG = 0;
 
@@ -350,6 +372,7 @@ static int i2c_write(unsigned char addr, unsigned char reg, unsigned char data) 
     UCB0CTL1 |= UCTXSTT;
 
     while (!(UCB0IFG & UCTXIFG));
+    UCB0IFG = 0;
     // transmit the register address
     UCB0TXBUF = reg;
 
@@ -375,7 +398,7 @@ static int i2c_write(unsigned char addr, unsigned char reg, unsigned char data) 
     while (!(UCB0IFG & UCTXIFG));
     UCB0CTL1 |= UCTXSTP;
 
-    while (!(UCB0CTL1 & UCTXSTP));
+    while (UCB0CTL1 & UCTXSTP);
 
     if (UCB0IFG & UCNACKIFG) {
         return -1;
@@ -528,6 +551,27 @@ void main(void) {
 		        };
 		        tx_uart(&test_msg);
 		        */
+                int i = 0;
+#if 0
+                int j = 0;
+                for (j = 0; j < 128; j++) {
+                    uint8_t tmp;
+                    if (i2c_read(j, 0x0F, &tmp, 1) >= 0) {
+                        static char chip_enum[] = "chip at XX\r\n";
+                        tohex(j, chip_enum + 8);
+                        static struct uart_msg enum_msg = {
+                                                              .str = chip_enum,
+                                                              .len = sizeof(chip_enum) - 1,
+                                                              .next = 0
+                        };
+                        tx_uart(&enum_msg);
+                        for (i = 0; i < 20000; i++) {
+                            asm volatile(" nop ");
+                        }
+                    }
+
+                }
+#endif
 
 		        unsigned char whoami = 0;
 		        if (i2c_read(GYRO_ADDR, GYRO_CHIP_ID, &whoami, 1) < 0) { // 0x00 = CHIP_ID
@@ -551,17 +595,38 @@ void main(void) {
                     SEND_MSG("gyro interrupt1 write failed\r\n");
                     break;
                 }
-                int i = 0;
-                for (i = 0; i < 10000; i++) {
-                    asm(" nop ");
+                //int i = 0;
+                for (i = 0; i < 20000; i++) {
+                    asm volatile(" nop ");
                 }
                 if (i2c_write(GYRO_ADDR, GYRO_CMD, 0x15) < 0) { // power on the gyroscope
                     SEND_MSG("gyro power on write failed\r\n");
                     break;
                 }
                 SEND_MSG("gyro setup finished\r\n");
+
+#if 0
+                if (i2c_read(ACCEL_ADDR, ACCEL_CHIP_ID, &whoami, 1) < 0) {
+                    SEND_MSG("accel read id failed\r\n");
+                    break;
+                }
+                if (whoami != ACCEL_WHO_AM_I) {
+                    SEND_MSG("accel chip id invalid\r\n");
+                    break;
+                }
+                if (i2c_write(ACCEL_ADDR, ACCEL_CTRL_REG1, ACCEL_CTRL_REG1_ENABLEALL | ACCEL_CTRL_REG1_ODR100HZ) < 0) {
+                    SEND_MSG("accel enable write failed\r\n");
+                    break;
+                }
+                if (i2c_write(ACCEL_ADDR, ACCEL_CTRL_REG4, ACCEL_CTRL_REG4_2G) < 0) {
+                    SEND_MSG("accel scale write failed\r\n");
+                    break;
+                }
+                SEND_MSG("accel setup finished\r\n");
+#endif
+
                 for (i = 0; i < 30000; i++) {
-                    asm(" nop ");
+                    asm volatile(" nop ");
                 }
                 state = AO_STATE_TX;
 		    }
@@ -634,11 +699,13 @@ void main(void) {
 		            tohex(vals[2], gyro_msg + 7);
 		            tohex(vals[5], gyro_msg + 10);
 		            tohex(vals[4], gyro_msg + 12);
+		            /*
 		            static struct uart_msg gyro_uart_msg = {
 		                                                    .str = gyro_msg,
 		                                                    .len = sizeof(gyro_msg) - 1,
 		                                                    .next = 0
 		            };
+		            */
 		            //tx_uart(&gyro_uart_msg);
 		        }
 		    }
