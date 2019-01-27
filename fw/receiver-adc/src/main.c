@@ -194,6 +194,12 @@ static void usart2_rx(uint8_t c) {
   // TODO check responses from MCU
 }
 
+static void gpio_setup() {
+  rcc_periph_clock_enable(RCC_GPIOB);
+  gpio_clear(GPIOB, GPIO1);
+  gpio_mode_setup(GPIOB, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO1);
+}
+
 int main(void) {
 
   /*
@@ -203,6 +209,7 @@ int main(void) {
      */
   rcc_clock_setup_in_hse_8mhz_out_48mhz();
 
+  gpio_setup();
   timer3_setup();
   usart_setup();
   spi_setup();
@@ -219,7 +226,11 @@ int main(void) {
     usart2_process();
     if ((status_byte & STATUS_ANALOG_EN) != old_analog_en) {
       old_analog_en = (status_byte & STATUS_ANALOG_EN);
-      // TODO set analog enable gpio pin based on status byte
+      if (old_analog_en) {
+        gpio_set(GPIOB, GPIO1);
+      } else {
+        gpio_clear(GPIOB, GPIO1);
+      }
     }
     if ((status_byte & STATUS_GAIN33X_EN) != old_gain_en) {
       old_gain_en = (status_byte & STATUS_GAIN33X_EN);
@@ -264,8 +275,18 @@ int main(void) {
     if (commit_gain) {
       int gain_set = new_gain_set;
       commit_gain = 0;
-      // TODO send message to MCU
-      (void) gain_set;
+      new_gain_set = 0;
+
+      static char gain_msg_str[] = { 0x80, 0x80, 0x80, 'w' };
+      static struct usart_msg set_gain_msg = {
+        .str = gain_msg_str,
+        .len = sizeof(gain_msg_str),
+        .next = 0
+      };
+      gain_msg_str[0] = 0x80 | ((gain_set >> 8) & 0x0f);
+      gain_msg_str[1] = 0x80 | ((gain_set >> 1) & 0x0f);
+      gain_msg_str[2] = 0x80 | ((gain_set >> 0) & 0x0f);
+      usart2_tx_msg(&set_gain_msg);
     }
     usbd_poll(usbd_dev);
   }
