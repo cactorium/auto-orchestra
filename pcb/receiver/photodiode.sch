@@ -3103,4 +3103,6 @@ Text Notes 5200 4750 0    50   ~ 0
 TODO fix 3.3 nF part number\nnew part 77-VJ0603Y332MXXCBC\n
 Text Notes 8950 1100 0    50   ~ 0
 TODO use clamping diode configuration instead of this
+Text Notes 3200 5250 0    50   ~ 0
+TODO replace with TL974 op amp with \nCommon mode voltage range down to 0V\nOutput voltage > Vcc-1.3 V\nIPWR
 $EndSCHEMATC
