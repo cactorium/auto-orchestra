@@ -47,8 +47,8 @@ static void timer3_setup() {
   timer_set_mode(TIM3, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
   // prescaled clock = 1 MHz, 1 us
   timer_set_prescaler(TIM3, 48);
-  // slow down to 50 kHz for ADC sampling
-  timer_set_period(TIM3, 20);
+  // slow down to 100 kHz for ADC sampling
+  timer_set_period(TIM3, 10);
   timer_disable_oc_output(TIM3, TIM_OC1 | TIM_OC2 | TIM_OC3 | TIM_OC4);
   timer_disable_oc_clear(TIM3, TIM_OC1);
   timer_disable_oc_preload(TIM3, TIM_OC1);
@@ -78,11 +78,11 @@ void tim3_isr() {
   }
 }
 
-volatile int buf_full = 0;
-#define kBufSz 30
-uint16_t buf1[kBufSz];
-uint16_t buf2[kBufSz];
-volatile uint16_t *cur_buf = buf1;
+#define kBufSz      (30)
+#define kNumBufs    (4)
+#define kBufIdxMask (0x3)
+uint16_t bufs[kNumBufs][kBufSz];
+volatile int write_buf_idx = 0;
 
 volatile int pos = 0;
 
@@ -91,16 +91,11 @@ void spi1_isr() {
   // nonetheless, this is how I'm gonna do it
   if (SPI1_SR & SPI_SR_RXNE) {
     uint16_t data = SPI1_DR;
-    cur_buf[pos] = data;
+    bufs[write_buf_idx][pos] = data;
     ++pos;
     if (pos == kBufSz) {
       pos = 0;
-      if (cur_buf == buf1) {
-        cur_buf = buf2;
-      } else {
-        cur_buf = buf1;
-      }
-      buf_full = 1;
+      write_buf_idx = (write_buf_idx + 1) & kBufIdxMask;
     }
     spi_disable(SPI1);
   }
@@ -116,7 +111,7 @@ static void spi_setup() {
   spi_reset(SPI1);
   // clock rate = 1.5 MHz,
   // receive time = 10.6 us
-  spi_init_master(SPI1, SPI_CR1_BR_FPCLK_DIV_64, SPI_CR1_CPOL_CLK_TO_1_WHEN_IDLE, 
+  spi_init_master(SPI1, SPI_CR1_BR_FPCLK_DIV_32, SPI_CR1_CPOL_CLK_TO_1_WHEN_IDLE, 
       SPI_CR1_CPHA_CLK_TRANSITION_2, SPI_CR1_MSBFIRST);
   spi_set_data_size(SPI1, SPI_CR2_DS_16BIT);
   //spi_enable_software_slave_management(SPI1);
@@ -221,6 +216,7 @@ int main(void) {
 
   uint8_t old_analog_en = 0;
   uint8_t old_gain_en = 0;
+  int read_buf_idx = 0;
 
   while (1) {
     usart2_process();
@@ -245,14 +241,9 @@ int main(void) {
       };
       usart2_tx_msg(&gain_msg);
     }
-    if (buf_full) {
-      buf_full = 0;
-      uint16_t *buf;
-      if (cur_buf == buf1) {
-        buf = buf2;
-      } else {
-        buf = buf1;
-      }
+    if (read_buf_idx != write_buf_idx) {
+      uint16_t *buf = bufs[read_buf_idx];
+      read_buf_idx = (read_buf_idx + 1) & kBufIdxMask;
       if (status_byte & STATUS_USB_RDY) {
         static uint8_t packet1[4 + 2*kBufSz];
         static uint8_t packet2[4 + 2*kBufSz];

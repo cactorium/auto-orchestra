@@ -20,7 +20,8 @@ int main(int argc, char** argv) {
   int offset = 0;
   int write_pos = 0;
   int write_seq = 0;
-  const char preamble[] = {0xaa, 0xbb, 0xcc, 0xdd};
+  const char preamble[] = {0xff, 0x00};
+  unsigned char status_byte = 0;
   unsigned char lb = 0, ub = 0;
   while (1) {
     int read_len = read(fd, buf, sizeof(buf));
@@ -30,19 +31,57 @@ int main(int argc, char** argv) {
 
     for (int read_pos = 0; read_pos < read_len; read_pos++) {
       if (!synced) {
-        if (buf[read_pos] == preamble[offset]) {
-          offset++;
-          if (offset == sizeof(preamble)) {
-            fprintf(stderr, "sync\n");
-            synced = 1;
-          }
-        } else {
-          fprintf(stderr, "skip\n");
-          offset = 0;
+        switch (offset) {
+          case 0:
+          case 1:
+            if (buf[read_pos] == preamble[offset]) {
+              ++offset;
+            } else {
+              fprintf(stderr, "skip\n");
+              offset = 0;
+            }
+            break;
+          case 2:
+            status_byte = buf[read_pos];
+            ++offset;
+            break;
+          case 3:
+            if (buf[read_pos] != ~status_byte) {
+              fprintf(stderr, "skip\n");
+              offset = 0;
+            } else {
+              fprintf(stderr, "sync\n");
+              fprintf(stderr, "status = %x\n", status_byte);
+              ++offset;
+              synced = 1;
+            }
+            break;
+          default:
+            fprintf(stderr, "bad state\n");
+            return -1;
         }
       } else {
         if (offset < 4) {
-          if (buf[read_pos] != preamble[offset]) {
+          int fail = 0;
+          switch (offset) {
+            case 0:
+            case 1:
+              if (buf[read_pos] != preamble[offset]) {
+                fail = 1;
+              }
+              break;
+            case 2:
+              status_byte = buf[read_pos];
+              break;
+            case 3:
+              if (buf[read_pos] != ~status_byte) {
+                fail = 1;
+              }
+              break;
+            default:
+              fprintf(stderr, "bad state\n");
+          }
+          if (fail) {
             fprintf(stderr, "lost sync\n");
             offset = 0;
             synced = 0;
@@ -65,7 +104,7 @@ int main(int argc, char** argv) {
             write_pos += 2;
             if (write_pos == sizeof(wbuf)) {
               // decimate by tossing out a lot of data so the Python plotter can keep up
-              if (write_seq & 15) {
+              if (!(write_seq & 0x0f)) {
                 write(1, wbuf, sizeof(wbuf));
               }
               write_pos = 0;
