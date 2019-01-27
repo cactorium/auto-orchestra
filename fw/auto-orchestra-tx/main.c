@@ -110,7 +110,12 @@ static void setup_timer() {
     TA0CTL |= TACLR;
     // set up TA0CCR0
     TA0CCTL0 &= ~CAP;
+#ifdef USE_FSK
     TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2; // dunno why that *2 needs to be there
+#else
+    // doubled data rate to have space for a preamble
+    TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2*2; // dunno why that *2 needs to be there
+#endif
     // write to TA0IV, TA0DEX, and TA0CCTL0
     TA0EX0 = 0x03; // divide by 8
     TA0CCTL0 = CCIE; // enable interrupt
@@ -142,15 +147,24 @@ volatile int test_last_high = 0;
 volatile int tick_count = 0;
 volatile int read_sensors = 0;
 
+#ifdef USE_FSK
 volatile unsigned char led_message[] = "xxyyzz?";
+#else
+volatile unsigned char led_message[] = "\xff\xffxxyyzz?";
+#endif
 volatile int led_pos = 0;
 volatile char led_tx_done = 1;
+
+#ifndef USE_FSK
+volatile uint8_t phase = 0;
+#endif
 // values plus xor checksum at the end
 
 // TODO Timer0 interrupt; used to set frequency the LED flashes at
 #pragma vector=TIMER0_A0_VECTOR
 __interrupt void timer_symbol_isr() {
     if (state == AO_STATE_STARTUP) {
+#ifdef USE_FSK
         led_count_next = CARRIER_COUNT;
 #if 0
         if (test_last_high) {
@@ -160,6 +174,7 @@ __interrupt void timer_symbol_isr() {
         }
         test_last_high = !test_last_high;
 #endif
+#endif
         ++tick_count;
         // wait 20 ticks (20 ms?) for the accelerometer and whatever to be set up
         if (tick_count > 20) {
@@ -168,8 +183,11 @@ __interrupt void timer_symbol_isr() {
         }
     } else if (state == AO_STATE_SETUP) {
         // wait for I2C to be setup and the state to transition to STATE_TX
+#ifdef USE_FSK
         led_count_next = CARRIER_COUNT;
+#endif
     } else if (state == AO_STATE_TX) {
+#ifdef USE_FSK
         // set led_count_next based on the next bit to transmit
         if (!led_tx_done) {
             char cur_byte = led_message[led_pos >> 3];
@@ -183,24 +201,50 @@ __interrupt void timer_symbol_isr() {
         } else {
             led_count_next = CARRIER_COUNT;
         }
+#else
+        // set phase based on the next bit to transmit
+        if (!led_tx_done) {
+            char cur_byte = led_message[led_pos >> 3];
+            phase = (cur_byte & (1 << (7-(led_pos & 7)))) ? LED_EN_PIN : 0;
+            // transmitted MSB first
+            ++led_pos;
+            if (led_pos > 8*(sizeof(led_message)-1)) {
+                led_tx_done = 1;
+                led_pos = 0;
+            }
+        }
+#endif
 
         ++tick_count;
         // start I2C communications stuff every 10 ms (TODO check to make sure it's actually every 10 ms)
+#ifdef USE_FSK
         if (tick_count > 10) {
+#else
+        if (tick_count > 20) {
+#endif
             read_sensors = 1;
             tick_count = 0;
         }
     }
 }
 
-// TODO test out Manchester encoding instead of FSK; would 5x bitrate
+// TODO test out BPSK encoding instead of FSK; would 5x max bitrate
 
 // Timer1 interrupt; used to flip the LED on and off
 #pragma vector=TIMER1_A0_VECTOR
 __interrupt void timer_flip_isr() {
+#ifdef USE_FSK
     P2OUT ^= LED_EN_PIN;
+#else
+    P2OUT ^= LED_EN_PIN ^ phase;
+    phase = 0;
+#endif
     TA1CTL &= ~MC;
+#ifdef USE_FSK
     TA1CCR0 = led_count_next; // 10 kHz carrier frequency
+#else
+    //TA1CCR0 = led_count_next; // 10 kHz carrier frequency
+#endif
     TA1CTL |= MC__UP;
 }
 
@@ -670,17 +714,22 @@ void main(void) {
                         sum ^= out_z;
                         sum ^= out_z >> 8;
 		                __bic_SR_register(GIE);
-		                led_message[0] = out_x >> 8;
-		                led_message[1] = out_x;
-		                led_message[2] = out_y >> 8;
-		                led_message[3] = out_y;
-		                led_message[4] = out_z >> 8;
-		                led_message[5] = out_z;
-		                led_message[6] = sum;
+#ifdef USE_FSK
+#define MSG_OFFSET (0)
+#else
+#define MSG_OFFSET (2)
+#endif
+		                led_message[0 + MSG_OFFSET] = out_x >> 8;
+		                led_message[1 + MSG_OFFSET] = out_x;
+		                led_message[2 + MSG_OFFSET] = out_y >> 8;
+		                led_message[3 + MSG_OFFSET] = out_y;
+		                led_message[4 + MSG_OFFSET] = out_z >> 8;
+		                led_message[5 + MSG_OFFSET] = out_z;
+		                led_message[6 + MSG_OFFSET] = sum;
 		                led_tx_done = 0;
 		                __bis_SR_register(GIE);
 		                static struct uart_msg led_msg = {
-		                                                  .str = led_message,
+		                                                  .str = (char*)led_message,
 		                                                  .len = sizeof(led_message) - 1,
 		                                                  .next = 0
 		                };
