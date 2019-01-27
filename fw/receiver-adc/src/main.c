@@ -46,9 +46,9 @@ static void timer3_setup() {
   //timer_reset(TIM3);
   timer_set_mode(TIM3, TIM_CR1_CKD_CK_INT, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
   // prescaled clock = 1 MHz, 1 us
-  timer_set_prescaler(TIM3, 48);
+  timer_set_prescaler(TIM3, 48-1);
   // slow down to 100 kHz for ADC sampling
-  timer_set_period(TIM3, 10);
+  timer_set_period(TIM3, 10-1);
   timer_disable_oc_output(TIM3, TIM_OC1 | TIM_OC2 | TIM_OC3 | TIM_OC4);
   timer_disable_oc_clear(TIM3, TIM_OC1);
   timer_disable_oc_preload(TIM3, TIM_OC1);
