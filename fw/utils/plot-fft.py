@@ -16,8 +16,8 @@ lb = 0
 while True:
   data = sys.stdin.buffer.read(1024)
   while len(data) > 0:
-    ub = data[0] 
-    lb = data[1]
+    lb = data[0] 
+    ub = data[1]
     data = data[2:]
 
     val = (ub << 8) | lb
@@ -34,7 +34,9 @@ while True:
       plt.gcf().clear()
       # plt.plot(xs, i_s)
       # plt.plot(xs, q_s)
-      plt.plot(xs, poss)
+      fft_complex = np.fft.rfft(poss)
+      fft_real = np.absolute(fft_complex)
+      plt.plot(fft_real)
       plt.pause(0.001)
 
 plt.show()

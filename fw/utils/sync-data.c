@@ -14,8 +14,8 @@ int main(int argc, char** argv) {
   }
 
   int fd = open(argv[1], O_RDONLY);
-  char buf[1024];
-  char wbuf[1024];
+  char buf[2048];
+  char wbuf[2048];
   int synced = 0;
   int offset = 0;
   int write_pos = 0;
@@ -91,8 +91,8 @@ int main(int argc, char** argv) {
             //fprintf(stderr, "sync kept\n");
           }
         } else {
-          ub = lb;
-          lb = buf[read_pos];
+          lb = ub;
+          ub = buf[read_pos];
           offset++;
 
           if (offset >= 64) {
@@ -104,7 +104,7 @@ int main(int argc, char** argv) {
             write_pos += 2;
             if (write_pos == sizeof(wbuf)) {
               // decimate by tossing out a lot of data so the Python plotter can keep up
-              if (!(write_seq & 0x0f)) {
+              if (1||!(write_seq & 0x0f)) {
                 write(1, wbuf, sizeof(wbuf));
               }
               write_pos = 0;

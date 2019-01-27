@@ -74,7 +74,7 @@
 
 #define ACCEL_CTRL_REG1_ENABLEALL (ACCEL_CTRL_REG1_LPEN | ACCEL_CTRL_REG1_ZEN | ACCEL_CTRL_REG1_YEN | ACCEL_CTRL_REG1_XEN)
 
-//#define ACCEL_CTRL_REG4_BDU     (1 << 7)
+#define ACCEL_CTRL_REG4_BDU     (1 << 7)
 #define ACCEL_CTRL_REG4_2G      (0 << 4)
 
 #define ACCEL_CHIP_ID   (0x0F)
@@ -114,7 +114,7 @@ static void setup_timer() {
     TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2; // dunno why that *2 needs to be there
 #else
     // doubled data rate to have space for a preamble
-    TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2*2; // dunno why that *2 needs to be there
+    TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2/2; // dunno why that *2 needs to be there
 #endif
     // write to TA0IV, TA0DEX, and TA0CCTL0
     TA0EX0 = 0x03; // divide by 8
@@ -148,9 +148,9 @@ volatile int tick_count = 0;
 volatile int read_sensors = 0;
 
 #ifdef USE_FSK
-volatile unsigned char led_message[] = "xxyyzz?";
+volatile unsigned char led_message[] = "xxyyzzXXYYZZ?";
 #else
-volatile unsigned char led_message[] = "\xff\xffxxyyzz?";
+volatile unsigned char led_message[] = "\xff\xffxxyyzzXXYYZZ?";
 #endif
 volatile int led_pos = 0;
 volatile char led_tx_done = 1;
@@ -217,11 +217,7 @@ __interrupt void timer_symbol_isr() {
 
         ++tick_count;
         // start I2C communications stuff every 10 ms (TODO check to make sure it's actually every 10 ms)
-#ifdef USE_FSK
         if (tick_count > 10) {
-#else
-        if (tick_count > 20) {
-#endif
             read_sensors = 1;
             tick_count = 0;
         }
@@ -506,11 +502,14 @@ static int i2c_read(unsigned char addr, unsigned char reg, unsigned char* data, 
     return 0;
 }
 
+/*
 static void tohex(char c, char* out) {
     const char hex[] = "0123456789abcdef";
     out[0] = hex[(c >> 4) & 0x0f];
     out[1] = hex[c & 0x0f];
 }
+*/
+
 void main(void) {
 	//
 	// Initialize the MCU
@@ -536,7 +535,8 @@ void main(void) {
     P1DIR &= ~(GPIO_PIN6 | GPIO_PIN7);
     P2DIR &= ~GPIO_PIN4;
 
-    long int x_acc = 0, y_acc = 0, z_acc = 0;
+    long int gyro_x_acc = 0, gyro_y_acc = 0, gyro_z_acc = 0;
+    int accel_x_acc = 0, accel_y_acc = 0, accel_z_acc = 0;
     int acc_count = 0;
 
 	/*
@@ -649,7 +649,7 @@ void main(void) {
                 }
                 SEND_MSG("gyro setup finished\r\n");
 
-#if 0
+#if 1
                 if (i2c_read(ACCEL_ADDR, ACCEL_CHIP_ID, &whoami, 1) < 0) {
                     SEND_MSG("accel read id failed\r\n");
                     break;
@@ -687,25 +687,40 @@ void main(void) {
 		    //if (read_sensors) {
 		        //static int tick = 0;
 		        read_sensors = 0;
-		        unsigned char vals[6];
-		        if (i2c_read(GYRO_ADDR, GYRO_DATA, vals, 6) < 0) {
+		        unsigned char gyro_vals[6];
+		        unsigned char accel_vals[3];
+		        if (i2c_read(GYRO_ADDR, GYRO_DATA, gyro_vals, 6) < 0) {
 		            SEND_MSG("gyro read failed\r\n");
+                } else if (i2c_read(ACCEL_ADDR, ACCEL_REG_OUT_XH, accel_vals + 0, 1) < 0) {
+                    SEND_MSG("accel read x failed\r\n");
+                } else if (i2c_read(ACCEL_ADDR, ACCEL_REG_OUT_YH, accel_vals + 1, 1) < 0) {
+                    SEND_MSG("accel read y failed\r\n");
+                } else if (i2c_read(ACCEL_ADDR, ACCEL_REG_OUT_ZH, accel_vals + 2, 1) < 0) {
+                    SEND_MSG("accel read z failed\r\n");
 		        } else {
 		            int x = 0, y = 0, z = 0;
-		            x = (((unsigned int)vals[1]) << 8) | vals[0];
-		            y = (((unsigned int)vals[3]) << 8) | vals[2];
-		            z = (((unsigned int)vals[5]) << 8) | vals[4];
+		            x = (((unsigned int)gyro_vals[1]) << 8) | gyro_vals[0];
+		            y = (((unsigned int)gyro_vals[3]) << 8) | gyro_vals[2];
+		            z = (((unsigned int)gyro_vals[5]) << 8) | gyro_vals[4];
 
-		            x_acc += x;
-		            y_acc += y;
-		            z_acc += z;
+		            gyro_x_acc += x;
+		            gyro_y_acc += y;
+		            gyro_z_acc += z;
+
+		            accel_x_acc += (char) accel_vals[0];
+		            accel_y_acc += (char) accel_vals[1];
+		            accel_z_acc += (char) accel_vals[2];
 
 		            ++acc_count;
 		            if (acc_count >= 8) {
 		                acc_count = 0;
-		                int out_x = x_acc/8;
-		                int out_y = y_acc/8;
-		                int out_z = z_acc/8;
+		                int out_x = gyro_x_acc/8;
+		                int out_y = gyro_y_acc/8;
+		                int out_z = gyro_z_acc/8;
+		                int accel_out_x = accel_x_acc/8;
+		                int accel_out_y = accel_y_acc/8;
+		                int accel_out_z = accel_z_acc/8;
+
 		                unsigned char sum = 0;
 		                sum ^= out_x;
 		                sum ^= out_x >> 8;
@@ -713,6 +728,12 @@ void main(void) {
                         sum ^= out_y >> 8;
                         sum ^= out_z;
                         sum ^= out_z >> 8;
+                        sum ^= accel_out_x;
+                        sum ^= accel_out_x >> 8;
+                        sum ^= accel_out_y;
+                        sum ^= accel_out_y >> 8;
+                        sum ^= accel_out_z;
+                        sum ^= accel_out_z >> 8;
 		                __bic_SR_register(GIE);
 #ifdef USE_FSK
 #define MSG_OFFSET (0)
@@ -725,7 +746,13 @@ void main(void) {
 		                led_message[3 + MSG_OFFSET] = out_y;
 		                led_message[4 + MSG_OFFSET] = out_z >> 8;
 		                led_message[5 + MSG_OFFSET] = out_z;
-		                led_message[6 + MSG_OFFSET] = sum;
+                        led_message[6 + MSG_OFFSET] = accel_out_x;
+                        led_message[7 + MSG_OFFSET] = accel_out_x >> 8;
+                        led_message[8 + MSG_OFFSET] = accel_out_y;
+                        led_message[9 + MSG_OFFSET] = accel_out_y >> 8;
+                        led_message[10 + MSG_OFFSET] = accel_out_z;
+                        led_message[11 + MSG_OFFSET] = accel_out_z >> 8;
+		                led_message[12 + MSG_OFFSET] = sum;
 		                led_tx_done = 0;
 		                __bis_SR_register(GIE);
 		                static struct uart_msg led_msg = {
@@ -734,13 +761,18 @@ void main(void) {
 		                                                  .next = 0
 		                };
 	                    tx_uart(&led_msg);
-	                    x_acc = 0;
-	                    y_acc = 0;
-	                    z_acc = 0;
+                        gyro_x_acc = 0;
+                        gyro_y_acc = 0;
+                        gyro_z_acc = 0;
+                        accel_x_acc = 0;
+                        accel_y_acc = 0;
+                        accel_z_acc = 0;
 		            }
 		            //++tick;
 		            //if (tick < 10) break;
 		            //tick = 0;
+                    /*
+
 		            static char gyro_msg[] = "xxxx xxxx xxxx\r\n";
 		            tohex(vals[1], gyro_msg + 0);
 		            tohex(vals[0], gyro_msg + 2);
@@ -748,7 +780,6 @@ void main(void) {
 		            tohex(vals[2], gyro_msg + 7);
 		            tohex(vals[5], gyro_msg + 10);
 		            tohex(vals[4], gyro_msg + 12);
-		            /*
 		            static struct uart_msg gyro_uart_msg = {
 		                                                    .str = gyro_msg,
 		                                                    .len = sizeof(gyro_msg) - 1,
