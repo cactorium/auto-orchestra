@@ -14,6 +14,13 @@
 
 const int kDetectCount = 5*SAMPLE_RATE/CARRIER_FREQ;
 
+static float remove_offset(float v) {
+  const float e = 0.02f;
+  static float average = 0.0f;
+  average = (1.0f - e) * average + e * v;
+  return v - average;
+}
+
 static float carrier_detect(float v) {
   static float last_snr = 0.0f;
 
@@ -154,7 +161,7 @@ int main(int argc, char** argv) {
           }
 
           const uint16_t val = ((uint16_t)ub << 8) | lb;
-          const float v = (float)val;
+          const float v = remove_offset((float)val);
 
           if (carrier_detect(v) > 1.0f) {
             if (!detect) {

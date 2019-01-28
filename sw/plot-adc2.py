@@ -30,7 +30,7 @@ while True:
 
     count += 1
 
-    if count % 10000 == 0:
+    if count % 100 == 0: # was 10000
       plt.gcf().clear()
       # plt.plot(xs, i_s)
       # plt.plot(xs, q_s)
