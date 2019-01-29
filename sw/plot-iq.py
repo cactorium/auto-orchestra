@@ -1,3 +1,4 @@
+import argparse
 import math
 import sys
 
@@ -5,10 +6,15 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
+parser = argparse.ArgumentParser("processes and plots BPSK data")
+parser.add_argument("--scatter", dest="scatter", action="store_const",
+    const=True, default=False, help="plot as scatter instead of line graph")
+args = parser.parse_args()
+
 save_fig = False
-xs = np.zeros(1000)
-iss = np.zeros(1000)
-qss = np.zeros(1000)
+xs = np.zeros(2000)
+iss = np.zeros(2000)
+qss = np.zeros(2000)
 count = 0
 
 ub = 0
@@ -27,7 +33,7 @@ class RollingAverageLPF(object):
     self.v = 0.0
 
   def run(self, val):
-    self.v = (1.0 - k)*self.v + k * val
+    self.v = (1.0 - self.k)*self.v + self.k * val
     return self.v
 
 class SlidingWindowLPF(object):
@@ -52,10 +58,15 @@ class SlidingWindowLPF(object):
 
     return self.accum
 
-i_lpf = SlidingWindowLPF(10)
-q_lpf = SlidingWindowLPF(10)
+i_lpf = SlidingWindowLPF(5)
+q_lpf = SlidingWindowLPF(5)
+
+i_lpf2 = RollingAverageLPF(1)
+q_lpf2 = RollingAverageLPF(1)
 
 avg_sq = 0.0
+
+theta_int = 0.0
 
 while True:
   data = sys.stdin.buffer.read(1024)
@@ -76,20 +87,19 @@ while True:
     v = val - avg
     avg_sq = 0.95*avg_sq + 0.05*v*v
 
-    # TODO AGC v so that it stays in between 1 and -1
-
+    # AGC so that it stays relatively stable
     v = v/math.sqrt(avg_sq)
 
     i = i_lpf.run(math.cos(t)*v)
     q = q_lpf.run(math.sin(t)*v)
-    # TODO adjust
-    iss[-1] = i
-    # TODO adjust
-    qss[-1] = q
+
+    iss[-1] = i_lpf2.run(i)
+    qss[-1] = q_lpf2.run(q)
 
     phi = i * q
 
-    t += t0 - 1e-3*phi
+    t += t0 + theta_int - 5e-3*phi
+    theta_int -= 1e-6*phi
     if t > 2*math.pi:
       t -= 2*math.pi
 
@@ -97,12 +107,14 @@ while True:
 
     if count % 100 == 0: # was 10000
       plt.gcf().clear()
-      #plt.plot(xs, iss)
-      #plt.plot(xs, qss)
-      #plt.plot(xs, np.square(iss) + np.square(qss))
-      plt.scatter(iss, qss)
+      if args.scatter:
+        plt.scatter(iss, qss)
+      else:
+        plt.plot(xs, iss)
+        plt.plot(xs, qss)
+        #plt.plot(xs, np.square(iss) + np.square(qss))
       plt.pause(0.001)
-      print(count)
+      print(count, (t0 + theta_int - 5e-3*phi)*100e+3/(2*math.pi))
 
 plt.show()
 
