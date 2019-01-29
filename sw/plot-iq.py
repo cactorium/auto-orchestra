@@ -1,6 +1,7 @@
 import argparse
 import math
 import sys
+import struct
 
 import numpy as np
 
@@ -9,6 +10,8 @@ import matplotlib.pyplot as plt
 parser = argparse.ArgumentParser("processes and plots BPSK data")
 parser.add_argument("--scatter", dest="scatter", action="store_const",
     const=True, default=False, help="plot as scatter instead of line graph")
+parser.add_argument("--dump_iq", dest="dump_iq", action="store_const",
+    const=True, default=False, help="dump raw iq data to process")
 args = parser.parse_args()
 
 save_fig = False
@@ -64,9 +67,12 @@ q_lpf = SlidingWindowLPF(5)
 i_lpf2 = RollingAverageLPF(1)
 q_lpf2 = RollingAverageLPF(1)
 
+phi_lpf = RollingAverageLPF(0.05)
+
 avg_sq = 0.0
 
 theta_int = 0.0
+phi = 0.0
 
 while True:
   data = sys.stdin.buffer.read(1024)
@@ -93,10 +99,13 @@ while True:
     i = i_lpf.run(math.cos(t)*v)
     q = q_lpf.run(math.sin(t)*v)
 
+    if args.dump_iq:
+      sys.stdout.buffer.write(struct.pack("ff", i, q))
+
     iss[-1] = i_lpf2.run(i)
     qss[-1] = q_lpf2.run(q)
 
-    phi = i * q
+    phi = phi_lpf.run(i * q)
 
     t += t0 + theta_int - 5e-3*phi
     theta_int -= 1e-6*phi
@@ -114,7 +123,8 @@ while True:
         plt.plot(xs, qss)
         #plt.plot(xs, np.square(iss) + np.square(qss))
       plt.pause(0.001)
-      print(count, (t0 + theta_int - 5e-3*phi)*100e+3/(2*math.pi))
+      if not args.dump_iq:
+        print(count, (t0 + theta_int - 5e-3*phi)*100e+3/(2*math.pi))
 
 plt.show()
 
