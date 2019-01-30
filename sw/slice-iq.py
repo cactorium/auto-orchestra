@@ -42,7 +42,7 @@ class SlidingWindowLPF(object):
 i_lpf2 = SlidingWindowLPF(25)
 
 while True:
-  data = sys.stdin.buffer.read(1024)
+  data = sys.stdin.buffer.read(msg_sz)
   while len(data) > 0:
     (i, q) = struct.unpack_from("ff", data)
     data = data[msg_sz:]
@@ -63,6 +63,7 @@ while True:
     xs[-1] = count
     ins[-1] = i_filtered
     outs[-1] = cur_state
+    sys.stdout.buffer.write(struct.pack("i", int(cur_state)))
 
     count += 1
 
@@ -75,5 +76,4 @@ while True:
       plt.pause(0.001)
 
 plt.show()
-
 
