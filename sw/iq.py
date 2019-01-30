@@ -7,17 +7,6 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-parser = argparse.ArgumentParser("processes and plots BPSK data")
-parser.add_argument("--scatter", dest="scatter", action="store_const",
-    const=True, default=False, help="plot as scatter instead of line graph")
-parser.add_argument("--dump_iq", dest="dump_iq", action="store_const",
-    const=True, default=False, help="dump raw iq data to process")
-args = parser.parse_args()
-
-save_fig = False
-xs = np.zeros(2000)
-iss = np.zeros(2000)
-qss = np.zeros(2000)
 count = 0
 
 ub = 0
@@ -75,7 +64,7 @@ theta_int = 0.0
 phi = 0.0
 
 while True:
-  data = sys.stdin.buffer.read(1024)
+  data = sys.stdin.buffer.read(2)
   while len(data) > 0:
     lb = data[0] 
     ub = data[1]
@@ -84,11 +73,6 @@ while True:
     old = val
     val = (ub << 8) | lb
 
-    xs = np.roll(xs, -1)
-    iss = np.roll(iss, -1)
-    qss = np.roll(qss, -1)
-
-    xs[-1] = count
     avg = 0.95*avg + 0.05*val
     v = val - avg
     avg_sq = 0.95*avg_sq + 0.05*v*v
@@ -99,11 +83,7 @@ while True:
     i = i_lpf.run(math.cos(t)*v)
     q = q_lpf.run(math.sin(t)*v)
 
-    if args.dump_iq:
-      sys.stdout.buffer.write(struct.pack("ff", i, q))
-
-    iss[-1] = i_lpf2.run(i)
-    qss[-1] = q_lpf2.run(q)
+    sys.stdout.buffer.write(struct.pack("ff", i, q))
 
     phi = phi_lpf.run(i * q)
 
@@ -113,19 +93,3 @@ while True:
       t -= 2*math.pi
 
     count += 1
-
-    if count % 100 == 0: # was 10000
-      plt.gcf().clear()
-      if args.scatter:
-        plt.scatter(iss, qss)
-      else:
-        plt.plot(xs, iss)
-        plt.plot(xs, qss)
-        #plt.plot(xs, np.square(iss) + np.square(qss))
-      plt.pause(0.001)
-      if not args.dump_iq:
-        print(count, (t0 + theta_int - 5e-3*phi)*100e+3/(2*math.pi))
-
-plt.show()
-
-
