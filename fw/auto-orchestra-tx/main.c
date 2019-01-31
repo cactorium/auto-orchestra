@@ -712,7 +712,7 @@ void main(void) {
 		            accel_z_acc += (char) accel_vals[2];
 
 		            ++acc_count;
-		            if (acc_count >= 8) {
+		            if (acc_count >= 16) {
 		                acc_count = 0;
 		                int out_x = gyro_x_acc/8;
 		                int out_y = gyro_y_acc/8;
