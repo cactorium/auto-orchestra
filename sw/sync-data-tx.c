@@ -106,9 +106,9 @@ int main(int argc, char** argv) {
               break;
             case 14: //sum
               if (sum == buf[read_pos]) {
-                fprintf(stdout, "sum passed\n");
+                fprintf(stdout, "sum passed %x\n", buf[read_pos]);
               } else {
-                fprintf(stdout, "sum failed\n");
+                fprintf(stdout, "sum failed %x\n", buf[read_pos]);
               }
               sum = 0;
               fprintf(stdout, "%x %x %x %x %x %x\n",

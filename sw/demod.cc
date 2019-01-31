@@ -156,7 +156,7 @@ struct CostasLoop {
   RollingAverage<float> phi_lpf;
 
   float t = 0.0f, t_int = 0.0;
-  float phi_gain = 5e-3, int_gain = 1e-6;
+  float phi_gain = 5e-3, int_gain = 2e-6;
 
   const float t0 = 2 * M_PI * kCarrierFreq / kSampleRate;
 
