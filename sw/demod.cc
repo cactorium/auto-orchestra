@@ -288,7 +288,7 @@ struct Slicer {
 };
 
 struct Decoder {
-  int synced = 0;
+  bool synced = false;
   int offset = 0;
   static constexpr unsigned char preamble[] = {0xff, 0xff};
   int16_t gyro_x = 0, gyro_y = 0, gyro_z = 0;
