@@ -26,7 +26,7 @@ template <typename F> int read_loop(int fd, F f) {
   while (1) {
     int read_len = read(fd, buf, sizeof(buf));
     if (read_len == -1) {
-      return -1;
+      exit(-1);
     }
 
     for (int read_pos = 0; read_pos < read_len; read_pos++) {
@@ -59,7 +59,7 @@ template <typename F> int read_loop(int fd, F f) {
             break;
           default:
             fprintf(stderr, "bad state\n");
-            return -1;
+            exit(-2);
         }
       } else {
         if (offset < 4) {
@@ -81,6 +81,7 @@ template <typename F> int read_loop(int fd, F f) {
               break;
             default:
               fprintf(stderr, "bad state\n");
+              exit(-2);
           }
           if (fail) {
             fprintf(stderr, "lost sync\n");
@@ -286,6 +287,124 @@ struct Slicer {
   }
 };
 
+struct Decoder {
+  int synced = 0;
+  int offset = 0;
+  static constexpr unsigned char preamble[] = {0xff, 0xff};
+  int16_t gyro_x = 0, gyro_y = 0, gyro_z = 0;
+  int16_t accel_x = 0, accel_y = 0, accel_z = 0;
+  unsigned sum = 0;
+
+  struct Result {
+    int16_t gyro_x, gyro_y, gyro_z;
+    int16_t accel_x, accel_y, accel_z;
+  };
+
+  template <typename F> void run(uint8_t b, F f) {
+    if (!synced) {
+      switch (offset) {
+        case 0:
+        case 1:
+          if (b == preamble[offset]) {
+            fprintf(stderr, "sync\n");
+            synced = true;
+            ++offset;
+          } else {
+            fprintf(stderr, "skip\n");
+            offset = 0;
+          }
+          break;
+        default:
+          fprintf(stderr, "bad state\n");
+          return;
+      }
+    } else {
+      if (offset < 2) {
+        bool fail = false;
+        switch (offset) {
+          case 0:
+          case 1:
+            if (b != preamble[offset]) {
+              fail = true;
+            }
+            break;
+          default:
+            fprintf(stderr, "bad state\n");
+            return;
+        }
+        if (fail) {
+          fprintf(stderr, "lost sync\n");
+          offset = 0;
+          synced = false;
+        }
+        offset++;
+        if ((offset == 2) && synced) {
+          //fprintf(stderr, "sync kept\n");
+        }
+      } else {
+        switch (offset) {
+          case 2: //gxh
+          case 3: //gxl
+            sum ^= b;
+            gyro_x = (gyro_x << 8) | (unsigned char) b;
+            break;
+          case 4: //gyh
+          case 5: //gyl
+            sum ^= b;
+            gyro_y = (gyro_y << 8) | (unsigned char) b;
+            break;
+          case 6: //gzh
+          case 7: //gzl
+            sum ^= b;
+            gyro_z = (gyro_z << 8) | (unsigned char) b;
+            break;
+          case 8: //axh
+          case 9: //axl
+            sum ^= b;
+            accel_x = (accel_x << 8) | (unsigned char) b;
+            break;
+          case 10: //ayh
+          case 11: //ayl
+            sum ^= b;
+            accel_y = (accel_y << 8) | (unsigned char) b;
+            break;
+          case 12: //azh
+          case 13: //azl
+            sum ^= b;
+            accel_z = (accel_z << 8) | (unsigned char) b;
+            break;
+          case 14: //sum
+            if (sum == b) {
+              fprintf(stdout, "sum passed %x\n", b);
+            } else {
+              fprintf(stdout, "sum failed %x\n", b);
+            }
+            sum = 0;
+            fprintf(stdout, "%x %x %x %x %x %x\n",
+                gyro_x, gyro_y, gyro_z,
+                accel_x, accel_y, accel_z);
+            f(Result {
+                gyro_x, gyro_y, gyro_z,
+                accel_x, accel_y, accel_z
+            });
+            // 1 accel unit = 15.6 mg
+            gyro_x = gyro_y = gyro_z = accel_x = accel_y = accel_z = 0;
+            break;
+          default:
+            fprintf(stderr, "bad state\n");
+        }
+        offset++;
+
+        if (offset >= (2 + 6 + 6 + 1)) {
+          offset = 0;
+        }
+      }
+    }
+  }
+};
+
+constexpr unsigned char Decoder::preamble[];
+
 int main(int argc, char** argv) {
   if (argc < 2) {
     fprintf(stderr, "missing argument\n");
@@ -297,6 +416,7 @@ int main(int argc, char** argv) {
   SlidingWindow<float> i_lpf2(25);
   SchmittTrigger thresholder;
   Slicer slicer;
+  Decoder decoder;
 
   int count = 0;
 
@@ -307,7 +427,12 @@ int main(int argc, char** argv) {
       //std::cout << filtered_i << std::endl;
       const auto thresh = thresholder.run(filtered_i);
       slicer.run([&](uint8_t byte) {
-          write(1, &byte, 1);
+          decoder.run(byte, [&](Decoder::Result r) {
+              fprintf(stdout, "%x %x %x %x %x %x\n",
+                  r.gyro_x, r.gyro_y, r.gyro_z,
+                  r.accel_x, r.accel_y, r.accel_z);
+          });
+          //write(1, &byte, 1);
           //std::cout << std::hex << (unsigned int) byte << std::endl;
           }, thresh);
       ++count;
