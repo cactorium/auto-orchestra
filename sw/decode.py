@@ -50,7 +50,7 @@ class MessageSynchronizer(object):
           self.offset += 1
           self.synced = True
         else:
-          print("skip")
+          #print("skip")
           self.offset = 0
     else:
       if self.offset < 2:
@@ -115,39 +115,56 @@ while True:
 
     if last_val is None:
       last_val = v
-
-    if v != last_val:
-      sample_count = 0
+      cur_val = v
 
     if timeout:
-      if v != last_val:
+      sample_count = 0
+      cur_byte = 0
+      cur_bit = 0
+      if v != cur_val:
+        print("start edge")
         timeout = False
-        count = 0
+        last_val = cur_val
+      cur_val = v
+    else:
+      if sample_count == samples_per_bit/2:
+        #print("sample")
+        if v != last_val:
+          cur_byte = (cur_byte << 1) | 1
+
+          timeout_count = 0
+        else:
+          cur_byte = (cur_byte << 1)
+
+          timeout_count += 1
+          if timeout_count > 50:
+            print("time out")
+            timeout = True
+        last_val = v
+
+      next_bit = False
+
+      '''
+      if v != cur_val and sample_count > samples_per_bit/2:
+        print("edge ", sample_count)
         sample_count = 0
+        next_bit = True
+      cur_val = v
+      '''
+
+      sample_count += 1
+      #print (sample_count)
+
+      if sample_count >= samples_per_bit:
+        sample_count = 0
+        next_bit = True
+
+      if next_bit:
+        cur_bit += 1
+
+      if cur_bit == 8:
+        print(hex(cur_byte))
+        #print("byte")
+        msg_sync.sync_msg(cur_byte)
         cur_byte = 0
         cur_bit = 0
-
-    count += 1
-    if count == samples_per_bit/2:
-      if v != last_val:
-        cur_byte = (cur_byte << 1) | 1
-
-        timeout_count = 0
-      else:
-        cur_byte = (cur_byte << 1)
-
-        timeout_count += 1
-        if timeout_count > 50:
-          print("time out")
-          timeout = True
-      last_val = v
-
-    if not timeout:
-      if count >= samples_per_bit:
-        count = 0
-        cur_bit += 1
-        if cur_bit == 8:
-          #print(hex(cur_byte))
-          msg_sync.sync_msg(cur_byte)
-          cur_byte = 0
-          cur_bit = 0

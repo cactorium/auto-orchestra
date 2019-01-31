@@ -58,6 +58,7 @@ class SlidingWindowLPF(object):
 
     if self.rezero == self.window_sz:
       self.accum = np.sum(self.delays)
+      self.rezero = 0
 
     return self.accum
 
@@ -102,8 +103,8 @@ while True:
     if args.dump_iq:
       sys.stdout.buffer.write(struct.pack("ff", i, q))
 
-    iss[-1] = i_lpf2.run(i)
-    qss[-1] = q_lpf2.run(q)
+    iss[-1] = i # i_lpf2.run(i)
+    qss[-1] = q #q_lpf2.run(q)
 
     phi = phi_lpf.run(i * q)
 

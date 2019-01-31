@@ -104,7 +104,7 @@ int main(int argc, char** argv) {
             write_pos += 2;
             if (write_pos == sizeof(wbuf)) {
               // decimate by tossing out a lot of data so the Python plotter can keep up
-              if (1||!(write_seq & 0x0f)) {
+              if (!(write_seq & 0xff)) {
                 write(1, wbuf, sizeof(wbuf));
               }
               write_pos = 0;

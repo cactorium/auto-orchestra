@@ -20,6 +20,7 @@ int main(int argc, char** argv) {
   const char preamble[] = {0xff, 0xff};
   int16_t gyro_x = 0, gyro_y = 0, gyro_z = 0;
   int16_t accel_x = 0, accel_y = 0, accel_z = 0;
+  unsigned sum = 0;
   while (1) {
     int read_len = read(fd, buf, sizeof(buf));
     if (read_len == -1) {
@@ -70,33 +71,46 @@ int main(int argc, char** argv) {
           switch (offset) {
             case 2: //gxh
             case 3: //gxl
+              sum ^= buf[read_pos];
               gyro_x = (gyro_x << 8) | (unsigned char) buf[read_pos];
               break;
             case 4: //gyh
             case 5: //gyl
+              sum ^= buf[read_pos];
               gyro_y = (gyro_y << 8) | (unsigned char) buf[read_pos];
               break;
             case 6: //gzh
             case 7: //gzl
+              sum ^= buf[read_pos];
               gyro_z = (gyro_z << 8) | (unsigned char) buf[read_pos];
               break;
             case 8: //axh
             case 9: //axl
+              sum ^= buf[read_pos];
               accel_x = (accel_x << 8) | (unsigned char) buf[read_pos];
               break;
             case 10: //ayh
             case 11: //ayl
+              sum ^= buf[read_pos];
               accel_y = (accel_y << 8) | (unsigned char) buf[read_pos];
               break;
             case 12: //azh
             case 13: //azl
+              sum ^= buf[read_pos];
               accel_z = (accel_z << 8) | (unsigned char) buf[read_pos];
               break;
             case 14: //sum
+              if (sum == buf[read_pos]) {
+                fprintf(stderr, "sum passed\n");
+              } else {
+                fprintf(stderr, "sum failed\n");
+              }
+              sum = 0;
               // TODO check sum
               fprintf(stderr, "%d %d %d %f %f %f\n",
-                  gyro_x, gyro_z, gyro_z,
+                  gyro_x, gyro_y, gyro_z,
                   accel_x*15.6f, accel_y*15.6f, accel_z*15.6f);
+              gyro_x = gyro_y = gyro_z = accel_x = accel_y = accel_z = 0;
               break;
             default:
               fprintf(stderr, "bad state\n");
