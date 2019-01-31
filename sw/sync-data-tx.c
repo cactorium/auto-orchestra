@@ -8,12 +8,17 @@
 #include <sys/types.h>
 
 int main(int argc, char** argv) {
+  /*
   if (argc < 2) {
     fprintf(stderr, "missing argument\n");
     return -1;
   }
+  */
 
-  int fd = open(argv[1], O_RDONLY);
+  int fd = 0;
+  if (argc >= 2) {
+    fd = open(argv[1], O_RDONLY);
+  }
   char buf[2048];
   int synced = 0;
   int offset = 0;
@@ -101,15 +106,15 @@ int main(int argc, char** argv) {
               break;
             case 14: //sum
               if (sum == buf[read_pos]) {
-                fprintf(stderr, "sum passed\n");
+                fprintf(stdout, "sum passed\n");
               } else {
-                fprintf(stderr, "sum failed\n");
+                fprintf(stdout, "sum failed\n");
               }
               sum = 0;
-              // TODO check sum
-              fprintf(stderr, "%d %d %d %f %f %f\n",
+              fprintf(stdout, "%x %x %x %x %x %x\n",
                   gyro_x, gyro_y, gyro_z,
-                  accel_x*15.6f, accel_y*15.6f, accel_z*15.6f);
+                  accel_x, accel_y, accel_z);
+              // 1 accel unit = 15.6 mg
               gyro_x = gyro_y = gyro_z = accel_x = accel_y = accel_z = 0;
               break;
             default:

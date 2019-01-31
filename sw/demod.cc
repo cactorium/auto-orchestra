@@ -199,8 +199,8 @@ struct CostasLoop {
 
 struct SchmittTrigger {
   int cur_val = -1;
-  static constexpr float kPositiveThreshold = 50.0f;
-  static constexpr float kNegativeThreshold = -50.0f;
+  static constexpr float kPositiveThreshold = 70.0f;
+  static constexpr float kNegativeThreshold = -70.0f;
   int run(float val) {
     if (cur_val < 0) {
       if (val > kPositiveThreshold) {
@@ -255,10 +255,14 @@ struct Slicer {
       }
 
       bool next_bit = false;
-      if ((v != cur_val) && (sample_count > samples_per_bit/2)) {
-        //std::cerr << "edge " << sample_count << std::endl;
-        sample_count = 0;
-        next_bit = true;
+      if (v != cur_val) {
+        if (sample_count > samples_per_bit/2) {
+          //std::cerr << "edge " << sample_count << std::endl;
+          sample_count = 0;
+          next_bit = true;
+        } else {
+          sample_count = 0;
+        }
         cur_val = v;
       }
 
@@ -303,7 +307,8 @@ int main(int argc, char** argv) {
       //std::cout << filtered_i << std::endl;
       const auto thresh = thresholder.run(filtered_i);
       slicer.run([&](uint8_t byte) {
-          std::cout << std::hex << (unsigned int) byte << std::endl;
+          write(1, &byte, 1);
+          //std::cout << std::hex << (unsigned int) byte << std::endl;
           }, thresh);
       ++count;
     });

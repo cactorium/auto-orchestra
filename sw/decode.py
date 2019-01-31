@@ -15,7 +15,7 @@ cur_byte = 0
 cur_bit = 0
 
 sample_rate = 100e+3
-bitrate = 2e+3
+bitrate = 2.0e+3
 
 samples_per_bit = sample_rate / bitrate
 
@@ -107,6 +107,9 @@ class MessageSynchronizer(object):
 
 msg_sync = MessageSynchronizer()
 
+last_edge = 0
+num_zero_bits = 0
+
 while True:
   data = sys.stdin.buffer.read(msg_sz)
   while len(data) > 0:
@@ -123,6 +126,7 @@ while True:
       cur_bit = 0
       if v != cur_val:
         print("start edge")
+        last_edge = count
         timeout = False
         last_val = cur_val
       cur_val = v
@@ -135,6 +139,7 @@ while True:
           timeout_count = 0
         else:
           cur_byte = (cur_byte << 1)
+          num_zero_bits += 1
 
           timeout_count += 1
           if timeout_count > 50:
@@ -144,13 +149,14 @@ while True:
 
       next_bit = False
 
-      '''
-      if v != cur_val and sample_count > samples_per_bit/2:
-        print("edge ", sample_count)
+      if v != cur_val: 
+        if sample_count > samples_per_bit/2:
+          print("tedge ", sample_count, " ", cur_bit)
+          next_bit = True
+        else:
+          print("ledge ", sample_count, " ", cur_bit)
         sample_count = 0
-        next_bit = True
       cur_val = v
-      '''
 
       sample_count += 1
       #print (sample_count)
