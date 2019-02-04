@@ -1,0 +1,49 @@
+<!doctype html5>
+<html>
+  <head>
+<style>
+.selected {
+  border: red solid 1px;
+}
+.track {
+  height: 50px;
+  min-width: 200px;
+  border: black solid 1px;
+}
+
+/* TODO make it absolute on the screen so it stays put */
+#dashboard {
+}
+/* TODO same with code area*/
+#sheet-container {
+}
+</style>
+  <script src=main.js></script>
+  </head>
+  <body>
+    <div id=dashboard>
+      time: <span id="time"></span>
+      <span id="state">idle</span>
+      <input type=range id=master-volume min=-50 max=3 step=0.05></input>
+      <label for=master-volume>Master volume:</label>
+      <span id=master-value></span>
+      Start offset: <input id=record-offset value=0></input> 
+      Current time: <span id=record-time></span>
+      <!-- TODO checkbox for playing existing track while recording -->
+      <input type=checkbox id=mute-playback></input>
+      <label for=mute-playback>Enable playback during recording</label>
+    </div>
+    <div id=instruments>
+      <div id=instrument0>
+        <div class=track id=0-track>
+        </div>
+      </div>
+    </div>
+    <div id=sheet-container>
+      <textarea id=sheet cols=80 rows=20>
+      </textarea>
+      <br />
+      <input id=load-tracks type=button value=Enter></input>
+    </div>
+  </body>
+</html>
