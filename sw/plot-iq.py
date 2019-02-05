@@ -68,7 +68,7 @@ q_lpf = SlidingWindowLPF(5)
 i_lpf2 = SlidingWindowLPF(25)
 q_lpf2 = SlidingWindowLPF(25)
 
-phi_lpf = RollingAverageLPF(0.05)
+phi_lpf = RollingAverageLPF(0.01)
 
 avg_sq = 0.0
 
@@ -109,7 +109,7 @@ while True:
     phi = phi_lpf.run(i * q)
 
     t += t0 + theta_int - 5e-3*phi
-    theta_int -= 1e-6*phi
+    theta_int -= 5e-6*phi
     if t > 2*math.pi:
       t -= 2*math.pi
 

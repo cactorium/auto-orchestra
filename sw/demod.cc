@@ -293,7 +293,7 @@ struct Decoder {
   static constexpr unsigned char preamble[] = {0xff, 0xff};
   int16_t gyro_x = 0, gyro_y = 0, gyro_z = 0;
   int16_t accel_x = 0, accel_y = 0, accel_z = 0;
-  unsigned sum = 0;
+  uint8_t sum = 0;
 
   struct Result {
     int16_t gyro_x, gyro_y, gyro_z;
