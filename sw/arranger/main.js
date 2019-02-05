@@ -115,25 +115,40 @@ function TrackPlayer(track, offset) {
   this.track = track;
   this.offset = offset;
   this.pos = 0;
+  this.bank = OscillatorBank();
+  this.notesPlaying = 0;
+
+  // skip notes
+  while (this.pos < this.track.notes.length && this.track.notes[this.pos].offset < offset) {
+    this.pos++;
+  }
 }
-TrackPlayer.prototype.play(offset) {
-  if (this.pos < this.track.notes.length) {
+TrackPlayer.prototype.play = function(offset) {
+  if (this.pos < this.track.notes.length || this.notesPlaying > 0) {
     // play any notes that need to be played, and
     // turn off any notes that need to be stopped
-    while (this.track.notes[this.pos].offset + this.track.offset < offset) {
-      playNote(this.track.notes[this.pos].pitch);
+    while (this.pos < this.track.notes.length && this.track.notes[this.pos].offset + this.track.offset < offset) {
+      this.bank.playNote(this.track.notes[this.pos].pitch);
+      this.notesPlaying++;
       this.pos++;
     }
+    var me = this;
     this.track.notes.forEach(function(note) {
       // check to see if it needs to be stopped
-      var end = note.offset + duration;
-      if (end > this.offset && end <= offset) {
-        stopNote(note.pitch);
+      var end = note.offset + note.duration;
+      //console.log(end, me.offset, offset);
+      if (end > me.offset && end <= offset) {
+        //console.log("stop " + note.pitch + " " + offset);
+        me.bank.stopNote(note.pitch);
+        me.notesPlaying--;
       }
     });
     this.offset = offset;
   }
-}
+};
+TrackPlayer.prototype.stop = function() {
+  this.bank.stopAll();
+};
 
 /*
 function createInstrumentNode(id) {
@@ -176,20 +191,8 @@ var masterVolume = lazyEval(function() {
   gain.connect(audioContext().destination);
   return gain;
 });
-var oscillators = {};
-function sw(freq) {
-  var osc = audioContext().createOscillator();
-  osc.type = "square";
-  osc.frequency.setValueAtTime(freq, audioContext().currentTime);
-  osc.connect(masterVolume());
-  return osc;
-}
-
-function calcFreq(n) {
-  return 440*Math.exp(Math.log(2)*(n - 48)/12);
-}
-
 var tracks = [];
+
 var recordOffset = 0.0;
 var selectedInstrument = null;
 var playbackWhileRecording = false;
@@ -198,16 +201,51 @@ var newTrack = null;
 var startTime = null;
 var pressedNotes = null;
 
-function playNote(pitch) {
-  // TODO
-}
+function OscillatorBank() {
 
-function stopNote(pitch) {
-  // TODO
-}
+  var oscillators = {};
+  function sw(freq) {
+    var osc = audioContext().createOscillator();
+    osc.type = "sine";
+    osc.frequency.setValueAtTime(freq, audioContext().currentTime);
+    osc.connect(masterVolume());
+    return osc;
+  }
 
-function stopAll() {
-  // TODO
+  function calcFreq(n) {
+    return 440*Math.exp(Math.log(2)*(n - 48)/12);
+  }
+
+
+  function playNote(pitch) {
+    if (oscillators[pitch] != null) {
+      oscillators[pitch].stop();
+    }
+    var osc = sw(calcFreq(pitch));
+    oscillators[pitch] = osc;
+    osc.start();
+  }
+
+  function stopNote(pitch) {
+    if (oscillators[pitch] != null) {
+      oscillators[pitch].stop();
+      oscillators[pitch] = null;
+    }
+  }
+
+  function stopAll() {
+    Object.keys(oscillators).forEach(function(n) {
+      if (oscillators[n]) {
+        oscillators[n].stop();
+      }
+    });
+  }
+
+  return {
+    playNote: playNote,
+    stopNote: stopNote,
+    stopAll: stopAll
+  };
 }
 
 function startRecording() {
@@ -228,7 +266,7 @@ function startRecording() {
 function stopRecording() {
   recordingStarted = false;
   var endTime = audioContext().currentTime - startTime + recordOffset;
-  // TODO stop any notes still being played
+  // stop any notes still being played
   Object.keys(pressedNotes).forEach(function(n) {
     if (pressedNotes[n]) {
       pressedNotes[n].duration = endTime - pressedNotes[n].offset;
@@ -250,6 +288,8 @@ function stopRecording() {
 var isPlaying = false;
 var lastStartTime = null;
 var currentPlaybackOffset = null;
+var timerId = null;
+var trackPlayers = null;
 function startPlayback() {
   isPlaying = true;
   var recordOffsetStr = document.getElementById("record-offset").value;
@@ -258,13 +298,35 @@ function startPlayback() {
     alert("bad offset; please set before continuing");
   }
   lastStartTime = recordOffset;
-  currentPlaybackOffset = audioContext().currentTime + recordOffset;
-  // TODO start callback
+  currentPlaybackOffset = audioContext().currentTime - recordOffset;
+
+  trackPlayers = tracks.map(function(t) {
+    return new TrackPlayer(t, recordOffset);
+  });
+
+  // start callback
+  timerId = setInterval(function() {
+    var currentOffset = audioContext().currentTime - currentPlaybackOffset;
+    document.getElementById("time").textContent = currentOffset;
+    if (isPlaying) {
+      trackPlayers.forEach(function(tp) {
+        tp.play(currentOffset);
+      });
+    }
+  }, 10);
 }
 
 function pausePlayback() {
   isPlaying = false;
-  // TODO
+  if (timerId != null) {
+    clearInterval(timerId);
+    timerId = null;
+  }
+  if (trackPlayers != null) {
+    trackPlayers.forEach(function(tp) {
+      tp.stop();
+    });
+  }
 }
 
 function stopPlayback() {
@@ -276,6 +338,9 @@ function stopPlayback() {
 function bindKeyboard() {
   var lastNote = null;
   var octave = 4;
+
+  var activeNotes = {};
+  var keyboardBank = OscillatorBank();
 
   if (sheetArea == null) {
     sheetArea = document.getElementById('sheet');
@@ -310,14 +375,9 @@ function bindKeyboard() {
           return;
         }
         lastNote = note;
-        console.log(note);
-
-        if (oscillators[note] != null) {
-          oscillators[note].stop();
-        }
-        var osc = sw(calcFreq(12*octave + note));
-        oscillators[note] = osc;
-        osc.start();
+        //console.log(note);
+        keyboardBank.playNote(12*octave + note);
+        activeNotes[note] = 12*octave + note;
 
         if (recordingStarted) {
           if (!pressedNotes[note]) {
@@ -394,8 +454,9 @@ function bindKeyboard() {
           lastNote = null;
         }
 
-        oscillators[note].stop();
-        oscillators[note] = null;
+        if (activeNotes[note]) {
+          keyboardBank.stopNote(activeNotes[note]);
+        }
 
         if (recordingStarted) {
           if (pressedNotes[note]) {
@@ -411,6 +472,10 @@ function bindKeyboard() {
         //console.log(e);
     }
   });
+
+}
+
+function bindControls() {
 
   document.body.addEventListener('input', function() {
     var volumeControl = document.getElementById('master-volume');
@@ -460,5 +525,6 @@ window.onload = function() {
   // bind keyboard
   bindKeyboard();
   // TODO bind instruments
-  // TODO bind controls
+  // bind controls
+  bindControls();
 };
