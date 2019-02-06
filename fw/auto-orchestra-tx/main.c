@@ -94,6 +94,8 @@
 #define AO_STATE_TX         3
 volatile int state = AO_STATE_SLEEP;
 
+#define GYRO_ONLY
+
 static void unsetup_uart();
 static void i2c_unsetup();
 
@@ -110,11 +112,15 @@ static void setup_timer() {
     TA0CTL |= TACLR;
     // set up TA0CCR0
     TA0CCTL0 &= ~CAP;
+#ifndef GYRO_ONLY
 #ifdef USE_FSK
     TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2; // dunno why that *2 needs to be there
 #else
     // doubled data rate to have space for a preamble
     TA0CCR0 = SMCLK_FREQ/1000UL/8UL*2/2; // dunno why that *2 needs to be there
+#endif
+#else
+    TA0CCR0 = SMCLK_FREQ/500UL;
 #endif
     // write to TA0IV, TA0DEX, and TA0CCTL0
     TA0EX0 = 0x03; // divide by 8
@@ -131,7 +137,9 @@ static void setup_timer() {
     TA1CCR0 = led_count_next; // 10 kHz carrier frequency
     // write to TA1IV, TA1DEX, and TA1CCTL1
     TA1EX0 = 0x00; // divide by 1
+#ifndef GYRO_ONLY
     TA1CCTL0 = CCIE; // enable interrupt
+#endif
     // write to TA1CTL
     TA1CTL = TASSEL__SMCLK | ID__1 | MC__UP; // SMCLK, divide by 1, up mode, enable interrupts
 }
@@ -217,7 +225,11 @@ __interrupt void timer_symbol_isr() {
 
         ++tick_count;
         // start I2C communications stuff every 10 ms (TODO check to make sure it's actually every 10 ms)
+#ifndef GYRO_ONLY
         if (tick_count > 10) {
+#else
+        if (1) {
+#endif
             read_sensors = 1;
             tick_count = 0;
         }
@@ -529,9 +541,10 @@ void main(void) {
 	//
 	// Start the CapTIvate application
 	//
+#ifndef GYRO_ONLY
 	CAPT_appStart();
 	MAP_CAPT_registerCallback(&BTN00, btn_callback);
-
+#endif
     P1DIR &= ~(GPIO_PIN6 | GPIO_PIN7);
     P2DIR &= ~GPIO_PIN4;
 
@@ -539,6 +552,12 @@ void main(void) {
     int accel_x_acc = 0, accel_y_acc = 0, accel_z_acc = 0;
     int acc_count = 0;
 
+#ifdef GYRO_ONLY
+    P2OUT &= ~LED_EN_PIN;
+    P2OUT |= BOOT_EN_PIN;
+    state = AO_STATE_STARTUP;
+    tick_count = 0;
+#endif
 	/*
 	while (1) {
         P2OUT ^= (1 << 2);
@@ -551,7 +570,9 @@ void main(void) {
 		//
 		// Run the captivate application handler.
 		//
+#ifndef GYRO_ONLY
 		CAPT_appHandler();
+#endif
 
 		//
 		// This is a great place to add in any 
@@ -571,7 +592,9 @@ void main(void) {
 	        // End of background loop iteration
 	        // Go to sleep if there is nothing left to do
 	        //
+#ifndef GYRO_ONLY
 	        CAPT_appSleep();
+#endif
 		    break;
 		case AO_STATE_STARTUP:
 		    if (!setup) {
@@ -712,15 +735,27 @@ void main(void) {
 		            accel_z_acc += (char) accel_vals[2];
 
 		            ++acc_count;
+#ifndef GYRO_ONLY
 		            if (acc_count >= 16) {
+#else
+		            if (1) {
+#endif
 		                acc_count = 0;
+#ifndef GYRO_ONLY
 		                int out_x = gyro_x_acc/8;
 		                int out_y = gyro_y_acc/8;
 		                int out_z = gyro_z_acc/8;
 		                int accel_out_x = accel_x_acc/8;
 		                int accel_out_y = accel_y_acc/8;
 		                int accel_out_z = accel_z_acc/8;
-
+#else
+                        int out_x = gyro_x_acc;
+                        int out_y = gyro_y_acc;
+                        int out_z = gyro_z_acc;
+                        int accel_out_x = accel_x_acc;
+                        int accel_out_y = accel_y_acc;
+                        int accel_out_z = accel_z_acc;
+#endif
 		                unsigned char sum = 0;
 		                sum ^= out_x;
 		                sum ^= out_x >> 8;
