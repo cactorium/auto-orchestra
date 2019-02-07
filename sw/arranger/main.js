@@ -124,6 +124,7 @@ function TrackPlayer(track, offset) {
   }
 }
 TrackPlayer.prototype.play = function(offset) {
+  // TODO schedule ahead of time instead of about on time
   if (this.pos < this.track.notes.length || this.notesPlaying > 0) {
     // play any notes that need to be played, and
     // turn off any notes that need to be stopped
@@ -203,42 +204,36 @@ var pressedNotes = null;
 
 function OscillatorBank() {
 
-  var oscillators = {};
-  function sw(freq) {
-    var osc = audioContext().createOscillator();
-    osc.type = "sine";
-    osc.frequency.setValueAtTime(freq, audioContext().currentTime);
-    osc.connect(masterVolume());
-    return osc;
-  }
+  var osc = audioContext().createOscillator();
+  osc.type = "sine";
+  var muter = audioContext().createGain();
+  osc.frequency.setValueAtTime(440, audioContext().currentTime);
+  muter.gain.setValueAtTime(0, audioContext().currentTime);
+  muter.connect(masterVolume());
+  osc.connect(muter);
+  osc.start();
+
+  var lastPitch = null;
 
   function calcFreq(n) {
     return 440*Math.exp(Math.log(2)*(n - 48)/12);
   }
 
-
-  function playNote(pitch) {
-    if (oscillators[pitch] != null) {
-      oscillators[pitch].stop();
-    }
-    var osc = sw(calcFreq(pitch));
-    oscillators[pitch] = osc;
-    osc.start();
+  function playNote(pitch, time) {
+    time = time || audioContext().currentTime;
+    osc.frequency.setValueAtTime(calcFreq(pitch), time);
+    muter.gain.setValueAtTime(1, time);
+    lastPitch = pitch;
   }
 
   function stopNote(pitch) {
-    if (oscillators[pitch] != null) {
-      oscillators[pitch].stop();
-      oscillators[pitch] = null;
+    if (lastPitch == pitch || pitch == null) {
+      muter.gain.setValueAtTime(0, audioContext().currentTime);
     }
   }
 
   function stopAll() {
-    Object.keys(oscillators).forEach(function(n) {
-      if (oscillators[n]) {
-        oscillators[n].stop();
-      }
-    });
+    stopNote(null);
   }
 
   return {
@@ -374,13 +369,21 @@ function bindKeyboard() {
         if (lastNote == note) {
           return;
         }
-        lastNote = note;
         //console.log(note);
         keyboardBank.playNote(12*octave + note);
         activeNotes[note] = 12*octave + note;
 
         if (recordingStarted) {
           if (!pressedNotes[note]) {
+            var endTime = audioContext().currentTime - startTime + recordOffset;
+            // mark any currently pressed notes as done
+            Object.keys(pressedNotes).forEach(function(n) {
+              if (pressedNotes[n]) {
+                pressedNotes[n].duration = endTime - pressedNotes[n].offset;
+                pressedNotes[n] = null;
+              }
+            });
+
             var noteOffset = audioContext().currentTime - startTime + recordOffset;
             var newNote = new Note(noteOffset, 12*octave + note, 0.0);
             // save to pressedNotes so it can be updated when it's released
@@ -389,6 +392,7 @@ function bindKeyboard() {
             newTrack.notes.push(newNote);
           }
         }
+        lastNote = note;
 
         break;
       case ' ': // start/stop recording
@@ -463,8 +467,6 @@ function bindKeyboard() {
             var endTime = audioContext().currentTime - startTime + recordOffset;
             pressedNotes[note].duration = endTime - pressedNotes[note].offset;
             pressedNotes[note] = null;
-          } else {
-            console.log("w: keyup missing pressed note");
           }
         }
         break;
@@ -486,30 +488,41 @@ function bindControls() {
   });
 
   document.getElementById('load-tracks').addEventListener('click', function() {
-    var newTracks = [];
-    var s = document.getElementById('sheet').value;
-    var parseFailed = false;
+    loadTracks();
+  });
 
-    while (s != null && s.length > 0) {
-      s = eatWhitespace(s);
-      var newTrack = new Track('default-instrument', 0);
-
-      s = newTrack.parse(s);
-      if (s == null) {
-        parseFailed = true;
-        break;
-      }
-      s = eatWhitespace(s);
-      newTracks.push(newTrack);
-    }
-
-    if (!parseFailed) {
-      tracks = newTracks;
-    } else {
-      alert('track parsing failed; check console log');
-    }
+  document.getElementById('save-tracks').addEventListener('click', function() {
+    var storage = window.localStorage;
+    storage.setItem('tracks', document.getElementById('sheet').value);
+    storage.setItem('volume', document.getElementById('master-volume').value.toString());
   });
 }
+
+function loadTracks() {
+  var newTracks = [];
+  var s = document.getElementById('sheet').value;
+  var parseFailed = false;
+
+  while (s != null && s.length > 0) {
+    s = eatWhitespace(s);
+    var newTrack = new Track('default-instrument', 0);
+
+    s = newTrack.parse(s);
+    if (s == null) {
+      parseFailed = true;
+      break;
+    }
+    s = eatWhitespace(s);
+    newTracks.push(newTrack);
+  }
+
+  if (!parseFailed) {
+    tracks = newTracks;
+  } else {
+    alert('track parsing failed; check console log');
+  }
+}
+
 
 function dumpTracks(ts) {
   var s = "";
@@ -521,10 +534,32 @@ function dumpTracks(ts) {
   document.getElementById("sheet").value = s;
 }
 
+function initStuff() {
+  var storage = window.localStorage;
+  var storedTracks = storage.getItem("tracks");
+  if (storedTracks && storedTracks.length > 0) {
+    document.getElementById('sheet').value = storedTracks;
+    loadTracks();
+  }
+
+  var volumeSetting = storage.getItem("volume");
+  if (volumeSetting) {
+    var volumeControl = document.getElementById('master-volume');
+    volumeControl.value = Number.parseFloat(volumeSetting);
+
+    volumeIndicator = document.getElementById('master-value');
+    volumeIndicator.innerText = volumeControl.value + " dB";
+    var rawGain = Math.exp(volumeControl.value*Math.log(10)/20);
+    masterVolume().gain.setValueAtTime(rawGain, audioContext().currentTime);
+  }
+}
+
 window.onload = function() {
   // bind keyboard
   bindKeyboard();
   // TODO bind instruments
   // bind controls
   bindControls();
+
+  initStuff();
 };
