@@ -28,13 +28,13 @@
       <input type=range id=master-volume min=-50 max=3 step=0.05></input>
       <label for=master-volume>Master volume:</label>
       <span id=master-value></span>
-      Start offset: <input id=record-offset value=0></input> 
+      Start offset: <input id=offset value=0></input> 
       Current time: <span id=record-time></span>
       <!-- TODO checkbox for playing existing track while recording -->
       <input type=checkbox id=record-playback></input>
       <label for=record-playback>Enable playback during recording</label>
 
-      <input id=metronome-bpm></input> BPM
+      <input id=metronome-bpm value="120"></input> BPM
       <input type=checkbox id=metronome-en></input>
       <label for=metronom-en>Enable metronome</label>
     </div>

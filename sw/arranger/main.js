@@ -117,6 +117,7 @@ function TrackPlayer(track, offset) {
   this.pos = 0;
   this.bank = OscillatorBank();
   this.notesPlaying = 0;
+  this.startOffset = offset;
 
   // skip notes
   while (this.pos < this.track.notes.length && this.track.notes[this.pos].offset < offset) {
@@ -129,21 +130,22 @@ TrackPlayer.prototype.play = function(offset) {
     // play any notes that need to be played, and
     // turn off any notes that need to be stopped
     while (this.pos < this.track.notes.length && this.track.notes[this.pos].offset + this.track.offset < offset) {
+      console.log("start " + this.track.notes[this.pos].pitch + " " + this.track.notes[this.pos].offset);
       this.bank.playNote(this.track.notes[this.pos].pitch);
       this.notesPlaying++;
       this.pos++;
     }
-    var me = this;
     this.track.notes.forEach(function(note) {
       // check to see if it needs to be stopped
       var end = note.offset + note.duration;
       //console.log(end, me.offset, offset);
-      if (end > me.offset && end <= offset) {
+      if (end > this.offset && end <= offset && note.offset >= this.startOffset) {
+        console.log("stop " + note.pitch);
         //console.log("stop " + note.pitch + " " + offset);
-        me.bank.stopNote(note.pitch);
-        me.notesPlaying--;
+        this.bank.stopNote(note.pitch);
+        this.notesPlaying--;
       }
-    });
+    }, this);
     this.offset = offset;
   }
 };
@@ -225,20 +227,23 @@ var Metronome = function() {
     return node;
   };
 
-  function startMetronome(bpm) {
-    // TODO grab offset from user input `
-    // TODO start interval callback to schedule metronome ticks
+  function startMetronome(bpm, offset) {
+    this.callbackId = setInterval(function() {
+      // TODO
+    }, 60e+3/bpm);
     this.isPlaying = true;
   }
   function stopMetronome() {
     this.isPlaying = false;
-    // TODO turn of interval
+    // turn off interval
+    clearInterval(this.callbackId);
   }
 
   return {
     start: startMetronome,
     stop: stopMetronome,
     isPlaying: false,
+    callbackId: null
   };
 }();
 
@@ -281,7 +286,8 @@ function OscillatorBank() {
   return {
     playNote: playNote,
     stopNote: stopNote,
-    stopAll: stopAll
+    stopAll: stopAll,
+    oscilllator: osc
   };
 }
 
@@ -291,16 +297,12 @@ var Recorder = function() {
   var newTrack = null;
   var startTime = null;
 
-  function startRecording() {
+  function startRecording(offset) {
     this.isRecording = true;
     if (selectedInstrument == null) {
       selectedInstrument = "instrument0";
     }
-    var recordOffsetStr = document.getElementById("record-offset").value;
-    recordOffset = Number.parseFloat(recordOffsetStr);
-    if (isNaN(recordOffset)) {
-      alert("bad offset; please set before continuing");
-    }
+    recordOffset = offset;
     newTrack = new Track(selectedInstrument, recordOffset);
     startTime = audioContext().currentTime;
     this.pressedNotes = {};
@@ -318,7 +320,7 @@ var Recorder = function() {
 
     tracks.push(newTrack);
     recordOffset = audioContext().currentTime - startTime + recordOffset;
-    document.getElementById("record-offset").value = recordOffset.toString();
+    document.getElementById("offset").value = recordOffset.toString();
 
     newTrack = null;
     startTime = null;
@@ -371,18 +373,13 @@ var lastStartTime = null;
 var currentPlaybackOffset = null;
 var timerId = null;
 var trackPlayers = null;
-function startPlayback() {
+function startPlayback(offset) {
   isPlaying = true;
-  var recordOffsetStr = document.getElementById("record-offset").value;
-  recordOffset = Number.parseFloat(recordOffsetStr);
-  if (isNaN(recordOffset)) {
-    alert("bad offset; please set before continuing");
-  }
-  lastStartTime = recordOffset;
-  currentPlaybackOffset = audioContext().currentTime - recordOffset;
+  lastStartTime = offset;
+  currentPlaybackOffset = audioContext().currentTime - offset;
 
   trackPlayers = tracks.map(function(t) {
-    return new TrackPlayer(t, recordOffset);
+    return new TrackPlayer(t, offset);
   });
 
   // start callback
@@ -467,14 +464,22 @@ function bindKeyboard() {
         break;
       case ' ': // start/stop recording
         if (!Recorder.isRecording) {
-          // TODO start playback if that's enabled
-          Recorder.start();
-
-          if (document.getElementById('record-playback').checked) {
-            startPlayback();
+          var recordOffsetStr = document.getElementById("offset").value;
+          var offset = Number.parseFloat(recordOffsetStr);
+          if (isNaN(offset)) {
+            alert("bad offset; please set before continuing");
           }
+
+          Recorder.start(offset);
+
+          // start playback if that's enabled
+          if (document.getElementById('record-playback').checked) {
+            startPlayback(offset);
+          }
+          // same for metronome
           if (document.getElementById('metronome-en').checked) {
-            Metronome.start();
+            var bpm = Number.parseInt(document.getElementById('metronome-bpm').value);
+            Metronome.start(bpm, offset);
           }
           document.getElementById('state').innerText = "recording";
         } else {
@@ -498,7 +503,13 @@ function bindKeyboard() {
         break;
       case 'c': // play/pause playback
         if (!isPlaying) {
-          startPlayback();
+          var recordOffsetStr = document.getElementById("offset").value;
+          var offset = Number.parseFloat(recordOffsetStr);
+          if (isNaN(offset)) {
+            alert("bad offset; please set before continuing");
+          }
+
+          startPlayback(offset);
         } else {
           pausePlayback();
         }
