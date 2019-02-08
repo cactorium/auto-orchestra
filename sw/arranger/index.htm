@@ -1,6 +1,7 @@
 <!doctype html5>
 <html>
   <head>
+    <title>Arranger</title>
 <style>
 .selected {
   border: red solid 1px;
@@ -30,15 +31,21 @@
       Start offset: <input id=record-offset value=0></input> 
       Current time: <span id=record-time></span>
       <!-- TODO checkbox for playing existing track while recording -->
-      <input type=checkbox id=mute-playback></input>
-      <label for=mute-playback>Enable playback during recording</label>
+      <input type=checkbox id=record-playback></input>
+      <label for=record-playback>Enable playback during recording</label>
+
+      <input id=metronome-bpm></input> BPM
+      <input type=checkbox id=metronome-en></input>
+      <label for=metronom-en>Enable metronome</label>
     </div>
+    <!--
     <div id=instruments>
       <div id=instrument0>
         <div class=track id=0-track>
         </div>
       </div>
     </div>
+    -->
     <div id=sheet-container>
       <textarea id=sheet cols=80 rows=20>
       </textarea>
