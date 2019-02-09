@@ -206,8 +206,9 @@ var Metronome = function() {
       lastBuffer = audioContext().createBuffer(1, 44100 * 60/bpm, 44100);
       var channel = lastBuffer.getChannelData(0);
       for (var i = 0; i < channel.length; i++) {
-        channel[i] = Math.exp(-5*i/44100.)*Math.sin(2*Math.pi*2e+3*i/44100.);
+        channel[i] = 0.5*Math.exp(-100.*i/44100.)*Math.sin(2*Math.PI*1e+3*i/44100.);
       }
+      console.log(channel);
 
       lastBpm = bpm;
       return lastBuffer;
@@ -218,8 +219,8 @@ var Metronome = function() {
     gain.connect(audioContext().destination);
     return gain;
   });
-  var metronomeNode = function(audioTime, bpm) {
-    node = new AudioSourceNode(audioContext(), {
+  var metronomeNode = function(bpm) {
+    node = new AudioBufferSourceNode(audioContext(), {
       buffer: metronomeBuffer(bpm),
     });
     node.connect(metronomeGain());
@@ -228,8 +229,22 @@ var Metronome = function() {
   };
 
   function startMetronome(bpm, offset) {
+    this.audioOffset = -offset + audioContext().currentTime;
+    this.lastBeat = Math.floor(offset*bpm/60)*60/bpm;
+    var me = this;
     this.callbackId = setInterval(function() {
-      // TODO
+      var currentTime = audioContext().currentTime;
+      console.log(me.lastBeat + " " + me.audioOffset + " " + currentTime);
+      while (me.lastBeat + me.audioOffset < currentTime + 2*60/bpm) {
+        me.lastBeat += 60.0/bpm;
+        if (me.lastBeat + me.audioOffset < currentTime) {
+          continue;
+        }
+
+        //console.log("beat " + (me.lastBeat + me.audioOffset) + " " + audioContext().currentTime);
+        var newBeat = metronomeNode(bpm);
+        newBeat.start(me.lastBeat + me.audioOffset);
+      }
     }, 60e+3/bpm);
     this.isPlaying = true;
   }
@@ -243,6 +258,8 @@ var Metronome = function() {
     start: startMetronome,
     stop: stopMetronome,
     isPlaying: false,
+    audioOffset: null,
+    lastBeat: null,
     callbackId: null
   };
 }();
@@ -510,8 +527,17 @@ function bindKeyboard() {
           }
 
           startPlayback(offset);
+
+          if (document.getElementById('metronome-en').checked) {
+            console.log('metronome start');
+            var bpm = Number.parseInt(document.getElementById('metronome-bpm').value);
+            Metronome.start(bpm, offset);
+          }
         } else {
           pausePlayback();
+          if (Metronome.isPlaying) {
+            Metronome.stop();
+          }
         }
         break;
       case 'v': // stop playback
@@ -599,6 +625,10 @@ function bindControls() {
     var storage = window.localStorage;
     storage.setItem('metronome-bpm', document.getElementById('metronome-bpm').value);
   });
+  document.getElementById('metronome-en').addEventListener('click', function() {
+    var storage = window.localStorage;
+    storage.setItem('enable-metronome', document.getElementById('metronome-en').checked);
+  });
 
 }
 
@@ -661,6 +691,11 @@ function initStuff() {
     if (playbackSetting == 'true') {
       document.getElementById('record-playback').checked = true;
     }
+  }
+
+  var enableMetronome = storage.getItem('enable-metronome');
+  if (enableMetronome) {
+    document.getElementById('metronome-en').checked = true;
   }
 }
 
